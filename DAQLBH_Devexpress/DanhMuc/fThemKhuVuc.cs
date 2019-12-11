@@ -10,8 +10,9 @@ namespace DAQLBH_Devexpress.DanhMuc
 {
     public partial class fThemSimple : fBaseThem
     {
+        int flag = 0;
         fKhuVuc.sendMessage sendKV;
-        fDonViTinh.sendMessage senDV;
+        fDonViTinh.sendMessage sendDV;
         fNhomHang.sendMessage sendNH;
         fBoPhan.sendMessage sendBP;
 
@@ -46,22 +47,63 @@ namespace DAQLBH_Devexpress.DanhMuc
             add = isAdd;
             sendKV = send;
 
+            flag = 0;
+
             InitKV();
         }
 
         public fThemSimple(bool isAdd = true, CDonViTinh dv = null, fDonViTinh.sendMessage send = null,int action = 1)
-        { 
+        {
+            InitializeComponent();
 
+            if (isAdd == false && dv == null)
+            {
+                XtraMessageBox.Show("ERROR : Dữ liệu không được cung cấp để thực hiện hành động !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            if (isAdd == true)
+            {
+                table = BUS_DonViTinh.GetDVT();
+                Text = "Thêm đơn vị tính";
+            }
+            else
+            {
+                editDV = dv;
+                Text = "Sửa thông tin đơn vị tính";
+            }
+            add = isAdd;
+            sendDV = send;
+
+            flag = 1;
+
+            InitDV();
         }
 
-        public fThemSimple(bool isAdd = true, CNhomHang nh = null, fNhomHang.sendMessage send = null,float action = 1)
+        public fThemSimple(bool isAdd = true, CNhomHang nh = null, fNhomHang.sendMessage send = null, float action = 1)
         {
 
         }
 
-        public fThemSimple(bool isAdd = true, CBoPhan bp = null, fBoPhan.sendMessage send = null,double action = 1)
+        public fThemSimple(bool isAdd = true, CBoPhan bp = null, fBoPhan.sendMessage send = null, double action = 1)
         {
 
+        }
+
+        private void InitDV()
+        {
+            if (add == true)
+                phatSinhMa();
+            else
+                LoadDuLieuDV();
+        }
+
+        private void LoadDuLieuDV()
+        {
+            txtMa.Text = editDV.MaDV;
+            txtMa.Enabled = false;
+            txtTen.Text = editDV.TenDV;
+            txtGhiChu.Text = editDV.GhiChu;
+            ceConQL.Checked = editDV.ConQL;
         }
 
         private void InitKV()
@@ -89,6 +131,25 @@ namespace DAQLBH_Devexpress.DanhMuc
         /// Hàm dùng để phát sinh mã trong trường hợp thêm đối tượng
         /// </summary>
         private void phatSinhMa()
+        {
+            switch (flag)
+            {
+                case 0:
+                    MaKV(); break;
+                case 1:
+                    MaDV(); break;
+            };
+        }
+
+        private void MaDV()
+        {
+            string max = table.Compute("Max(Unit_ID)", "").ToString();
+            int num = int.Parse(max.Substring(2)) + 1;
+            string currentMa = "DV" + num.ToString("00");
+            txtMa.Text = currentMa;
+        }
+
+        private void MaKV()
         {
             string max = table.Compute("Max(CUSTOMER_GROUP_ID)", "").ToString();
             int num = int.Parse(max.Substring(2)) + 1;
@@ -120,13 +181,34 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             if (error.GetError(txtTen) == string.Empty)
             {
-                editKV.TenKV = txtTen.Text;
-                editKV.GhiChu = txtGhiChu.Text;
-                editKV.ConQL = ceConQL.Checked;
-                BUS_KhuVuc.SuaKV(editKV);
-                sendKV();
-                this.Close();
+                switch (flag)
+                {
+                    case 0:
+                        SuaKV(); break;
+                    case 1:
+                        SuaDV();break;
+                };
             }
+        }
+
+        private void SuaDV()
+        {
+            editDV.TenDV = txtTen.Text;
+            editDV.GhiChu = txtGhiChu.Text;
+            editDV.ConQL = ceConQL.Checked;
+            BUS_DonViTinh.SuaDV(editDV);
+            sendDV();
+            this.Close();
+        }
+
+        private void SuaKV()
+        {
+            editKV.TenKV = txtTen.Text;
+            editKV.GhiChu = txtGhiChu.Text;
+            editKV.ConQL = ceConQL.Checked;
+            BUS_KhuVuc.SuaKV(editKV);
+            sendKV();
+            this.Close();
         }
 
         /// <summary>
@@ -158,11 +240,30 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             if (error.GetError(txtMa) == string.Empty && error.GetError(txtTen) == string.Empty)
             {
-                CKhuVuc kv = new CKhuVuc(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
-                BUS_KhuVuc.ThemKV(kv);
-                sendKV();
-                this.Close();
+                switch (flag)
+                {
+                    case 0:
+                        ThemKV(); break;
+                    case 1:
+                        ThemDV(); break;
+                };
             }
+        }
+
+        private void ThemDV()
+        {
+            CDonViTinh dv = new CDonViTinh(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
+            BUS_DonViTinh.ThemDV(dv);
+            sendDV();
+            this.Close();
+        }
+
+        private void ThemKV()
+        {
+            CKhuVuc kv = new CKhuVuc(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
+            BUS_KhuVuc.ThemKV(kv);
+            sendKV();
+            this.Close();
         }
     }
 }

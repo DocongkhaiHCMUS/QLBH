@@ -29,6 +29,19 @@ namespace QLBH_DAO
             }
         }
 
+        public DataTable GetDV(string MaDV)
+        {
+            try
+            {
+                string sql = "UNIT_Get";
+                return SelectTable.SelectProcedure(sql,new SqlParameter { ParameterName = "@Unit_ID",Value = MaDV });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public void ThemDV(CDonViTinh dv)
         {
             Provider dao = new Provider();

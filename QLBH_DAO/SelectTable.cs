@@ -30,14 +30,14 @@ namespace QLBH_DAO
             }
         }
 
-        public static DataTable SelectProcedure(string proc)
+        public static DataTable SelectProcedure(string proc,params SqlParameter [] param)
         {
             Provider dao = new Provider();
             try
             {
                 dao.Connect();
                 CommandType type = CommandType.StoredProcedure;
-                DataTable dataTable = dao.Select(type, proc);
+                DataTable dataTable = dao.Select(type, proc,param);
                 return dataTable;
             }
             catch (SqlException ex)

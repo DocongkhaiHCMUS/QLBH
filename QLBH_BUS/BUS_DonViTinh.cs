@@ -26,6 +26,24 @@ namespace QLBH_BUS
             }
         }
 
+        public static bool KiemTraDV(string MaDV)
+        {
+            try
+            {
+                DonViTinh dao = new DonViTinh();
+                DataTable table = dao.GetDV(MaDV);
+                if (table.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return false;
+        }
+
         public static DataTable GetDVTDonGian()
         {
             try
