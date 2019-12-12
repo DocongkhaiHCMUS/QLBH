@@ -50,6 +50,19 @@ namespace QLBH_DAO
             }
         }
 
+        public DataTable GetBP(string MaBP)
+        {
+            try
+            {
+                string sql = "DEPARTMENT_Get";
+                return SelectTable.SelectProcedure(sql, new SqlParameter { ParameterName = "@Department_ID", Value = MaBP });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public void ThemBP(CBoPhan bp)
         {
             Provider dao = new Provider();

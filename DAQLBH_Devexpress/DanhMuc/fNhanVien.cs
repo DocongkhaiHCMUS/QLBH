@@ -23,7 +23,7 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
-            gcMain.DataSource = BUS_NhanVien.GetNhanVien();
+            gcMain.DataSource = BUS_NhanVien.LayNhanVien();
 
             gvMain.Columns[0].FieldName = "Employee_ID";
             gvMain.Columns[1].FieldName = "Employee_Name";

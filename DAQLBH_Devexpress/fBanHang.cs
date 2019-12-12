@@ -51,7 +51,7 @@ namespace DAQLBH_Devexpress
             //Khởi tạo nhân viên bán hàng
             leNhanVienBH.Properties.TextEditStyle = TextEditStyles.Standard;
             leNhanVienBH.Properties.BestFitMode = BestFitMode.BestFit;
-            SetDataSource(leNhanVienBH, BUS_NhanVien.GetNhanVienDonGian(), "EMPLOYEE_Name", "EMPLOYEE_ID");
+            SetDataSource(leNhanVienBH, BUS_NhanVien.LayNhanVienDonGian(), "EMPLOYEE_Name", "EMPLOYEE_ID");
             leNhanVienBH.Properties.Columns[0].FieldName = "EMPLOYEE_Name";
             leNhanVienBH.Properties.Columns[1].FieldName = "EMPLOYEE_ID";
             leNhanVienBH.EditValue = ((DataTable)leNhanVienBH.Properties.DataSource).Rows[0]["EMPLOYEE_ID"];

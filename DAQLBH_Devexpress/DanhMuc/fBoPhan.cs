@@ -14,7 +14,7 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
-            gcMain.DataSource = BUS_NhanVien.GetBoPhan();
+            gcMain.DataSource = BUS_NhanVien.LayBoPhan();
 
             gvMain.Columns[0].FieldName = "Department_ID";
             gvMain.Columns[1].FieldName = "Department_Name";

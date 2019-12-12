@@ -5,6 +5,8 @@ using QLBH_DTO;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAQLBH_Devexpress.DanhMuc
 {
@@ -81,12 +83,90 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         public fThemSimple(bool isAdd = true, CNhomHang nh = null, fNhomHang.sendMessage send = null, float action = 1)
         {
+            InitializeComponent();
 
+            if (isAdd == false && nh == null)
+            {
+                XtraMessageBox.Show("ERROR : Dữ liệu không được cung cấp để thực hiện hành động !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            if (isAdd == true)
+            {
+                table = BUS_HangHoa.LayNhomHang();
+                Text = "Thêm nhóm hàng";
+            }
+            else
+            {
+                editNH = nh;
+                Text = "Sửa thông tin nhóm hàng";
+            }
+            add = isAdd;
+            sendNH = send;
+
+            flag = 2;
+
+            InitNH();
         }
 
         public fThemSimple(bool isAdd = true, CBoPhan bp = null, fBoPhan.sendMessage send = null, double action = 1)
         {
+            InitializeComponent();
 
+            if (isAdd == false && bp == null)
+            {
+                XtraMessageBox.Show("ERROR : Dữ liệu không được cung cấp để thực hiện hành động !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            if (isAdd == true)
+            {
+                table = BUS_NhanVien.LayBoPhan();
+                Text = "Thêm bộ phận";
+            }
+            else
+            {
+                editBP = bp;
+                Text = "Sửa thông tin bộ phận";
+            }
+            add = isAdd;
+            sendBP = send;
+
+            flag = 3;
+
+            InitBP();
+        }
+
+        private void InitBP()
+        {
+            if (add == true)
+                phatSinhMa();
+            else
+                LoadDuLieuBP();
+        }
+
+        private void LoadDuLieuBP()
+        {
+            txtMa.Text = editBP.MaBP;
+            txtMa.Enabled = false;
+            txtTen.Text = editBP.TenBP;
+            txtGhiChu.Text = editBP.GhiChu;
+            ceConQL.Checked = editBP.ConQL;
+        }
+
+        private void InitNH()
+        {
+            if (add == true)
+                phatSinhMa();
+            else
+                LoadDuLieuNH();
+        }
+
+        private void LoadDuLieuNH()
+        {
+            txtMa.Text = editNH.MaNH;
+            txtMa.Enabled = false;
+            txtTen.Text = editNH.TenNH;
+            txtGhiChu.Text = editNH.GhiChu;
+            ceConQL.Checked = editNH.ConQL;
         }
 
         private void InitDV()
@@ -138,7 +218,42 @@ namespace DAQLBH_Devexpress.DanhMuc
                     MaKV(); break;
                 case 1:
                     MaDV(); break;
+                case 2:
+                    MaNH();break;
+                case 3:
+                    MaBP();break;
             };
+        }
+
+        private void MaBP()
+        {
+            string max = table.Compute("Max(@Department_ID)", "").ToString();
+            int num = int.Parse(max.Substring(2)) + 1;
+            string currentMa = "BP" + num.ToString("000000");
+            txtMa.Text = currentMa;
+        }
+
+        private void MaNH()
+        {
+            var query = from tb in table.AsEnumerable()
+                        where tb.Field<string>("ProductGroup_ID").Contains("NH")
+                        select new 
+                        {
+                            maNH = tb.Field<string>("ProductGroup_ID")
+                        };
+
+            DataTable dttb = new DataTable();
+            dttb.Columns.Add("ProductGroup_ID", typeof(string));
+
+            foreach (var item in query)
+            {
+                dttb.Rows.Add(item.maNH);
+            }
+
+            string max = dttb.Compute("Max(ProductGroup_ID)", "").ToString();
+            int num = int.Parse(max.Substring(2)) + 1;
+            string currentMa = "NH" + num.ToString("000000");
+            txtMa.Text = currentMa;
         }
 
         private void MaDV()
@@ -187,8 +302,32 @@ namespace DAQLBH_Devexpress.DanhMuc
                         SuaKV(); break;
                     case 1:
                         SuaDV();break;
+                    case 2:
+                        SuaNH();break;
+                    case 3:
+                        SuaBP();break;
                 };
             }
+        }
+
+        private void SuaBP()
+        {
+            editBP.TenBP = txtTen.Text;
+            editBP.GhiChu = txtGhiChu.Text;
+            editBP.ConQL = ceConQL.Checked;
+            BUS_NhanVien.SuaBP(editBP);
+            sendBP();
+            Close();
+        }
+
+        private void SuaNH()
+        {
+            editNH.TenNH = txtTen.Text;
+            editNH.GhiChu = txtGhiChu.Text;
+            editNH.ConQL = ceConQL.Checked;
+            BUS_HangHoa.SuaNH(editNH);
+            sendNH();
+            Close();
         }
 
         private void SuaDV()
@@ -246,8 +385,28 @@ namespace DAQLBH_Devexpress.DanhMuc
                         ThemKV(); break;
                     case 1:
                         ThemDV(); break;
+                    case 2:
+                        ThemNH();break;
+                    case 3:
+                        ThemBP();break;
                 };
             }
+        }
+
+        private void ThemBP()
+        {
+            CBoPhan bp = new CBoPhan(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
+            BUS_NhanVien.ThemBP(bp);
+            sendBP();
+            this.Close();
+        }
+
+        private void ThemNH()
+        {
+            CNhomHang nh = new CNhomHang(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
+            BUS_HangHoa.ThemNH(nh);
+            sendNH();
+            this.Close();
         }
 
         private void ThemDV()
@@ -265,5 +424,6 @@ namespace DAQLBH_Devexpress.DanhMuc
             sendKV();
             this.Close();
         }
+
     }
 }

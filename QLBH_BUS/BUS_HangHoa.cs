@@ -1,7 +1,9 @@
 ﻿using QLBH_DAO;
+using QLBH_DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +81,22 @@ namespace QLBH_BUS
             }
         }
 
+        public static DataTable LayHangHoaLookupEdit()
+        {
+            try 
+            {
+                HangHoa hh = new HangHoa();
+                return hh.LoadHHLookupEdit();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //Nhóm hàng
+
         public static DataTable LayNhomHang()
         {
             try
@@ -92,17 +110,61 @@ namespace QLBH_BUS
             }
         }
 
-        public static DataTable LayHangHoaLookupEdit()
+        public static void ThemNH(CNhomHang nh)
         {
-            try 
+            try
             {
-                HangHoa hh = new HangHoa();
-                return hh.LoadHHLookupEdit();
+                HangHoa dao = new HangHoa();
+                dao.ThemNhomHang(nh);
             }
-            catch(Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
+        }
+
+        public static void SuaNH(CNhomHang nh)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                dao.SuaNhomHang(nh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void XoaNH(string MaNH)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                dao.XoaNhomHang(MaNH);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool KiemTraNH(string MaNH)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                DataTable table = dao.GetNH(MaNH);
+                if (table.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return false;
         }
     }
 }

@@ -61,6 +61,19 @@ namespace QLBH_DAO
             }
         }
 
+        public DataTable GetNH(string MaNH)
+        {
+            try
+            {
+                string sql = "PRODUCT_GROUP_Get";
+                return SelectTable.SelectProcedure(sql, new SqlParameter { ParameterName = "@ProductGroup_ID", Value = MaNH });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public void ThemNhomHang(CNhomHang nh)
         {
             Provider dao = new Provider();
