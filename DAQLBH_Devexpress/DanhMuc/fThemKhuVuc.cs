@@ -227,10 +227,36 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void MaBP()
         {
-            string max = table.Compute("Max(@Department_ID)", "").ToString();
-            int num = int.Parse(max.Substring(2)) + 1;
-            string currentMa = "BP" + num.ToString("000000");
-            txtMa.Text = currentMa;
+            var query = from tb in table.AsEnumerable()
+                        where tb.Field<string>("Department_ID").Contains("BP")
+                        select new
+                        {
+                            maNH = tb.Field<string>("Department_ID")
+                        };
+
+            DataTable dttb = new DataTable();
+            dttb.Columns.Add("ProductGroup_ID", typeof(string));
+
+            foreach (var item in query)
+            {
+                dttb.Rows.Add(item.maNH);
+            }
+
+            string max, currentMa;
+            int num;
+            try
+            {
+
+                max = table.Compute("Max(@Department_ID)", "").ToString();
+                num = int.Parse(max.Substring(2)) + 1;
+                currentMa = "BP" + num.ToString("000000");
+                txtMa.Text = currentMa;
+            }
+            catch
+            {
+                currentMa = "BP000001";
+                txtMa.Text = currentMa;
+            }
         }
 
         private void MaNH()
@@ -250,10 +276,20 @@ namespace DAQLBH_Devexpress.DanhMuc
                 dttb.Rows.Add(item.maNH);
             }
 
-            string max = dttb.Compute("Max(ProductGroup_ID)", "").ToString();
-            int num = int.Parse(max.Substring(2)) + 1;
-            string currentMa = "NH" + num.ToString("000000");
-            txtMa.Text = currentMa;
+            string max, currentMa;
+            int num;
+            try
+            {
+                max = dttb.Compute("Max(ProductGroup_ID)", "").ToString();
+                num = int.Parse(max.Substring(2)) + 1;
+                currentMa = "NH" + num.ToString("000000");
+                txtMa.Text = currentMa;
+            }
+            catch
+            {
+                currentMa = "NH000001";
+                txtMa.Text = currentMa;
+            }
         }
 
         private void MaDV()

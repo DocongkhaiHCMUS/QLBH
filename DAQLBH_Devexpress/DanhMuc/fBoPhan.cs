@@ -1,5 +1,10 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using QLBH_BUS;
+using QLBH_DTO;
+using System;
+using System.Windows.Forms;
 
 namespace DAQLBH_Devexpress.DanhMuc
 {
@@ -14,7 +19,7 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
-            gcMain.DataSource = BUS_NhanVien.LayBoPhan();
+            LoadData();
 
             gvMain.Columns[0].FieldName = "Department_ID";
             gvMain.Columns[1].FieldName = "Department_Name";
@@ -24,7 +29,51 @@ namespace DAQLBH_Devexpress.DanhMuc
             gvMain.IndicatorWidth = 30;
             gvMain.CustomDrawRowIndicator += gvMain_CustomDrawRowIndicator;
 
+            btnThem.ItemClick += BtnThem_ItemClick;
+            btnSua.ItemClick += BtnSua_ItemClick;
+            btnXoa.ItemClick += BtnXoa_ItemClick;
+        }
 
+        private void LoadData()
+        {
+            gcMain.DataSource = BUS_NhanVien.LayBoPhan();
+        }
+
+        private void BtnXoa_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có chắc chắn muốn xóa ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                 == DialogResult.No)
+                return;
+            int rowIndex = gvMain.FocusedRowHandle;
+            string colID = "Department_ID";
+            string value = gvMain.GetRowCellValue(rowIndex, colID).ToString();
+            if (BUS_NhanVien.KiemTraBP(value) == true)
+            {
+                BUS_NhanVien.XoaBP(value);
+                LoadData();
+            }
+            else
+                return;
+        }
+
+        private void BtnSua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int rowIndex = gvMain.FocusedRowHandle;
+            CBoPhan bp = new CBoPhan
+            {
+                MaBP = gvMain.GetRowCellValue(rowIndex, "Department_ID").ToString(),
+                TenBP = gvMain.GetRowCellValue(rowIndex, "Department_Name").ToString(),
+                GhiChu = gvMain.GetRowCellValue(rowIndex, "Description").ToString(),
+                ConQL = bool.Parse(gvMain.GetRowCellValue(rowIndex, "Active").ToString())
+            };
+            fThemSimple sua = new fThemSimple(false, bp, LoadData);
+            sua.ShowDialog();
+        }
+
+        private void BtnThem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fThemSimple themKhuVuc = new fThemSimple(true, null, LoadData, (double)1);
+            themKhuVuc.ShowDialog();
         }
 
         /// <summary>
