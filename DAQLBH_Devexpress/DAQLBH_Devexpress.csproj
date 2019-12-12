@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhMuc\fBaseKH_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fBaseKH_NCC.Designer.cs">
+      <DependentUpon>fBaseKH_NCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fBaseThem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="DanhMuc\fThemDVT.Designer.cs">
       <DependentUpon>fThemDVT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\fThemKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fThemKhachHang.Designer.cs">
+      <DependentUpon>fThemKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\fThemSimple.cs">
       <SubType>Form</SubType>
@@ -186,6 +198,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DanhMuc\fBaseKH_NCC.resx">
+      <DependentUpon>fBaseKH_NCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseThem.resx">
       <DependentUpon>fBaseThem.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemDVT.resx">
       <DependentUpon>fThemDVT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\fThemKhachHang.resx">
+      <DependentUpon>fThemKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemSimple.resx">
       <DependentUpon>fThemSimple.cs</DependentUpon>
