@@ -23,7 +23,7 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
-            gcMain.DataSource = BUS_TienTe.LayTienTe();
+            LoadData();
 
             gvMain.Columns[0].FieldName = "Currency_ID";
             gvMain.Columns[1].FieldName = "CurrencyName";
@@ -33,8 +33,13 @@ namespace DAQLBH_Devexpress.DanhMuc
             gvMain.Columns[2].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gvMain.Columns[2].DisplayFormat.FormatString = "n0";
 
-            gvMain.IndicatorWidth = 35; 
+            gvMain.IndicatorWidth = 35;
             gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
+        }
+
+        private void LoadData()
+        {
+            gcMain.DataSource = BUS_TienTe.LayTienTe();
         }
 
         /// <summary>

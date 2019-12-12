@@ -24,6 +24,19 @@ namespace QLBH_DAO
             }
         }
 
+        public DataTable GetTienTe(string maTienTe)
+        {
+            try
+            {
+                string sql = "CURRENCY_Get";
+                return SelectTable.SelectProcedure(sql, new SqlParameter { ParameterName = "@Currency_ID", Value = maTienTe });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public void ThemTienTe(CTyGia tien)
         {
             Provider dao = new Provider();

@@ -100,6 +100,12 @@
     <Compile Include="DanhMuc\fThemSimple.Designer.cs">
       <DependentUpon>fThemSimple.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\fThemTyGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fThemTyGia.Designer.cs">
+      <DependentUpon>fThemTyGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fTiGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemSimple.resx">
       <DependentUpon>fThemSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\fThemTyGia.resx">
+      <DependentUpon>fThemTyGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fTiGia.resx">
       <DependentUpon>fTiGia.cs</DependentUpon>
