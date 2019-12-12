@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
+using DevExpress.XtraBars;
+using QLBH_DTO;
 
 namespace DAQLBH_Devexpress.DanhMuc
 {
@@ -35,6 +37,47 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             gvMain.IndicatorWidth = 35;
             gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
+
+            btnThem.ItemClick += BtnThem_ItemClick;
+            btnSua.ItemClick += BtnSua_ItemClick;
+            btnXoa.ItemClick += BtnXoa_ItemClick;
+        }
+
+        private void BtnXoa_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có chắc chắn muốn xóa ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.No)
+                return;
+            int rowIndex = gvMain.FocusedRowHandle;
+            string colID = "Currency_ID";
+            string value = gvMain.GetRowCellValue(rowIndex, colID).ToString();
+            if (BUS_TienTe.KiemTraTienTe(value) == true)
+            {
+                BUS_TienTe.XoaTienTe(value);
+                LoadData();
+            }
+            else
+                return;
+        }
+
+        private void BtnSua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int rowIndex = gvMain.FocusedRowHandle;
+            CTyGia tg = new CTyGia
+            {
+                MaTienTe = gvMain.GetRowCellValue(rowIndex, "Currency_ID").ToString(),
+                TenTienTe = gvMain.GetRowCellValue(rowIndex, "CurrencyName").ToString(),
+                TyGia = float.Parse(gvMain.GetRowCellValue(rowIndex, "Exchange").ToString()),
+                ConQL = bool.Parse(gvMain.GetRowCellValue(rowIndex, "Active").ToString())
+            };
+            fThemTyGia sua = new fThemTyGia(false, tg, LoadData);
+            sua.ShowDialog();
+        }
+
+        private void BtnThem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fThemTyGia themKhuVuc = new fThemTyGia(true, null, LoadData);
+            themKhuVuc.ShowDialog();
         }
 
         private void LoadData()

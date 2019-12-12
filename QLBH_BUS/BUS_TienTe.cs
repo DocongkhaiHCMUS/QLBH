@@ -62,7 +62,7 @@ namespace QLBH_BUS
             try
             {
                 TienTe dao = new TienTe();
-                dao.ThemTienTe(tg);
+                dao.SuaTienTe(tg);
             }
             catch (SqlException ex)
             {

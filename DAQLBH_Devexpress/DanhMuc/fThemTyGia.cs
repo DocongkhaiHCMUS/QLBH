@@ -31,12 +31,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             }
             if (isAdd == true)
             {
-                Text = "Thêm khu vực";
+                Text = "Thêm tiền tệ";
             }
             else
             {
                 editTyGia = tien;
-                Text = "Sửa thông tin khu vực";
+                Text = "Sửa thông tin tiền tệ";
             }
             add = isAdd;
             sendTG = send;
@@ -75,7 +75,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             {
                 error.SetError(txtMa, "Vui lòng điền thông tin !");
             }
-            else if (BUS_TienTe.KiemTraTienTe(txtMa.Text))
+            else if (add == true && BUS_TienTe.KiemTraTienTe(txtMa.Text))
             {
                 error.SetError(txtMa, "Mã đã tồn tại, vui lòng chọn mã khác !");
             }
@@ -83,6 +83,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             {
                 error.SetError(txtMa, string.Empty);
             }
+
             if (error.GetError(txtMa) == "" && error.GetError(txtTen) == "")
             {
                 if (add == true)
@@ -94,7 +95,13 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void xlSua()
         {
-            throw new NotImplementedException();
+            editTyGia.MaTienTe = txtMa.Text;
+            editTyGia.TenTienTe = txtTen.Text;
+            editTyGia.TyGia = float.Parse(calcTyGia.Value.ToString());
+            editTyGia.ConQL = ceConQL.Checked;
+            BUS_TienTe.SuaTienTe(editTyGia);
+            sendTG();
+            Close();
         }
 
         private void xlThem()
@@ -103,7 +110,6 @@ namespace DAQLBH_Devexpress.DanhMuc
             BUS_TienTe.ThemTienTe(tg);
             sendTG();
             this.Close();
-
         }
     }
 }
