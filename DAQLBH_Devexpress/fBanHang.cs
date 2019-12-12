@@ -33,14 +33,14 @@ namespace DAQLBH_Devexpress
             //Khởi tạo KH
             leKH.Properties.TextEditStyle = TextEditStyles.Standard;
             leKH.Properties.BestFitMode = BestFitMode.BestFit;
-            SetDataSource(leKH, BUS_KhachHang.GetKhachHangDonGian(), "CustomerName", "Customer_ID");
+            SetDataSource(leKH, BUS_KhachHang.LayKhachHangDonGian(), "CustomerName", "Customer_ID");
             leKH.Properties.Columns[0].FieldName = "CustomerName";
             leKH.Properties.Columns[1].FieldName = "Customer_ID";
 
             //Khởi tạo Mã KH
             leMaKH.Properties.TextEditStyle = TextEditStyles.Standard;
             leMaKH.Properties.BestFitMode = BestFitMode.BestFit;
-            SetDataSource(leMaKH, BUS_KhachHang.GetKhachHangDonGian(), "Customer_ID", "Customer_ID");
+            SetDataSource(leMaKH, BUS_KhachHang.LayKhachHangDonGian(), "Customer_ID", "Customer_ID");
             leMaKH.Properties.Columns[1].FieldName = "CustomerName";
             leMaKH.Properties.Columns[0].FieldName = "Customer_ID";
 

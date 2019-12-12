@@ -457,7 +457,7 @@ namespace DAQLBH_Devexpress.DanhMuc
         {
             CKhuVuc kv = new CKhuVuc(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_KhuVuc.ThemKV(kv);
-            sendKV();
+            sendKV?.Invoke();
             this.Close();
         }
 
