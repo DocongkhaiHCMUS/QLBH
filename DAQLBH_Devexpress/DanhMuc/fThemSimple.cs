@@ -231,15 +231,15 @@ namespace DAQLBH_Devexpress.DanhMuc
                         where tb.Field<string>("Department_ID").Contains("BP")
                         select new
                         {
-                            maNH = tb.Field<string>("Department_ID")
+                            maBP = tb.Field<string>("Department_ID")
                         };
 
             DataTable dttb = new DataTable();
-            dttb.Columns.Add("ProductGroup_ID", typeof(string));
+            dttb.Columns.Add("Department_ID", typeof(string));
 
             foreach (var item in query)
             {
-                dttb.Rows.Add(item.maNH);
+                dttb.Rows.Add(item.maBP);
             }
 
             string max, currentMa;
@@ -247,7 +247,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             try
             {
 
-                max = table.Compute("Max(@Department_ID)", "").ToString();
+                max = dttb.Compute("Max(Department_ID)", "").ToString();
                 num = int.Parse(max.Substring(2)) + 1;
                 currentMa = "BP" + num.ToString("000000");
                 txtMa.Text = currentMa;

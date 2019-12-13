@@ -23,7 +23,7 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
-            gcMain.DataSource = BUS_NhanVien.LayNhanVien();
+            LoadData();
 
             gvMain.Columns[0].FieldName = "Employee_ID";
             gvMain.Columns[1].FieldName = "Employee_Name";
@@ -35,6 +35,18 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             gvMain.IndicatorWidth = 50;
             gvMain.CustomDrawRowIndicator += gvMain_CustomDrawRowIndicator;
+
+            btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+        }
+
+        private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            gcMain.DataSource = BUS_NhanVien.LayNhanVien();
         }
 
         /// <summary>

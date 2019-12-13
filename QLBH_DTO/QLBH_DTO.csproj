@@ -45,6 +45,7 @@
     <Compile Include="CDonViTinh.cs" />
     <Compile Include="CKhachHang.cs" />
     <Compile Include="CKhuVuc.cs" />
+    <Compile Include="CNhaCC.cs" />
     <Compile Include="CNhomHang.cs" />
     <Compile Include="CTyGia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

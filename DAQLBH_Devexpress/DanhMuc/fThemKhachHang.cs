@@ -56,6 +56,9 @@ namespace DAQLBH_Devexpress.DanhMuc
             leKhuVuc.Properties.Columns[0].FieldName = "CUSTOMER_GROUP_ID";
             leKhuVuc.Properties.Columns[1].FieldName = "CUSTOMER_GROUP_Name";
             leKhuVuc.Properties.Buttons[1].Click += btnKhuVuc_ThemKhachHang_Click;
+
+            calcNoHienTai.Enabled = false;
+
             if (add == true)
                 phatSinhMa();
             else
@@ -69,8 +72,8 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void btnKhuVuc_ThemKhachHang_Click(object sender, EventArgs e)
         {
-            fThemSimple kh = new fThemSimple(true, null, null) ;
-            kh.ShowDialog();
+            fThemSimple kv = new fThemSimple(true, null, null) ;
+            kv.ShowDialog();
             LoadDataKV();
         }
 

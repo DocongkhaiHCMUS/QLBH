@@ -32,6 +32,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             btnThem.ItemClick += BtnThem_ItemClick;
             btnSua.ItemClick += BtnSua_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;
+            btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+        }
+
+        private void BtnLamMoi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadData();
         }
 
         private void LoadData()

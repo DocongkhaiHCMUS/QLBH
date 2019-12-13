@@ -22,7 +22,7 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
-            gcMain.DataSource = BUS_KhoXuat.GetKho();
+            LoadData();
 
             gvMain.Columns[0].FieldName = "Stock_ID";
             gvMain.Columns[1].FieldName = "Stock_Name";
@@ -35,6 +35,18 @@ namespace DAQLBH_Devexpress
 
             gvMain.IndicatorWidth = 45;
             gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
+
+            btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+        }
+
+        private void LoadData()
+        {
+            gcMain.DataSource = BUS_KhoXuat.GetKho();
+        }
+
+        private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadData();
         }
 
         private void GvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)

@@ -106,6 +106,12 @@
     <Compile Include="DanhMuc\fThemKhachHang.Designer.cs">
       <DependentUpon>fThemKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\fThemNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fThemNCC.Designer.cs">
+      <DependentUpon>fThemNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fThemSimple.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemKhachHang.resx">
       <DependentUpon>fThemKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\fThemNCC.resx">
+      <DependentUpon>fThemNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemSimple.resx">
       <DependentUpon>fThemSimple.cs</DependentUpon>

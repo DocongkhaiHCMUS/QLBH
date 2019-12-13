@@ -23,8 +23,7 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
-            gcMain.DataSource = BUS_HangHoa.LayHangHoa();
-
+            LoadData();
 
             gvMain.Columns[0].FieldName = "Product_ID";
             gvMain.Columns[1].FieldName = "Product_Name";
@@ -49,6 +48,18 @@ namespace DAQLBH_Devexpress
 
             gvMain.IndicatorWidth = 45;
             gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
+
+            btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+        }
+
+        private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            gcMain.DataSource = BUS_HangHoa.LayHangHoa();
         }
 
         private void GvMain_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
