@@ -59,7 +59,7 @@ namespace DAQLBH_Devexpress
             //Khởi tạo kho xuất
             leKhoXuat.Properties.TextEditStyle = TextEditStyles.Standard;
             leKhoXuat.Properties.BestFitMode = BestFitMode.BestFit;
-            SetDataSource(leKhoXuat, BUS_KhoXuat.GetKhoDonGian(), "STOCK_Name", "STOCK_ID");
+            SetDataSource(leKhoXuat, BUS_KhoXuat.LayKhoDonGian(), "STOCK_Name", "STOCK_ID");
             leKhoXuat.Properties.Columns[0].FieldName = "STOCK_Name";
             leKhoXuat.Properties.Columns[1].FieldName = "STOCK_ID";
             leKhoXuat.EditValue = ((DataTable)leKhoXuat.Properties.DataSource).Rows[0]["STOCK_ID"];

@@ -35,7 +35,7 @@
             this.colLienHe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDienThoai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colKyHieu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNguoiQL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colConQL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -78,7 +78,7 @@
             this.colLienHe,
             this.colDiaChi,
             this.colDienThoai,
-            this.colKyHieu,
+            this.colNguoiQL,
             this.colGhiChu,
             this.colConQL});
             this.gvMain.GridControl = this.gcMain;
@@ -120,12 +120,12 @@
             this.colDienThoai.Visible = true;
             this.colDienThoai.VisibleIndex = 4;
             // 
-            // colKyHieu
+            // colNguoiQL
             // 
-            this.colKyHieu.Caption = "Ký Hiệu";
-            this.colKyHieu.Name = "colKyHieu";
-            this.colKyHieu.Visible = true;
-            this.colKyHieu.VisibleIndex = 5;
+            this.colNguoiQL.Caption = "Người quản lý";
+            this.colNguoiQL.Name = "colNguoiQL";
+            this.colNguoiQL.Visible = true;
+            this.colNguoiQL.VisibleIndex = 5;
             // 
             // colGhiChu
             // 
@@ -180,7 +180,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLienHe;
         private DevExpress.XtraGrid.Columns.GridColumn colDiaChi;
         private DevExpress.XtraGrid.Columns.GridColumn colDienThoai;
-        private DevExpress.XtraGrid.Columns.GridColumn colKyHieu;
+        private DevExpress.XtraGrid.Columns.GridColumn colNguoiQL;
         private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private DevExpress.XtraGrid.Columns.GridColumn colConQL;
     }

@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhMuc\fBaseKho_NV_HH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fBaseKho_NV_HH.Designer.cs">
+      <DependentUpon>fBaseKho_NV_HH.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fBaseKH_NCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,17 +100,17 @@
     <Compile Include="DanhMuc\fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMuc\fThemDVT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DanhMuc\fThemDVT.Designer.cs">
-      <DependentUpon>fThemDVT.cs</DependentUpon>
-    </Compile>
     <Compile Include="DanhMuc\fThemKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DanhMuc\fThemKhachHang.Designer.cs">
       <DependentUpon>fThemKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\fThemKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fThemKho.Designer.cs">
+      <DependentUpon>fThemKho.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\fThemNCC.cs">
       <SubType>Form</SubType>
@@ -204,6 +210,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DanhMuc\fBaseKho_NV_HH.resx">
+      <DependentUpon>fBaseKho_NV_HH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseKH_NCC.resx">
       <DependentUpon>fBaseKH_NCC.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,11 +225,11 @@
     <EmbeddedResource Include="DanhMuc\fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMuc\fThemDVT.resx">
-      <DependentUpon>fThemDVT.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemKhachHang.resx">
       <DependentUpon>fThemKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\fThemKho.resx">
+      <DependentUpon>fThemKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fThemNCC.resx">
       <DependentUpon>fThemNCC.cs</DependentUpon>

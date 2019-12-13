@@ -11,11 +11,16 @@ using DevExpress.XtraEditors;
 
 namespace DAQLBH_Devexpress.DanhMuc
 {
-    public partial class fThemDVT : fBaseThem
+    public partial class fBaseKho_NV_HH : DevExpress.XtraEditors.XtraForm
     {
-        public fThemDVT()
+        public fBaseKho_NV_HH()
         {
             InitializeComponent();
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

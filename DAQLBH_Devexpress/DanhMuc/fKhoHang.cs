@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
+using DevExpress.XtraBars;
+using QLBH_DTO;
+using DAQLBH_Devexpress.DanhMuc;
 
 namespace DAQLBH_Devexpress
 {
     public partial class fKhoHang : fBaseStatic
     {
+        public delegate void sendMessage();
         public fKhoHang()
         {
             InitializeComponent();
@@ -37,11 +41,59 @@ namespace DAQLBH_Devexpress
             gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
 
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+
+            btnThem.ItemClick += BtnThem_ItemClick;
+            btnSua.ItemClick += BtnSua_ItemClick;
+            btnXoa.ItemClick += BtnXoa_ItemClick;
+        }
+
+        private void BtnXoa_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có chắc chắn muốn xóa ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.No)
+                return;
+            int rowIndex = gvMain.FocusedRowHandle;
+            string colID = "Stock_ID";
+            string value = gvMain.GetRowCellValue(rowIndex, colID).ToString();
+            if (BUS_KhoXuat.KiemTraKho(value) == true)
+            {
+                BUS_KhoXuat.XoaKho(value);
+                LoadData();
+            }
+            else
+                return;
+        }
+
+        private void BtnSua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int rowIndex = gvMain.FocusedRowHandle;
+            CKho kho = new CKho
+            {
+                MaKho = gvMain.GetRowCellValue(rowIndex, "Stock_ID").ToString(),
+                TenKho = gvMain.GetRowCellValue(rowIndex, "Stock_Name").ToString(),
+                LienHe = gvMain.GetRowCellValue(rowIndex, "Contact").ToString(),
+                DiaChi = gvMain.GetRowCellValue(rowIndex, "Address").ToString(),
+                Email = "",
+                DienThoai = gvMain.GetRowCellValue(rowIndex, "Telephone").ToString(),
+                Fax = "",
+                DiDong = "",
+                NguoiQuanLy = gvMain.GetRowCellValue(rowIndex, "Manager").ToString(),
+                DienGiai = gvMain.GetRowCellValue(rowIndex, "Description").ToString(),
+                ConQL = bool.Parse(gvMain.GetRowCellValue(rowIndex, "Active").ToString())
+            };
+            fThemKho sua = new fThemKho(false, kho, LoadData);
+            sua.ShowDialog();
+        }
+
+        private void BtnThem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fThemKho kho = new fThemKho(true, null, LoadData);
+            kho.ShowDialog();
         }
 
         private void LoadData()
         {
-            gcMain.DataSource = BUS_KhoXuat.GetKho();
+            gcMain.DataSource = BUS_KhoXuat.LayKho();
         }
 
         private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
