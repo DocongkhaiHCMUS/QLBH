@@ -17,7 +17,7 @@ namespace DAQLBH_Devexpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fKhoHang());
+            Application.Run(new fNhanVien());
         }
     }
 }

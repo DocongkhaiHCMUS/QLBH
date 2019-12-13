@@ -433,7 +433,7 @@ namespace DAQLBH_Devexpress.DanhMuc
         {
             CBoPhan bp = new CBoPhan(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_NhanVien.ThemBP(bp);
-            sendBP();
+            sendBP?.Invoke();
             this.Close();
         }
 

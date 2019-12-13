@@ -37,6 +37,63 @@ namespace QLBH_BUS
             }
         }
 
+        public static bool KiemTraNV(string MaNV)
+        {
+            try
+            {
+                NhanVien dao = new NhanVien();
+                DataTable table = dao.GetNV(MaNV);
+                if (table.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return false;
+        }
+
+        public static void ThemNV(CNhanVien nv)
+        {
+            try
+            {
+                NhanVien dao = new NhanVien();
+                dao.ThemNV(nv);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void SuaNV(CNhanVien nv)
+        {
+            try
+            {
+                NhanVien dao = new NhanVien();
+                dao.SuaNV(nv);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void XoaNV(string MaNV)
+        {
+            try
+            {
+                NhanVien dao = new NhanVien();
+                dao.XoaNV(MaNV);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         //Bộ Phận
         public static DataTable LayBoPhan()
         {
