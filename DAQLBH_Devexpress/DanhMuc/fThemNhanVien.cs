@@ -35,7 +35,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             }
             if (isAdd == true)
             {
-                table = BUS_NhanVien.LayNhanVien();
+                table = LoadNV();
                 Text = "Thêm nhân viên";
             }
             else
@@ -49,6 +49,11 @@ namespace DAQLBH_Devexpress.DanhMuc
             Init();
         }
 
+        private static DataTable LoadNV()
+        {
+            return BUS_NhanVien.LayNhanVien();
+        }
+
         private void Init()
         {
             LoadDataBP();
@@ -59,11 +64,22 @@ namespace DAQLBH_Devexpress.DanhMuc
             gleQuanLy.Properties.DataSource = BUS_NhanVien.LayNhanVienDonGian();
             gleQuanLy.Properties.DisplayMember = "EMPLOYEE_Name";
             gleQuanLy.Properties.ValueMember = "EMPLOYEE_ID";
+            gleQuanLy.Properties.Buttons[1].Click += btnThemNV_ThemNhanVien_Click;
 
             if (add == true)
                 phatSinhMa();
             else
                 LoadDuLieuNV();
+        }
+
+        private void btnThemNV_ThemNhanVien_Click(object sender, EventArgs e)
+        {
+            fThemNhanVien ql = new fThemNhanVien(true,null,sendNV);
+            ql.ShowDialog();
+
+            int num = txtMa.Text == "" ? 1 : int.Parse(txtMa.Text.Substring(2)) + 1;
+            string currentMa = "NV" + num.ToString("000000");
+            txtMa.Text = currentMa;
         }
 
         private void LoadDuLieuNV()
@@ -129,7 +145,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             {
                 error.SetError(txtMa, "Vui lòng điền thông tin !");
             }
-            else if (add == true && BUS_KhachHang.KiemTraKH(txtMa.Text))
+            else if (add == true && BUS_NhanVien.KiemTraNV(txtMa.Text))
             {
                 error.SetError(txtMa, "Mã đã tồn tại, vui lòng chọn mã khác !");
             }
@@ -163,7 +179,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             editNV.ConQL = checkConQL.Checked;
             editNV.completeObject();
             BUS_NhanVien.SuaNV(editNV);
-            sendNV();
+            sendNV?.Invoke();
             Close();
         }
 
@@ -182,9 +198,9 @@ namespace DAQLBH_Devexpress.DanhMuc
                 txtChucVu.Text,
                 txtEmail.Text,
                 checkConQL.Checked);
-
+            nv.completeObject();
             BUS_NhanVien.ThemNV(nv);
-            sendNV();
+            sendNV?.Invoke();
             this.Close();
         }
     }
