@@ -79,32 +79,35 @@ namespace QLBH_DTO
             ChucVu      =     _ChucVu        ;
             Email       =     _Email         ;
             ConQL       =     _ConQL         ;
+        }
 
-            FirtName   = "";
+        public void completeObject()
+        {
+            FirtName = "";
             LastName = "";
             Alias = "";
-            Country_ID ="";
+            Country_ID = "";
             H_Tel = "";
             Fax = "";
             Married = 0;
-            Position_ID   ="";
-            JobTitle_ID   ="";
+            Position_ID = "";
+            JobTitle_ID = "";
             Branch_ID = "";
-            PersonalTax_ID  ="";
-            City_ID         ="";
+            PersonalTax_ID = "";
+            City_ID = "";
             District_ID = "";
-            EmployeeType        =0;
-            BasicSalary         =0;
-            Advance             =0;
-            AdvanceOther        =0;
-            Commission          =0;
-            Discount            =0;
-            ProfitRate          =0;
-            IsPublic            =true;
-            CreatedBy        ="";
-            CreatedDate    =DateTime.Now;
-            ModifiedBy       ="";
-            ModifiedDate   =DateTime.Now;
+            EmployeeType = 0;
+            BasicSalary = 0;
+            Advance = 0;
+            AdvanceOther = 0;
+            Commission = 0;
+            Discount = 0;
+            ProfitRate = 0;
+            IsPublic = true;
+            CreatedBy = "";
+            CreatedDate = DateTime.Now;
+            ModifiedBy = "";
+            ModifiedDate = DateTime.Now;
             OwnerID = "";
             Sorted = 0;
             Team_ID = "";

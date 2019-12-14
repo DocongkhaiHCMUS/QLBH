@@ -55,6 +55,22 @@ namespace QLBH_BUS
             return false;
         }
 
+        public static DataRow TimNV(string MaNV)
+        {
+            DataRow rs ;
+            try
+            {
+                NhanVien dao = new NhanVien();
+                DataTable table = dao.GetNV(MaNV);
+                rs = table.Rows[0];
+                return rs;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static void ThemNV(CNhanVien nv)
         {
             try

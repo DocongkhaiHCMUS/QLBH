@@ -26,6 +26,8 @@ namespace DAQLBH_Devexpress.DanhMuc
         {
             InitializeComponent();
 
+            //XtraMessageBox.Show(DateTime.Now.GetDateTimeFormats()[5]);
+
             if (isAdd == false && nv == null)
             {
                 XtraMessageBox.Show("ERROR : Dữ liệu không được cung cấp để thực hiện hành động !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -159,6 +161,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             editNV.ChucVu = txtChucVu.Text;
             editNV.Email = txtEmail.Text;
             editNV.ConQL = checkConQL.Checked;
+            editNV.completeObject();
             BUS_NhanVien.SuaNV(editNV);
             sendNV();
             Close();

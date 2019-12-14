@@ -44,6 +44,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             btnThem.ItemClick += BtnThem_ItemClick;
             btnSua.ItemClick += BtnSua_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;
+
         }
 
         private void BtnXoa_ItemClick(object sender, ItemClickEventArgs e)
@@ -63,23 +64,37 @@ namespace DAQLBH_Devexpress.DanhMuc
                 return;
         }
 
+
         private void BtnSua_ItemClick(object sender, ItemClickEventArgs e)
         {
             int rowIndex = gvMain.FocusedRowHandle;
+            DataRow fNV = BUS_NhanVien.TimNV(gvMain.GetRowCellValue(rowIndex, "Employee_ID").ToString());
+            string      _MaNV       = fNV.Field<string>("Employee_ID")          ;
+            string      _TenNV      = fNV.Field<string>("Employee_Name")        ;
+            bool        _GioiTinh   = fNV.Field<bool>("Sex")                    ;
+            string      _DiaChi     = fNV.Field<string>("Address")              ;
+            string      _DienThoai  = fNV.Field<string>("O_Tel")                ;
+            string      _DiDong     = fNV.Field<string>("Mobile")               ;
+            DateTime    _NgaySinh   = fNV.Field<DateTime>("Birthday")           ;
+            string      _BoPhan     = fNV.Field<string>("Department_ID")        ;
+            string      _QuanLy     = fNV.Field<string>("Manager_ID")           ;
+            string      _ChucVu     = fNV.Field<string>("Description")          ;
+            string      _Email      = fNV.Field<string>("Email")                ;
+            bool        _ConQL      = fNV.Field<bool>("Active")                 ; 
             CNhanVien nv = new CNhanVien
             {
-                MaNV      = gvMain.GetRowCellValue(rowIndex, "Employee_ID").ToString(),
-                TenNV     = gvMain.GetRowCellValue(rowIndex, "Employee_Name").ToString(),
-                GioiTinh  = true,
-                DiaChi    = gvMain.GetRowCellValue(rowIndex, "Address").ToString(),
-                DienThoai = gvMain.GetRowCellValue(rowIndex, "O_Tel").ToString(),
-                DiDong    = gvMain.GetRowCellValue(rowIndex, "Mobile").ToString(),
-                NgaySinh  = DateTime.Now,
-                BoPhan    = "",
-                QuanLy    = "",
-                ChucVu    = "",
-                Email     = gvMain.GetRowCellValue(rowIndex, "Email").ToString(),
-                ConQL     = bool.Parse(gvMain.GetRowCellValue(rowIndex, "Active").ToString())
+                MaNV      = _MaNV       ,
+                TenNV     = _TenNV      ,
+                GioiTinh  = _GioiTinh   ,
+                DiaChi    = _DiaChi     ,
+                DienThoai = _DienThoai  ,
+                DiDong    = _DiDong     ,
+                NgaySinh  = _NgaySinh   ,
+                BoPhan    = _BoPhan     ,
+                QuanLy    = _QuanLy     ,
+                ChucVu    = _ChucVu     ,
+                Email     = _Email      ,
+                ConQL     = _ConQL
             };      
             fThemNhanVien sua = new fThemNhanVien(false, nv, LoadData);
             sua.ShowDialog();
