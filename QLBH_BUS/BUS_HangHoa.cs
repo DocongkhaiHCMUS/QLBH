@@ -25,6 +25,7 @@ namespace QLBH_BUS
 
                 var results = from table1 in dataTableHH.AsEnumerable()
                               join table2 in dataTableDV.AsEnumerable() on (string)table1["Unit"] equals (string)table2["UNIT_ID"]
+                              join table3 in dataTableKho.AsEnumerable() on (string)table1["Provider_ID"] equals (string)table3["Stock_ID"]
                               select new 
                               {
                                   Product_ID = table1["Product_ID"].ToString(),
@@ -36,7 +37,7 @@ namespace QLBH_BUS
                                   Retail_Price = float.Parse(table1["Retail_Price"].ToString()),
                                   LimitOrders = float.Parse(table1["LimitOrders"].ToString()),
                                   Product_Type_ID = table1["Product_Type_ID"].ToString(),
-                                  Stock_ID = table1["Stock_ID"].ToString(),
+                                  Stock_ID = table3["Stock_Name"].ToString(),
                                   Active = bool.Parse(table1["Active"].ToString())
 
                               };
@@ -51,7 +52,7 @@ namespace QLBH_BUS
                 rs.Columns.Add("Retail_Price");
                 rs.Columns.Add("LimitOrders");
                 rs.Columns.Add("Product_Type_ID");
-                rs.Columns.Add("Stock_ID",typeof(string));
+                rs.Columns.Add("Stock_Name", typeof(string));
                 rs.Columns.Add("Active",typeof(bool));
 
                 foreach(var item in results)
@@ -62,11 +63,6 @@ namespace QLBH_BUS
 
                 foreach (DataRow row in rs.Rows)
                 {
-                        if(row["Stock_ID"].ToString() == "")
-                        {
-                            row.SetField("Stock_ID", "Kho công ty");
-                        }
-
                         if(float.Parse(row["Product_Type_ID"].ToString()) == 0)
                         {
                             row.SetField("Product_Type_ID", "Hàng hóa");
@@ -94,7 +90,78 @@ namespace QLBH_BUS
             }
         }
 
+        public static DataRow TimHH(string MaHH)
+        {
+            DataRow rs;
+            try
+            {
+                HangHoa dao = new HangHoa();
+                DataTable table = dao.GetHH(MaHH);
+                rs = table.Rows[0];
+                return rs;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        public static void ThemHH(CHangHoa hh)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                dao.ThemHangHoa(hh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void SuaHh(CHangHoa hh)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                dao.SuaHangHoa(hh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void XoaHH(string MaHH)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                dao.XoaHangHoa(MaHH);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool KiemTraHH(string MaHH)
+        {
+            try
+            {
+                HangHoa dao = new HangHoa();
+                DataTable table = dao.GetHH(MaHH);
+                if (table.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return false;
+        }
         //Nhóm hàng
 
         public static DataTable LayNhomHang()

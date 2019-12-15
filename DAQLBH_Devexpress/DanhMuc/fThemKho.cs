@@ -173,7 +173,7 @@ namespace DAQLBH_Devexpress.DanhMuc
                 checkConQL.Checked);
 
             BUS_KhoXuat.ThemKho(kho);
-            sendKho();
+            sendKho?.Invoke();
             this.Close();
         } 
     }

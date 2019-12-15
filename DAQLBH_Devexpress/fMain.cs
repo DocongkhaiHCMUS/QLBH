@@ -20,12 +20,12 @@ namespace DAQLBH_Devexpress
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn có muốn thoát ứng dụng ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (XtraMessageBox.Show("Bạn có muốn thoát ứng dụng ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                e.Cancel = true;
+                e.Cancel = false;
             }
             else
-                e.Cancel=false;
+                e.Cancel = true;
         }
 
         private void BtnKhuVuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

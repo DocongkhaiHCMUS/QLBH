@@ -97,6 +97,7 @@
             this.gvMain.GroupCount = 1;
             this.gvMain.GroupRowHeight = 20;
             this.gvMain.Name = "gvMain";
+            this.gvMain.OptionsView.ShowAutoFilterRow = true;
             this.gvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colKhuVuc, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 

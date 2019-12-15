@@ -75,6 +75,7 @@
             this.colConQL});
             this.gvMain.GridControl = this.gcMain;
             this.gvMain.Name = "gvMain";
+            this.gvMain.OptionsView.ShowAutoFilterRow = true;
             this.gvMain.OptionsView.ShowGroupPanel = false;
             // 
             // colMa

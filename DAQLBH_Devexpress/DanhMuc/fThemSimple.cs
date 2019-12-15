@@ -441,7 +441,7 @@ namespace DAQLBH_Devexpress.DanhMuc
         {
             CNhomHang nh = new CNhomHang(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_HangHoa.ThemNH(nh);
-            sendNH();
+            sendNH?.Invoke();
             this.Close();
         }
 
@@ -449,7 +449,7 @@ namespace DAQLBH_Devexpress.DanhMuc
         {
             CDonViTinh dv = new CDonViTinh(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_DonViTinh.ThemDV(dv);
-            sendDV();
+            sendDV?.Invoke();
             this.Close();
         }
 

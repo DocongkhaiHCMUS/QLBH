@@ -48,6 +48,113 @@ namespace QLBH_DAO
             }
         }
 
+        public DataTable GetHH(string MaHH)
+        {
+            try
+            {
+                string sql = "PRODUCT_Get";
+                return SelectTable.SelectProcedure(sql, new SqlParameter { ParameterName = "@Product_ID", Value = MaHH });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ThemHangHoa(CHangHoa hh)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                dao.Connect();
+                string sql = "PRODUCT_Insert_New";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql,
+                    new SqlParameter { ParameterName = "@Product_ID"             ,Value = hh.Product_ID },
+                    new SqlParameter { ParameterName = "@Product_Name"		     , Value = hh.Product_Name		},
+                    new SqlParameter { ParameterName = "@Product_Type_ID"	     , Value = hh.Product_Type_ID	 },
+                    new SqlParameter { ParameterName = "@Product_Group_ID"	     , Value = hh.Product_Group_ID	},
+                    new SqlParameter { ParameterName = "@Provider_ID"            , Value = hh.Provider_ID },
+                    new SqlParameter { ParameterName = "@Barcode"			     , Value = hh.Barcode			},
+                    new SqlParameter { ParameterName = "@Unit"				     , Value = hh.Unit				 },
+                    new SqlParameter { ParameterName = "@Photo"				     , Value = hh.Photo				},
+                    new SqlParameter { ParameterName = "@Org_Price"              , Value = hh.Org_Price },
+                    new SqlParameter { ParameterName = "@Sale_Price"			 , Value = hh.Sale_Price			},
+                    new SqlParameter { ParameterName = "@Retail_Price"		     , Value = hh.Retail_Price		 },
+                    new SqlParameter { ParameterName = "@Customer_ID"		     , Value = hh.Customer_ID		},
+                    new SqlParameter { ParameterName = "@Customer_Name"          , Value = hh.Customer_Name },
+                    new SqlParameter { ParameterName = "@MinStock"			     , Value = hh.MinStock			},
+                    new SqlParameter { ParameterName = "@UserID"				 , Value = hh.UserID				 },
+                    new SqlParameter { ParameterName = "@Active"				 , Value = hh.Active }
+                    );
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
+
+        public void SuaHangHoa(CHangHoa hh)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                dao.Connect();
+                string sql = "PRODUCT_Update";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql,
+                    new SqlParameter { ParameterName = "@Product_ID", Value = hh.Product_ID },
+                    new SqlParameter { ParameterName = "@Product_Name", Value = hh.Product_Name },
+                    new SqlParameter { ParameterName = "@Product_Type_ID", Value = hh.Product_Type_ID },
+                    new SqlParameter { ParameterName = "@Product_Group_ID", Value = hh.Product_Group_ID },
+                    new SqlParameter { ParameterName = "@Provider_ID", Value = hh.Provider_ID },
+                    new SqlParameter { ParameterName = "@Barcode", Value = hh.Barcode },
+                    new SqlParameter { ParameterName = "@Unit", Value = hh.Unit },
+                    new SqlParameter { ParameterName = "@Photo", Value = hh.Photo },
+                    new SqlParameter { ParameterName = "@Org_Price", Value = hh.Org_Price },
+                    new SqlParameter { ParameterName = "@Sale_Price", Value = hh.Sale_Price },
+                    new SqlParameter { ParameterName = "@Retail_Price", Value = hh.Retail_Price },
+                    new SqlParameter { ParameterName = "@Customer_ID", Value = hh.Customer_ID },
+                    new SqlParameter { ParameterName = "@Customer_Name", Value = hh.Customer_Name },
+                    new SqlParameter { ParameterName = "@MinStock", Value = hh.MinStock },
+                    new SqlParameter { ParameterName = "@UserID", Value = hh.UserID },
+                    new SqlParameter { ParameterName = "@Active", Value = hh.Active }
+                    );
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
+
+        public void XoaHangHoa(string MaHH)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                dao.Connect();
+                string sql = "PRODUCT_Delete";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql, new SqlParameter { ParameterName = "@Product_ID", Value = MaHH });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
+
         //Nhóm Hàng
         public DataTable LoadNhomHang()
         {

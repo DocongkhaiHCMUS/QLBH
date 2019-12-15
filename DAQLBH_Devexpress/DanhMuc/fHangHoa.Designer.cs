@@ -90,6 +90,7 @@
             this.gvMain.GridControl = this.gcMain;
             this.gvMain.GroupCount = 1;
             this.gvMain.Name = "gvMain";
+            this.gvMain.OptionsView.ShowAutoFilterRow = true;
             this.gvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colNhomHang, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 

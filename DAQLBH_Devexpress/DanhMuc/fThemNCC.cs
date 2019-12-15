@@ -185,7 +185,7 @@ namespace DAQLBH_Devexpress.DanhMuc
                                            (calcChietKhau.Text == "" ? 0 : float.Parse(calcChietKhau.Value.ToString())),
                                            checkConQL.Checked);
             BUS_NhaCungCap.ThemNCC(ncc);
-            sendNCC();
+            sendNCC?.Invoke();
             this.Close();
         }
 
