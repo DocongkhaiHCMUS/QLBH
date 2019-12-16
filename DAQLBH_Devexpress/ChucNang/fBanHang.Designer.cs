@@ -65,6 +65,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dpChucNang = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.navBarControl4 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.btnChungTu = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarControl3 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnHangHoa = new DevExpress.XtraNavBar.NavBarItem();
@@ -72,7 +76,11 @@
             this.btnKhoHang = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnPhieuBanHang = new DevExpress.XtraNavBar.NavBarItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -116,6 +124,9 @@
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.gcXuat)).BeginInit();
             this.gcXuat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -134,8 +145,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dpChucNang.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
@@ -182,6 +200,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // gcXuat
@@ -554,32 +575,78 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.navBarControl3);
-            this.dockPanel1_Container.Controls.Add(this.navBarControl2);
+            this.dockPanel1_Container.Controls.Add(this.layoutControl3);
             this.dockPanel1_Container.Location = new System.Drawing.Point(3, 29);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(177, 515);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // layoutControl3
+            // 
+            this.layoutControl3.Controls.Add(this.navBarControl4);
+            this.layoutControl3.Controls.Add(this.navBarControl3);
+            this.layoutControl3.Controls.Add(this.navBarControl2);
+            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(230, 281, 650, 400);
+            this.layoutControl3.Root = this.layoutControlGroup2;
+            this.layoutControl3.Size = new System.Drawing.Size(177, 515);
+            this.layoutControl3.TabIndex = 2;
+            this.layoutControl3.Text = "layoutControl3";
+            // 
+            // navBarControl4
+            // 
+            this.navBarControl4.ActiveGroup = this.navBarGroup4;
+            this.navBarControl4.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup4});
+            this.navBarControl4.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.btnChungTu});
+            this.navBarControl4.Location = new System.Drawing.Point(2, 158);
+            this.navBarControl4.Name = "navBarControl4";
+            this.navBarControl4.OptionsNavPane.ExpandedWidth = 173;
+            this.navBarControl4.Size = new System.Drawing.Size(173, 99);
+            this.navBarControl4.TabIndex = 4;
+            this.navBarControl4.Text = "navBarControl4";
+            // 
+            // navBarGroup4
+            // 
+            this.navBarGroup4.Appearance.Options.UseTextOptions = true;
+            this.navBarGroup4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.navBarGroup4.Caption = "Bảng kê";
+            this.navBarGroup4.Expanded = true;
+            this.navBarGroup4.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsList;
+            this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnChungTu)});
+            this.navBarGroup4.Name = "navBarGroup4";
+            // 
+            // btnChungTu
+            // 
+            this.btnChungTu.Caption = "Theo chứng từ";
+            this.btnChungTu.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_32x32;
+            this.btnChungTu.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_16x16;
+            this.btnChungTu.Name = "btnChungTu";
+            // 
             // navBarControl3
             // 
             this.navBarControl3.ActiveGroup = this.navBarGroup3;
-            this.navBarControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.navBarControl3.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup3});
             this.navBarControl3.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.btnHangHoa,
             this.btnKhachHang,
             this.btnKhoHang});
-            this.navBarControl3.Location = new System.Drawing.Point(0, 252);
+            this.navBarControl3.Location = new System.Drawing.Point(2, 296);
             this.navBarControl3.Name = "navBarControl3";
-            this.navBarControl3.OptionsNavPane.ExpandedWidth = 177;
-            this.navBarControl3.Size = new System.Drawing.Size(177, 263);
+            this.navBarControl3.OptionsNavPane.ExpandedWidth = 173;
+            this.navBarControl3.Size = new System.Drawing.Size(173, 217);
             this.navBarControl3.TabIndex = 1;
             this.navBarControl3.Text = "navBarControl3";
             // 
             // navBarGroup3
             // 
+            this.navBarGroup3.Appearance.Options.UseTextOptions = true;
+            this.navBarGroup3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.navBarGroup3.Caption = "Thêm Danh Mục";
             this.navBarGroup3.Expanded = true;
             this.navBarGroup3.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsList;
@@ -613,16 +680,15 @@
             // navBarControl2
             // 
             this.navBarControl2.ActiveGroup = this.navBarGroup2;
-            this.navBarControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.navBarControl2.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup2});
             this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItem1});
-            this.navBarControl2.Location = new System.Drawing.Point(0, 0);
+            this.btnPhieuBanHang});
+            this.navBarControl2.Location = new System.Drawing.Point(2, 21);
             this.navBarControl2.Name = "navBarControl2";
-            this.navBarControl2.OptionsNavPane.ExpandedWidth = 177;
+            this.navBarControl2.OptionsNavPane.ExpandedWidth = 173;
             this.navBarControl2.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
-            this.navBarControl2.Size = new System.Drawing.Size(177, 123);
+            this.navBarControl2.Size = new System.Drawing.Size(173, 92);
             this.navBarControl2.TabIndex = 0;
             this.navBarControl2.Text = "navBarControl2";
             // 
@@ -634,15 +700,58 @@
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsList;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnPhieuBanHang)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
-            // navBarItem1
+            // btnPhieuBanHang
             // 
-            this.navBarItem1.Caption = "navBarItem1";
-            this.navBarItem1.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
-            this.navBarItem1.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
-            this.navBarItem1.Name = "navBarItem1";
+            this.btnPhieuBanHang.Caption = "Phiếu bán hàng";
+            this.btnPhieuBanHang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
+            this.btnPhieuBanHang.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
+            this.btnPhieuBanHang.Name = "btnPhieuBanHang";
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem17,
+            this.layoutControlItem18,
+            this.layoutControlItem19,
+            this.emptySpaceItem2,
+            this.emptySpaceItem3,
+            this.emptySpaceItem4});
+            this.layoutControlGroup2.Name = "Root";
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(177, 515);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem17
+            // 
+            this.layoutControlItem17.Control = this.navBarControl2;
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 19);
+            this.layoutControlItem17.Name = "layoutControlItem17";
+            this.layoutControlItem17.Size = new System.Drawing.Size(177, 96);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem17.TextVisible = false;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.navBarControl3;
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 294);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(177, 221);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.navBarControl4;
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 156);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(177, 103);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextVisible = false;
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -1128,6 +1237,30 @@
             this.dockPanel1.Size = new System.Drawing.Size(200, 200);
             this.dockPanel1.Text = "dockPanel1";
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(177, 19);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 115);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(177, 41);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 259);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(177, 35);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // fBanHang
             // 
             this.Appearance.Options.UseFont = true;
@@ -1163,8 +1296,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dpChucNang.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
@@ -1211,6 +1351,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1297,11 +1440,22 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraNavBar.NavBarControl navBarControl2;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
+        private DevExpress.XtraNavBar.NavBarItem btnPhieuBanHang;
         private DevExpress.XtraNavBar.NavBarControl navBarControl3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
         private DevExpress.XtraNavBar.NavBarItem btnHangHoa;
         private DevExpress.XtraNavBar.NavBarItem btnKhachHang;
         private DevExpress.XtraNavBar.NavBarItem btnKhoHang;
+        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraNavBar.NavBarControl navBarControl4;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
+        private DevExpress.XtraNavBar.NavBarItem btnChungTu;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }

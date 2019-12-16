@@ -274,6 +274,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             }
         }
 
+        private void btnLichSuGiaoDich_Click(object sender, EventArgs e)
+        {
+            fLichSuGiaoDich ls = new fLichSuGiaoDich();
+            ls.ShowDialog();
+        }
+
         private void xlSua()                                                                                                
         {                                                                                                                   ;
             editHH.Product_ID             =        txtMa.Text                                                               ;

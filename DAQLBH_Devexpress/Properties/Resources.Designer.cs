@@ -403,6 +403,26 @@ namespace DAQLBH_Devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap differentoddevenpages_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("differentoddevenpages_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap differentoddevenpages_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("differentoddevenpages_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_16x16 {
             get {
                 object obj = ResourceManager.GetObject("edit_16x16", resourceCulture);
@@ -466,6 +486,16 @@ namespace DAQLBH_Devexpress.Properties {
         internal static System.Drawing.Bitmap excel_icon {
             get {
                 object obj = ResourceManager.GetObject("excel-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap find_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("find_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -546,6 +576,26 @@ namespace DAQLBH_Devexpress.Properties {
         internal static System.Drawing.Bitmap kisspng_data_recovery_backup_and_restore_syncback_computer {
             get {
                 object obj = ResourceManager.GetObject("kisspng-data-recovery-backup-and-restore-syncback-computer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lookup_reference_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("lookup&reference_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lookup_reference_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("lookup&reference_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -93,5 +93,97 @@ namespace QLBH_BUS
                 throw ex;
             }
         }
+
+        //Tồn Kho
+        public static DataTable GetTonKhoLookup()
+        {
+            try
+            {
+                DonViTinh dv = new DonViTinh();
+                Kho k = new Kho();
+                DataTable dataTableTonKho = k.GetTonKhoLookUp();
+                DataTable dataTableDV = dv.LoadDVTDonGian();
+                DataTable dataTableKho = k.LoadKhoHang();
+                DataTable dataTableHD = k.GetHanhDong();
+
+                var results = from table1 in dataTableTonKho.AsEnumerable()
+                              join table2 in dataTableDV.AsEnumerable() on (string)table1["Unit"] equals (string)table2["UNIT_ID"]
+                              join table3 in dataTableKho.AsEnumerable() on (string)table1["Stock_ID"] equals (string)table3["Stock_ID"]
+                              join table4 in dataTableHD.AsEnumerable() on (int)table1["RefType"] equals (int)table4["Action_ID"]
+                              select new
+                              {
+                                    RefDate        =  DateTime.Parse(table1["RefDate"].ToString()),
+                                    RefNo          =  table1["RefNo"].ToString()       ,
+                                    RefType        =  table4["Action_Name"].ToString()       ,
+                                    Stock_ID       =  table3["Stock_Name"].ToString()       ,
+                                    Product_ID     =  table1["Product_ID"].ToString()       ,
+                                    Product_Name   =  table1["Product_Name"].ToString()       ,
+                                    Unit           =  table2["Unit_Name"].ToString()       ,
+                                    Quantity       =  float.Parse(table1["Quantity"].ToString())       ,
+                                    Price          =  float.Parse(table1["Price"].ToString())       ,
+                                    UnitPrice      = float.Parse(table1["UnitPrice"].ToString())       ,
+                                    Amount         = float.Parse(table1["Amount"].ToString())       ,
+                                    E_Qty          =  float.Parse(table1["E_Qty"].ToString())       ,
+                                    E_Amt          = float.Parse(table1["E_Amt"].ToString())     ,
+                                    Description    =  table1["Description"].ToString()       
+                              };
+
+                DataTable rs = new DataTable();
+                rs.Columns.Add("RefDate"      );
+                rs.Columns.Add("RefNo"        );
+                rs.Columns.Add("RefType"      );
+                rs.Columns.Add("Stock_ID"     );
+                rs.Columns.Add("Product_ID"   );
+                rs.Columns.Add("Product_Name" );
+                rs.Columns.Add("Unit"         );
+                rs.Columns.Add("Quantity"     );
+                rs.Columns.Add("Price"        );
+                rs.Columns.Add("UnitPrice"    );
+                rs.Columns.Add("Amount"       );
+                rs.Columns.Add("E_Qty"          );
+                rs.Columns.Add("E_Amt"          );
+                rs.Columns.Add("Description"    );
+
+                foreach (var item in results)
+                {               
+                    rs.Rows.Add
+                        (
+                            item.RefDate       ,
+                            item.RefNo         ,
+                            item.RefType       ,
+                            item.Stock_ID      ,
+                            item.Product_ID    ,
+                            item.Product_Name  ,
+                            item.Unit          ,
+                            item.Quantity      ,
+                            item.Price         ,
+                            item.UnitPrice     ,
+                            item.Amount        ,
+                            item.E_Qty         ,
+                            item.E_Amt         ,
+                            item.Description
+                        );
+                }
+
+                return rs;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable layHanhDongTonKho()
+        {
+            try
+            {
+                Kho dao = new Kho();
+                return dao.GetHanhDong();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

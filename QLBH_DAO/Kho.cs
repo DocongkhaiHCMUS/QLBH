@@ -129,5 +129,33 @@ namespace QLBH_DAO
                 dao.DisConnect();
             }
         }
+
+        //Tồn kho
+
+        public DataTable GetTonKhoLookUp()
+        {
+            try
+            {
+                string sql = "INVENTORY_DETAIL_GetList";
+                return SelectTable.SelectProcedure(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetHanhDong()
+        {
+            try
+            {
+                string sql = "select * from INVENTORY_ACTION";
+                return SelectTable.SelectQuery(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

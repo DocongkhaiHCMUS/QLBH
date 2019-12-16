@@ -94,6 +94,12 @@
     <Compile Include="DanhMuc\fBoPhan.Designer.cs">
       <DependentUpon>fBoPhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\fLichSuGiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\fLichSuGiaoDich.Designer.cs">
+      <DependentUpon>fLichSuGiaoDich.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,16 +154,16 @@
     <Compile Include="DanhMuc\fTiGia.Designer.cs">
       <DependentUpon>fTiGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="fBanHang.cs">
+    <Compile Include="ChucNang\fBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fBanHang.Designer.cs">
+    <Compile Include="ChucNang\fBanHang.Designer.cs">
       <DependentUpon>fBanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="fDangNhap.cs">
+    <Compile Include="HeThong\fDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fDangNhap.Designer.cs">
+    <Compile Include="HeThong\fDangNhap.Designer.cs">
       <DependentUpon>fDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\fBaseStatic.cs">
@@ -234,6 +240,9 @@
     <EmbeddedResource Include="DanhMuc\fBoPhan.resx">
       <DependentUpon>fBoPhan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\fLichSuGiaoDich.resx">
+      <DependentUpon>fLichSuGiaoDich.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,10 +270,10 @@
     <EmbeddedResource Include="DanhMuc\fTiGia.resx">
       <DependentUpon>fTiGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fBanHang.resx">
+    <EmbeddedResource Include="ChucNang\fBanHang.resx">
       <DependentUpon>fBanHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fDangNhap.resx">
+    <EmbeddedResource Include="HeThong\fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseStatic.resx">
@@ -541,8 +550,22 @@
     <None Include="Resources\sales-manager-icon-2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="HeThong\" />
     <Folder Include="Picture\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookup&amp;reference_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookup&amp;reference_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\differentoddevenpages_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\differentoddevenpages_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
