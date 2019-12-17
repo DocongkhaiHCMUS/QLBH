@@ -16,6 +16,7 @@ namespace DAQLBH_Devexpress
             timer1.Tick += Timer1_Tick;
             timer1.Start();
             FormClosing += FMain_FormClosing;
+             
         }
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)

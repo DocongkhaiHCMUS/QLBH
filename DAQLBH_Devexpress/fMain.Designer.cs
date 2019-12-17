@@ -730,7 +730,13 @@
             // 
             // xtcmMain
             // 
+            this.xtcmMain.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            this.xtcmMain.CloseTabOnMiddleClick = DevExpress.XtraTabbedMdi.CloseTabOnMiddleClick.OnMouseDown;
+            this.xtcmMain.HeaderButtons = ((DevExpress.XtraTab.TabButtons)(((DevExpress.XtraTab.TabButtons.Prev | DevExpress.XtraTab.TabButtons.Next) 
+            | DevExpress.XtraTab.TabButtons.Close)));
+            this.xtcmMain.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Always;
             this.xtcmMain.MdiParent = this;
+            this.xtcmMain.ShowHeaderFocus = DevExpress.Utils.DefaultBoolean.False;
             // 
             // fMain
             // 

@@ -28,6 +28,7 @@ namespace DAQLBH_Devexpress
         /// </summary>
         private void Init()
         {
+            
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN");
 
             //Khởi tạo KH
@@ -242,6 +243,11 @@ namespace DAQLBH_Devexpress
         private void dpChucNang_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPhieuBanHang_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            gcXuat.Visible = true;
         }
     }
 }

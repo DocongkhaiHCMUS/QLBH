@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang\fBaseMH_BH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fBaseMH_BH.Designer.cs">
+      <DependentUpon>fBaseMH_BH.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fBaseKho_NV_HH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,11 +160,11 @@
     <Compile Include="DanhMuc\fTiGia.Designer.cs">
       <DependentUpon>fTiGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\fBanHang.cs">
+    <Compile Include="ChucNang\fMainBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChucNang\fBanHang.Designer.cs">
-      <DependentUpon>fBanHang.cs</DependentUpon>
+    <Compile Include="ChucNang\fMainBanHang.Designer.cs">
+      <DependentUpon>fMainBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\fDangNhap.cs">
       <SubType>Form</SubType>
@@ -228,6 +234,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChucNang\fBaseMH_BH.resx">
+      <DependentUpon>fBaseMH_BH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseKho_NV_HH.resx">
       <DependentUpon>fBaseKho_NV_HH.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,8 +279,8 @@
     <EmbeddedResource Include="DanhMuc\fTiGia.resx">
       <DependentUpon>fTiGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\fBanHang.resx">
-      <DependentUpon>fBanHang.cs</DependentUpon>
+    <EmbeddedResource Include="ChucNang\fMainBanHang.resx">
+      <DependentUpon>fMainBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>

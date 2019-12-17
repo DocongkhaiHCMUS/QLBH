@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DAQLBH_Devexpress.ChucNang;
 using DAQLBH_Devexpress.DanhMuc;
 using QLBH_DTO;
 
@@ -17,7 +18,7 @@ namespace DAQLBH_Devexpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fBanHang());
+            Application.Run(new fBaseMH_BH(false));
         }
     }
 }

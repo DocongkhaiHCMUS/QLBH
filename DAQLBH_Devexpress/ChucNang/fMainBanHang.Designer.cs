@@ -221,6 +221,7 @@
             this.gcXuat.Size = new System.Drawing.Size(1007, 547);
             this.gcXuat.TabIndex = 0;
             this.gcXuat.Text = "Phiếu Xuất Hàng";
+            this.gcXuat.Visible = false;
             // 
             // layoutControl2
             // 
@@ -705,10 +706,12 @@
             // 
             // btnPhieuBanHang
             // 
+            this.btnPhieuBanHang.CanDrag = false;
             this.btnPhieuBanHang.Caption = "Phiếu bán hàng";
             this.btnPhieuBanHang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
             this.btnPhieuBanHang.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.newcontact_32x32;
             this.btnPhieuBanHang.Name = "btnPhieuBanHang";
+            this.btnPhieuBanHang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPhieuBanHang_LinkClicked);
             // 
             // layoutControlGroup2
             // 

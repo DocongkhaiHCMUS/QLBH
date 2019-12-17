@@ -145,6 +145,37 @@ namespace QLBH_DAO
             }
         }
 
+        //public void ThemBanHang()
+        //{
+        //    Provider dao = new Provider();
+        //    try
+        //    {
+        //        dao.Connect();
+        //        string sql = "STOCK_Insert";
+        //        CommandType type = CommandType.StoredProcedure;
+        //        dao.ExeCuteNonQuery(type, sql,
+        //            new SqlParameter { ParameterName = "@Stock_ID", Value = kho.MaKho },
+        //            new SqlParameter { ParameterName = "@Stock_Name", Value = kho.TenKho },
+        //            new SqlParameter { ParameterName = "@Contact", Value = kho.LienHe },
+        //            new SqlParameter { ParameterName = "@Address", Value = kho.DiaChi },
+        //            new SqlParameter { ParameterName = "@Email", Value = kho.Email },
+        //            new SqlParameter { ParameterName = "@Telephone", Value = kho.DienThoai },
+        //            new SqlParameter { ParameterName = "@Fax", Value = kho.Fax },
+        //            new SqlParameter { ParameterName = "@Mobi", Value = kho.DiDong },
+        //            new SqlParameter { ParameterName = "@Manager", Value = kho.NguoiQuanLy },
+        //            new SqlParameter { ParameterName = "@Description", Value = kho.DienGiai },
+        //            new SqlParameter { ParameterName = "@Active", Value = kho.ConQL });
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        dao.DisConnect();
+        //    }
+        //}
+
         public DataTable GetHanhDong()
         {
             try
