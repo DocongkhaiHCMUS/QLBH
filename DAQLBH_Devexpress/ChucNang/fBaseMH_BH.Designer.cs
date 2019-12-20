@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcXuat = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.gvcMain = new DevExpress.XtraGrid.GridControl();
@@ -96,6 +97,23 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.btnTaoMoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuuVaThem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDong = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcXuat)).BeginInit();
             this.gcXuat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -153,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // gcXuat
@@ -165,10 +184,11 @@
             this.gcXuat.Controls.Add(this.barDockControlRight);
             this.gcXuat.Controls.Add(this.barDockControlBottom);
             this.gcXuat.Controls.Add(this.barDockControlTop);
+            this.gcXuat.Controls.Add(this.barDockControl4);
             this.gcXuat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcXuat.Location = new System.Drawing.Point(0, 0);
+            this.gcXuat.Location = new System.Drawing.Point(0, 44);
             this.gcXuat.Name = "gcXuat";
-            this.gcXuat.Size = new System.Drawing.Size(1140, 588);
+            this.gcXuat.Size = new System.Drawing.Size(1140, 522);
             this.gcXuat.TabIndex = 1;
             this.gcXuat.Text = "Phiếu Xuất Hàng";
             // 
@@ -178,8 +198,9 @@
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 186);
             this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(716, 323, 650, 400);
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1136, 400);
+            this.layoutControl2.Size = new System.Drawing.Size(1136, 334);
             this.layoutControl2.TabIndex = 14;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -199,7 +220,7 @@
             this.calceChietKhau,
             this.calceThanhToan,
             this.repositoryItemLookUpEdit1});
-            this.gvcMain.Size = new System.Drawing.Size(1112, 376);
+            this.gvcMain.Size = new System.Drawing.Size(1112, 310);
             this.gvcMain.TabIndex = 15;
             this.gvcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMain});
@@ -220,6 +241,7 @@
             this.gvMain.Name = "gvMain";
             this.gvMain.OptionsView.ColumnAutoWidth = false;
             this.gvMain.OptionsView.ShowGroupPanel = false;
+            this.gvMain.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvMain_ValidatingEditor);
             // 
             // colID
             // 
@@ -296,6 +318,8 @@
             // 
             this.colDonGia.Caption = "Đơn giá";
             this.colDonGia.ColumnEdit = this.calceDonGia;
+            this.colDonGia.DisplayFormat.FormatString = "d";
+            this.colDonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDonGia.FieldName = "colDonGia";
             this.colDonGia.Name = "colDonGia";
             this.colDonGia.Visible = true;
@@ -304,14 +328,18 @@
             // 
             // calceDonGia
             // 
+            this.calceDonGia.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.calceDonGia.AutoHeight = false;
             this.calceDonGia.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calceDonGia.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calceDonGia.Name = "calceDonGia";
+            this.calceDonGia.NullText = "0";
             // 
             // colThanhTien
             // 
             this.colThanhTien.Caption = "Thành Tiền";
+            this.colThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhTien.FieldName = "colThanhTien";
             this.colThanhTien.Name = "colThanhTien";
             this.colThanhTien.Visible = true;
@@ -321,6 +349,7 @@
             // 
             this.colChietKhauTiLe.Caption = "Chiết Khấu %";
             this.colChietKhauTiLe.ColumnEdit = this.calceChietKhauTiLe;
+            this.colChietKhauTiLe.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colChietKhauTiLe.FieldName = "colChietKhauTiLe";
             this.colChietKhauTiLe.Name = "colChietKhauTiLe";
             this.colChietKhauTiLe.Visible = true;
@@ -338,6 +367,7 @@
             // 
             this.colChietKhau.Caption = "Chiết Khấu";
             this.colChietKhau.ColumnEdit = this.calceChietKhau;
+            this.colChietKhau.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colChietKhau.FieldName = "colChietKhau";
             this.colChietKhau.Name = "colChietKhau";
             this.colChietKhau.Visible = true;
@@ -355,6 +385,7 @@
             // 
             this.colThanhToan.Caption = "Thanh Toán";
             this.colThanhToan.ColumnEdit = this.calceThanhToan;
+            this.colThanhToan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhToan.FieldName = "colThanhToan";
             this.colThanhToan.Name = "colThanhToan";
             this.colThanhToan.Visible = true;
@@ -381,8 +412,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem16});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1136, 400);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1136, 334);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem16
@@ -390,7 +421,7 @@
             this.layoutControlItem16.Control = this.gvcMain;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(1116, 380);
+            this.layoutControlItem16.Size = new System.Drawing.Size(1116, 314);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -533,10 +564,10 @@
             // 
             this.leKH.Location = new System.Drawing.Point(102, 12);
             this.leKH.Name = "leKH";
-            editorButtonImageOptions2.Image = global::DAQLBH_Devexpress.Properties.Resources.add_16x16;
+            editorButtonImageOptions1.Image = global::DAQLBH_Devexpress.Properties.Resources.add_16x16;
             this.leKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.leKH.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CustomerName", "Tên khách hàng"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Customer_ID", "Mã KH")});
@@ -805,7 +836,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(2, 22);
             this.barDockControlLeft.Manager = null;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 564);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 498);
             // 
             // barDockControlRight
             // 
@@ -813,13 +844,13 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1138, 22);
             this.barDockControlRight.Manager = null;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 564);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 498);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(2, 586);
+            this.barDockControlBottom.Location = new System.Drawing.Point(2, 520);
             this.barDockControlBottom.Manager = null;
             this.barDockControlBottom.Size = new System.Drawing.Size(1136, 0);
             // 
@@ -831,12 +862,181 @@
             this.barDockControlTop.Manager = null;
             this.barDockControlTop.Size = new System.Drawing.Size(1136, 0);
             // 
+            // barDockControl4
+            // 
+            this.barDockControl4.CausesValidation = false;
+            this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControl4.Location = new System.Drawing.Point(1138, 22);
+            this.barDockControl4.Manager = null;
+            this.barDockControl4.Size = new System.Drawing.Size(0, 498);
+            // 
+            // btnTaoMoi
+            // 
+            this.btnTaoMoi.Caption = "Tạo Mới";
+            this.btnTaoMoi.Id = 0;
+            this.btnTaoMoi.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.addfile_16x16;
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnLuuVaThem
+            // 
+            this.btnLuuVaThem.Caption = "Lưu && Thêm";
+            this.btnLuuVaThem.Id = 1;
+            this.btnLuuVaThem.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.save_16x16;
+            this.btnLuuVaThem.Name = "btnLuuVaThem";
+            this.btnLuuVaThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.Caption = "Nạp Lại";
+            this.btnLamMoi.Id = 2;
+            this.btnLamMoi.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.refreshallpivottable_16x16;
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnDong
+            // 
+            this.btnDong.Caption = "Đóng";
+            this.btnDong.Id = 3;
+            this.btnDong.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.cancel_16x16;
+            this.btnDong.Name = "btnDong";
+            this.btnDong.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barManager1
+            // 
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar2,
+            this.bar3});
+            this.barManager1.DockControls.Add(this.barDockControl1);
+            this.barManager1.DockControls.Add(this.barDockControl2);
+            this.barManager1.DockControls.Add(this.barDockControl3);
+            this.barManager1.DockControls.Add(this.barDockControl5);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.btnThem,
+            this.btnLuu,
+            this.btnXoa,
+            this.btnRefresh,
+            this.btnCancel});
+            this.barManager1.MainMenu = this.bar2;
+            this.barManager1.MaxItemId = 5;
+            this.barManager1.StatusBar = this.bar3;
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Main menu";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnThem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLuu),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefresh, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCancel)});
+            this.bar2.OptionsBar.AllowQuickCustomization = false;
+            this.bar2.OptionsBar.DrawDragBorder = false;
+            this.bar2.OptionsBar.MinHeight = 35;
+            this.bar2.OptionsBar.MultiLine = true;
+            this.bar2.OptionsBar.UseWholeRow = true;
+            this.bar2.Text = "Main menu";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Caption = "Tạo mới";
+            this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.addfile_32x32;
+            this.btnThem.Name = "btnThem";
+            this.btnThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Caption = "Lưu và Thêm";
+            this.btnLuu.Id = 1;
+            this.btnLuu.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.save_32x32;
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Id = 2;
+            this.btnXoa.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.deletelist_32x32;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Caption = "Làm Mới";
+            this.btnRefresh.Id = 3;
+            this.btnRefresh.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.refreshallpivottable_32x32;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Caption = "Đóng";
+            this.btnCancel.Id = 4;
+            this.btnCancel.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.cancel_32x32;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
+            // 
+            // bar3
+            // 
+            this.bar3.BarName = "Status bar";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 0;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Status bar";
+            // 
+            // barDockControl1
+            // 
+            this.barDockControl1.CausesValidation = false;
+            this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControl1.Location = new System.Drawing.Point(0, 0);
+            this.barDockControl1.Manager = this.barManager1;
+            this.barDockControl1.Size = new System.Drawing.Size(1140, 44);
+            // 
+            // barDockControl2
+            // 
+            this.barDockControl2.CausesValidation = false;
+            this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControl2.Location = new System.Drawing.Point(0, 566);
+            this.barDockControl2.Manager = this.barManager1;
+            this.barDockControl2.Size = new System.Drawing.Size(1140, 22);
+            // 
+            // barDockControl3
+            // 
+            this.barDockControl3.CausesValidation = false;
+            this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControl3.Location = new System.Drawing.Point(0, 44);
+            this.barDockControl3.Manager = this.barManager1;
+            this.barDockControl3.Size = new System.Drawing.Size(0, 522);
+            // 
+            // barDockControl5
+            // 
+            this.barDockControl5.CausesValidation = false;
+            this.barDockControl5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControl5.Location = new System.Drawing.Point(1140, 44);
+            this.barDockControl5.Manager = this.barManager1;
+            this.barDockControl5.Size = new System.Drawing.Size(0, 522);
+            // 
             // fBaseMH_BH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 588);
             this.Controls.Add(this.gcXuat);
+            this.Controls.Add(this.barDockControl3);
+            this.Controls.Add(this.barDockControl5);
+            this.Controls.Add(this.barDockControl2);
+            this.Controls.Add(this.barDockControl1);
             this.Name = "fBaseMH_BH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBaseMH_BH";
@@ -898,7 +1098,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -967,5 +1169,22 @@
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraEditors.LookUpEdit gleDKTT;
         private DevExpress.XtraEditors.LookUpEdit gleHTTT;
+        private DevExpress.XtraBars.BarDockControl barDockControl4;
+        private DevExpress.XtraBars.BarButtonItem btnTaoMoi;
+        private DevExpress.XtraBars.BarButtonItem btnLuuVaThem;
+        private DevExpress.XtraBars.BarButtonItem btnLamMoi;
+        private DevExpress.XtraBars.BarButtonItem btnDong;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar2;
+        private DevExpress.XtraBars.BarButtonItem btnThem;
+        private DevExpress.XtraBars.BarButtonItem btnLuu;
+        private DevExpress.XtraBars.BarButtonItem btnXoa;
+        private DevExpress.XtraBars.BarButtonItem btnRefresh;
+        private DevExpress.XtraBars.BarButtonItem btnCancel;
+        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarDockControl barDockControl1;
+        private DevExpress.XtraBars.BarDockControl barDockControl2;
+        private DevExpress.XtraBars.BarDockControl barDockControl3;
+        private DevExpress.XtraBars.BarDockControl barDockControl5;
     }
 }

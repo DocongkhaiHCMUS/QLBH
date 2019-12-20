@@ -104,7 +104,7 @@ namespace QLBH_DAO
             try
             {
                 dao.Connect();
-                string sql = "PRODUCT_Update";
+                string sql = "PRODUCT_Update_New";
                 CommandType type = CommandType.StoredProcedure;
                 dao.ExeCuteNonQuery(type, sql,
                     new SqlParameter { ParameterName = "@Product_ID", Value = hh.Product_ID },

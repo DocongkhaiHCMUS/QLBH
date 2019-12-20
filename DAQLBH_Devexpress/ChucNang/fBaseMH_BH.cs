@@ -24,7 +24,7 @@ namespace DAQLBH_Devexpress.ChucNang
         DataSet dsGcMain = new DataSet();//DataSet dùng cho GridControlMain
         DXErrorProvider error = new DXErrorProvider();
         DataTable table;
-        CKho editTonKho = new CKho();
+        CBanHang editBH = new CBanHang();
         bool isSale, add;
 
         /// <summary>
@@ -44,8 +44,6 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void Init()
         {
-            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN");
-
             //Khởi tạo nhân viên bán hàng
             leNhanVienBH.Properties.TextEditStyle = TextEditStyles.Standard;
             leNhanVienBH.Properties.BestFitMode = BestFitMode.BestFit;
@@ -103,10 +101,15 @@ namespace DAQLBH_Devexpress.ChucNang
             leTenHang.PopupFormMinSize = new System.Drawing.Size(600, 350);
 
             calceSoLuong.NullText = "0";
+            calceSoLuong.MaxLength = 10;
             calceDonGia.NullText = "0";
+            calceDonGia.MaxLength = 10;
             calceChietKhauTiLe.NullText = "0";
+            calceChietKhauTiLe.MaxLength = 10;
             calceChietKhau.NullText = "0";
+            calceChietKhau.MaxLength = 10;
             calceThanhToan.NullText = "0";
+            calceThanhToan.MaxLength = 10;
 
             List<object> listDKTT = new List<object>
             {
@@ -194,7 +197,17 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void LoadDuLieu()
         {
-            throw new NotImplementedException();
+            txtMa.Text              = editBH.MaBH;
+            deNgay.EditValue        = editBH.NgayLap;
+            leKhoXuat.EditValue     = editBH.KhoXuat;
+            gvMain.SetRowCellValue(0, "colMa", editBH.MaHH);
+            leMaKH.EditValue        = editBH.MaKH;
+            leNhanVienBH.EditValue  = editBH.NhanVienBH;
+            gvMain.SetRowCellValue(0, "colDonGia", editBH.DonGia);
+            gvMain.SetRowCellValue(0, "colSoLuong", editBH.SoLuong);
+            gvMain.SetRowCellValue(0, "colThanhTien", editBH.ThanhTien);
+            gvMain.SetRowCellValue(0, "colThanhToan", editBH.ThanhToan);
+
         }
 
         private void phatSinhMa()
@@ -202,11 +215,11 @@ namespace DAQLBH_Devexpress.ChucNang
             if (isSale == true)
             {
                 var query = from tb in table.AsEnumerable()
-                        where tb.Field<string>("RefNo").Contains("BHADMIN")
-                        select new
-                        {
-                            maPhieu = tb.Field<string>("RefNo")
-                        };
+                            where tb.Field<string>("RefNo").Contains("BHADMIN")
+                            select new
+                            {
+                                maPhieu = tb.Field<string>("RefNo")
+                            };
 
                 DataTable dttb = new DataTable();
                 dttb.Columns.Add("RefNo", typeof(string));
@@ -275,7 +288,7 @@ namespace DAQLBH_Devexpress.ChucNang
             addColumns(dataTable, typeof(string), "colMa");
             addColumns(dataTable, typeof(string), "colTen");
             addColumns(dataTable, typeof(string), "colDonVi");
-            addColumns(dataTable, typeof(int), "colSoLuong");
+            addColumns(dataTable, typeof(float), "colSoLuong");
             addColumns(dataTable, typeof(double), "colDonGia");
             addColumns(dataTable, typeof(double), "colThanhTien");
             addColumns(dataTable, typeof(float), "colChietKhauTiLe");
@@ -335,6 +348,32 @@ namespace DAQLBH_Devexpress.ChucNang
             leMaKH.EditValue = leKH.EditValue.ToString();
         }
 
+        private void gvMain_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            if (gv.FocusedColumn.FieldName == "colThanhTien" ||
+                gv.FocusedColumn.FieldName == "colChietKhauTiLe" ||
+                gv.FocusedColumn.FieldName == "colChietKhau" ||
+                gv.FocusedColumn.FieldName == "colThanhToan")
+            {
+                double t = 0;
+                if (!double.TryParse(e.Value.ToString(), out t))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Vui lòng chỉ nhập số !";
+                }
+                else if (t < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Giá trị không hợp lệ !";
+                }
+                else
+                {
+                    e.Valid = true;
+                    e.ErrorText = "";
+                }
+            }
+        }
         void GvMain_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             GridView gv = sender as GridView;
@@ -355,6 +394,141 @@ namespace DAQLBH_Devexpress.ChucNang
                 }
                 return;
             }
+            if (e.Column.FieldName == "colSoLuong")
+            {
+                if (e.Value.ToString() == "")
+                    return;
+                float colSoLuong = e.Value.ToString() == "" ? int.MaxValue :float.Parse(e.Value.ToString());
+                float colDonGia = GetColValue(gv, "colDonGia");
+                float colChietKhau = GetColValue(gv, "colChietKhau");
+                if (colDonGia != int.MaxValue)
+                    gv.SetFocusedRowCellValue("colThanhTien", colDonGia * colSoLuong);
+                if (colChietKhau != int.MaxValue)
+                    gv.SetFocusedRowCellValue("colChietKhau", colChietKhau * colSoLuong);
+                gv.SetFocusedRowCellValue("colThanhToan", colDonGia * colSoLuong - colChietKhau * colSoLuong);
+            }
+            if (e.Column.FieldName == "colDonGia")
+            {
+                if (e.Value.ToString() == "")
+                    return;
+                float colDonGia = e.Value.ToString() == "" ? int.MaxValue : float.Parse(e.Value.ToString());
+                float colSoLuong = GetColValue(gv, "colSoLuong");
+                float colChietKhau = GetColValue(gv, "colChietKhau") == int.MaxValue ? 0: GetColValue(gv, "colChietKhau");
+                if (colDonGia != int.MaxValue && colSoLuong != int.MaxValue)
+                {
+                    gv.SetFocusedRowCellValue("colThanhTien", colDonGia * colSoLuong);
+                    gv.SetFocusedRowCellValue("colThanhToan", colDonGia * colSoLuong - colChietKhau);
+                }
+                return;
+            }
+            if (e.Column.FieldName == "colChietKhauTiLe")
+            {
+                if (e.Value.ToString() == "")
+                    return;
+                float colChietKhauTiLe = float.Parse(e.Value.ToString());
+                float colDonGia = GetColValue(gv, "colDonGia");
+                float colSoLuong = GetColValue(gv, "colSoLuong");
+                if (colDonGia != int.MaxValue && colSoLuong != int.MaxValue )
+                {
+                    gv.SetFocusedRowCellValue("colChietKhau", colDonGia * colSoLuong * colChietKhauTiLe / 100);
+                    gv.SetFocusedRowCellValue("colThanhToan", colDonGia * colSoLuong * (100 - colChietKhauTiLe) / 100);
+                }
+                return;
+            }
+            else if (e.Column.FieldName == "colChietKhau")
+            {
+                if (e.Value.ToString() == "")
+                    return;
+                float colChietKhau = float.Parse(e.Value.ToString());
+                float colDonGia = GetColValue(gv, "colDonGia");
+                float colSoLuong = GetColValue(gv, "colSoLuong");
+                if (colDonGia != int.MaxValue && colSoLuong != int.MaxValue)
+                {
+                    if (GetColValue(gv, "colChietKhauTiLe") / 100 != colChietKhau / (colDonGia * colSoLuong))
+                        gv.SetFocusedRowCellValue("colChietKhauTiLe", colChietKhau / (colDonGia * colSoLuong));
+                    gv.SetFocusedRowCellValue("colThanhToan", colDonGia * colSoLuong - colChietKhau);
+                }
+                return;
+            }
+        }
+
+        private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GridView grv = gvcMain.Views[0] as GridView;
+            while (grv.RowCount > 1)
+            {
+                grv.DeleteRow(0);
+            }
+        }
+
+        private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {            
+            DateTime        _NgayLap =            DateTime.Parse(deNgay.EditValue.ToString())                                 ;                                                                         ;
+            string          _KhoXuat           =            leKhoXuat.EditValue.ToString()                                              ;
+            string          _MaHH        =            gvMain.GetFocusedRowCellValue("colMa").ToString()                           ;
+            string          _TenHH      =            gvMain.GetFocusedRowCellDisplayText("colTen").ToString()                          ;
+            string          _MaKH              =            leMaKH.EditValue.ToString()                                                 ;
+            string          _TenKH             =            leKH.Text.ToString();
+            string          _NhanVienBH        =            leNhanVienBH.EditValue.ToString()                                           ;
+            string          _DonVi            =            gvMain.GetFocusedRowCellValue("colDonVi").ToString()                        ;
+            float           _DonGia           =            gvMain.GetFocusedRowCellValue("colDonGia").ToString() == ""?0: float.Parse(gvMain.GetFocusedRowCellValue("colDonGia").ToString())          ;
+            float           _SoLuong          =            gvMain.GetFocusedRowCellValue("colSoLuong").ToString() == "" ? 0 : float.Parse(gvMain.GetFocusedRowCellValue("colSoLuong").ToString())         ;
+            float           _ThanhTien         =            gvMain.GetFocusedRowCellValue("colThanhTien").ToString() == "" ? 0 : float.Parse(gvMain.GetFocusedRowCellValue("colThanhTien").ToString())       ;
+            float           _ChietKhauTiLe      =            gvMain.GetFocusedRowCellValue("colChietKhauTiLe").ToString() == "" ? 0 : float.Parse(gvMain.GetFocusedRowCellValue("colChietKhauTiLe").ToString())       ;
+            float           _ChietKhau             =            gvMain.GetFocusedRowCellValue("colChietKhau").ToString() == "" ? 0 : float.Parse(gvMain.GetFocusedRowCellValue("colChietKhau").ToString())         ;
+            float           _ThanhToan             =            gvMain.GetFocusedRowCellValue("colThanhToan").ToString() == "" ? 0 : float.Parse(gvMain.GetFocusedRowCellValue("colThanhToan").ToString())       ;
+            string          _DiaChi                =           txtDC.Text                                 ;
+            string          _GhiChu                =            txtGC.Text                                ;
+            string          _DienThoai             =            txtSDT.Text                                ;
+            string          _SoHoaDonVat           =            txtHoaDonVAT.Text                                ;
+            string          _SoPhieuNhapTay        =            txtSoPhieu.Text                                ;
+            string          _DieuKhoanThanhToan    =            gleDKTT.Text                                ;
+            string          _HinhThucTT            =            gleHTTT.Text                                ;
+            DateTime          _HanTT                 =           DateTime.Parse(deHanTT.Text)                                ;
+            DateTime          _NgayGiao              =          DateTime.Parse(deNgayGiao.Text);
+
+
+
+
+            CBanHang bh = new CBanHang
+                (
+                    txtMa.Text                 ,
+                    _NgayLap              ,
+                    _MaKH                 ,
+                    _TenKH                ,
+                    _NhanVienBH           ,
+                    _KhoXuat              ,
+                    _DiaChi               ,
+                    _GhiChu               ,
+                    _DienThoai            ,
+                    _SoHoaDonVat          ,
+                    _SoPhieuNhapTay       ,
+                    _DieuKhoanThanhToan   ,
+                    _HinhThucTT           ,
+                    _HanTT                ,
+                    _NgayGiao             ,
+                    _MaHH                 ,
+                    _TenHH                ,
+                    _DonVi                ,
+                    _SoLuong              ,
+                    _DonGia               ,
+                    _ThanhTien            ,
+                    _ChietKhauTiLe        ,
+                    _ChietKhau            ,
+                    _ThanhToan
+                );
+            BUS_KhoXuat.ThemBH(bh);
+            btnThem_ItemClick(sender, e);
+        }
+
+        private static float GetColValue(GridView gv,string colName)
+        {
+            return gv.GetFocusedRowCellValue(gv.Columns[colName]).ToString() == "" ? int.MaxValue : float.Parse(gv.GetFocusedRowCellValue(gv.Columns[colName]).ToString());
         }
     }
 }

@@ -70,11 +70,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang\fBaseBanKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fBaseBanKe.Designer.cs">
+      <DependentUpon>fBaseBanKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\fBaseMH_BH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChucNang\fBaseMH_BH.Designer.cs">
       <DependentUpon>fBaseMH_BH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\fMainBH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fMainBH.Designer.cs">
+      <DependentUpon>fMainBH.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\fBaseKho_NV_HH.cs">
       <SubType>Form</SubType>
@@ -160,12 +172,6 @@
     <Compile Include="DanhMuc\fTiGia.Designer.cs">
       <DependentUpon>fTiGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\fMainBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChucNang\fMainBanHang.Designer.cs">
-      <DependentUpon>fMainBanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="HeThong\fDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,8 +240,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChucNang\fBaseBanKe.resx">
+      <DependentUpon>fBaseBanKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fBaseMH_BH.resx">
       <DependentUpon>fBaseMH_BH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fMainBH.resx">
+      <DependentUpon>fMainBH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseKho_NV_HH.resx">
       <DependentUpon>fBaseKho_NV_HH.cs</DependentUpon>
@@ -278,9 +290,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fTiGia.resx">
       <DependentUpon>fTiGia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\fMainBanHang.resx">
-      <DependentUpon>fMainBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>

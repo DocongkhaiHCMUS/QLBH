@@ -101,7 +101,7 @@ namespace QLBH_BUS
             {
                 DonViTinh dv = new DonViTinh();
                 Kho k = new Kho();
-                DataTable dataTableTonKho = k.GetTonKhoLookUp();
+                DataTable dataTableTonKho = k.LayTonKhoLookUp();
                 DataTable dataTableDV = dv.LoadDVTDonGian();
                 DataTable dataTableKho = k.LoadKhoHang();
                 DataTable dataTableHD = k.GetHanhDong();
@@ -179,6 +179,120 @@ namespace QLBH_BUS
             {
                 Kho dao = new Kho();
                 return dao.GetHanhDong();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public static int getMaxID()
+        {
+            try
+            {
+                Kho dao = new Kho();
+                return dao.GetMaxID();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Bán hàng
+
+        public static DataTable LayChungTuBH()
+        {
+            try
+            {
+                Kho dao = new Kho();
+                DataTable dataTableCT = dao.ChitietChungTuBH();
+                DonViTinh dv = new DonViTinh();
+                DataTable dataTableDV = dv.LoadDVTDonGian();
+                DataTable dataTableKho = dao.LoadKhoHang();
+                DataTable dataTableBH = dao.LayChungTuBH();
+
+                var results = from table1 in dataTableCT.AsEnumerable()
+                              join table2 in dataTableDV.AsEnumerable() on (string)table1["Unit"] equals (string)table2["UNIT_ID"]
+                              join table3 in dataTableKho.AsEnumerable() on (string)table1["Stock_ID"] equals (string)table3["Stock_ID"]
+                              join table4 in dataTableBH.AsEnumerable() on (string)table1["Outward_ID"] equals(string)table4["ID"]
+                              select new
+                              {
+                                  Outward_ID   = table1["Outward_ID"].ToString(),
+                                  RefDate      = DateTime.Parse(table4["RefDate"].ToString()),
+                                  Description  = table1["Description"].ToString(),
+                                  Product_ID   = table1["Product_ID"].ToString(),
+                                  ProductName  = table1["ProductName"].ToString(),
+                                  Stock_ID     = table3["Stock_Name"].ToString(),
+                                  Unit         = table2["Unit_Name"].ToString(),
+                                  Quantity     = float.Parse(table1["Quantity"].ToString()),
+                                  UnitPrice    = float.Parse(table1["UnitPrice"].ToString()),
+                                  Charge       = float.Parse(table1["Charge"].ToString()),
+                                  DiscountRate = float.Parse(table1["DiscountRate"].ToString()),
+                                  Discount     = float.Parse(table1["Discount"].ToString()),
+                                  Amount       = float.Parse(table1["Amount"].ToString())
+
+                              };
+
+                DataTable rs = new DataTable();
+                rs.Columns.Add("Outward_ID"    );
+                rs.Columns.Add("RefDate"       );
+                rs.Columns.Add("Description"   );
+                rs.Columns.Add("Product_ID"    );
+                rs.Columns.Add("ProductName"   );
+                rs.Columns.Add("Stock_ID"      );
+                rs.Columns.Add("Unit"          );
+                rs.Columns.Add("Quantity"      );
+                rs.Columns.Add("UnitPrice"     );
+                rs.Columns.Add("Charge"        );
+                rs.Columns.Add("DiscountRate"  );
+                rs.Columns.Add("Discount"      );
+                rs.Columns.Add("Amount");
+
+                foreach (var item in results)
+                {
+                    rs.Rows.Add(item.Outward_ID,item.RefDate,item.Description,item.Product_ID,item.ProductName,item.Stock_ID,item.Unit,
+                                item.Quantity,item.UnitPrice,item.Charge,item.DiscountRate,item.Discount,item.Amount);
+                }
+                return rs;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ThemBH(CBanHang bh)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.ThemBanHang(bh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void SuaBH(CBanHang bh)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.SuaBH(bh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void XoaBH(string MaBH)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.XoaBH(MaBH);
             }
             catch (SqlException ex)
             {

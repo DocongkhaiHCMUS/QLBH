@@ -67,5 +67,23 @@ namespace QLBH_DAO
                 throw ex;
             }
         }
+
+        public int ExeCuteScalar(CommandType type, string sql, params SqlParameter[] param)
+        {
+            try
+            {
+                SqlCommand sqlCommand = Connection.CreateCommand();
+                sqlCommand.CommandType = type;
+                sqlCommand.CommandText = sql;
+                if (param != null && param.Length > 0)
+                    sqlCommand.Parameters.AddRange(param);
+                int rs = int.Parse(sqlCommand.ExecuteScalar().ToString());
+                return rs;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
