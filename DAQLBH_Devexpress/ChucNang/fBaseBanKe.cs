@@ -15,102 +15,207 @@ namespace DAQLBH_Devexpress.ChucNang
 {
     public partial class fBaseBanKe : fBaseStatic
     {
-        fMainBH.BanKebtnThem _send;
+        fMainBH.BanKebtnThem _sendBH;
         fMainBH.BanKebtnSua _sua;
-        public fBaseBanKe(fMainBH.BanKebtnThem send,fMainBH.BanKebtnSua sua)
+        bool sale;
+        public fBaseBanKe(bool isSale = true,fMainBH.BanKebtnThem send=null,fMainBH.BanKebtnSua sua=null)
         {
             InitializeComponent();
-            _send = send;
+            sale = isSale;
+            _sendBH = send;
             _sua = sua;
             Init();
         }
 
         private void Init()
         {
-            gvcMain.DataSource = BUS_KhoXuat.LayChungTuBH();
-
-            gvMain.Columns[0].FieldName =  "Outward_ID"     ;
-            gvMain.Columns[1].FieldName =  "RefDate"        ;
-            gvMain.Columns[2].FieldName =  "Description"    ;
-            gvMain.Columns[3].FieldName =  "Product_ID"     ;
-            gvMain.Columns[4].FieldName =  "ProductName"    ;
-            gvMain.Columns[5].FieldName =  "Stock_ID"       ;
-            gvMain.Columns[6].FieldName =  "Unit"           ;
-            gvMain.Columns[7].FieldName =  "Quantity"       ;
-            gvMain.Columns[8].FieldName =  "UnitPrice"      ;
-            gvMain.Columns[9].FieldName =  "Charge"         ;
-            gvMain.Columns[10].FieldName = "DiscountRate"   ;
-            gvMain.Columns[11].FieldName = "Discount"       ;
-            gvMain.Columns[12].FieldName = "Amount"         ;
-
+            if (sale == true)
+            {
+                KhoiTaoChungTuBH();
+            }
+            else
+            {
+                KhoiTaoChungTuMH();
+            }
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
             btnThem.ItemClick += BtnThem_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;
             btnSua.ItemClick += BtnSua_ItemClick;
         }
 
+        private void KhoiTaoChungTuMH()
+        {
+            gvcMain.DataSource = BUS_KhoXuat.LayChungTuMH();
+
+            gvMain.Columns[0].FieldName = "Inward_ID"       ;
+            gvMain.Columns[1].FieldName = "RefDate"         ;
+            gvMain.Columns[2].FieldName = "CustomerName"    ;
+            gvMain.Columns[3].FieldName = "Product_ID"      ;
+            gvMain.Columns[4].FieldName = "ProductName"     ;
+            gvMain.Columns[5].FieldName = "Stock_ID"        ;
+            gvMain.Columns[6].FieldName = "Unit"            ;
+            gvMain.Columns[7].FieldName = "Quantity"        ;
+            gvMain.Columns[8].FieldName = "UnitPrice"       ;
+            gvMain.Columns[9].FieldName = "Amount";
+
+            gvMain.Columns[2].Caption = "Nhà Cung Cấp";
+            gvMain.Columns[10].Visible = false;
+            gvMain.Columns[11].Visible = false;
+            gvMain.Columns[12].Visible = false;
+        }
+
+        private void KhoiTaoChungTuBH()
+        {
+            gvcMain.DataSource = BUS_KhoXuat.LayChungTuBH();
+
+            gvMain.Columns[0].FieldName = "Outward_ID";
+            gvMain.Columns[1].FieldName = "RefDate";
+            gvMain.Columns[2].FieldName = "Description";
+            gvMain.Columns[3].FieldName = "Product_ID";
+            gvMain.Columns[4].FieldName = "ProductName";
+            gvMain.Columns[5].FieldName = "Stock_ID";
+            gvMain.Columns[6].FieldName = "Unit";
+            gvMain.Columns[7].FieldName = "Quantity";
+            gvMain.Columns[8].FieldName = "UnitPrice";
+            gvMain.Columns[9].FieldName = "Charge";
+            gvMain.Columns[10].FieldName = "DiscountRate";
+            gvMain.Columns[11].FieldName = "Discount";
+            gvMain.Columns[12].FieldName = "Amount";
+        }
+
         private void BtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SuaChungTuBH();
+        }
+
+        private void SuaChungTuBH()
         {
             List<CBanHang> lBH = new List<CBanHang>();
             int rowIndex = gvMain.FocusedRowHandle;
-            DataTable fBH = BUS_KhoXuat.TimBH(gvMain.GetRowCellValue(rowIndex, "Outward_ID").ToString());
-            foreach(DataRow item in fBH.Rows)
-            { 
-            string      _MaBH                   = item.Field<string>     ("MaBH"                   )          ;
-            DateTime      _NgayLap              = item.Field<DateTime>     ("NgayLap"                )        ;
-            string      _MaKH                   = item.Field<string>       ("MaKH"                   )                    ;
-            string      _TenKH                  = item.Field<string>     ("TenKH"                 )              ;
-            string      _NhanVienBH             = item.Field<string>     ("NhanVienBH"            )                ;
-            string      _KhoXuat                = item.Field<string>     ("KhoXuat"               )               ;
-            string      _DiaChi                 = item.Field<string>   ("DiaChi"                )           ;
-            string      _GhiChu                 = item.Field<string>     ("GhiChu"                )        ;
-            string      _DienThoai              = item.Field<string>     ("DienThoai"             )           ;
-            string      _SoHoaDonVat            = item.Field<string>     ("SoHoaDonVat"           )          ;
-            string      _SoPhieuNhapTay         = item.Field<string>     ("SoPhieuNhapTay"        )                ;
-            string      _DieuKhoanThanhToan     = item.Field<string>       ("DieuKhoanThanhToan"    )                 ;
-            string      _HinhThucTT             = item.Field<string>     ("HinhThucTT"            )          ;
-            DateTime      _HanTT                = item.Field<DateTime>     ("HanTT"                 )        ;
-            DateTime _NgayGiao                  = item.Field<DateTime>       ("NgayGiao"              )                    ;
-            string      _MaHH                   = item.Field<string>     ("MaHH"                  )              ;
-            string      _TenHH                  = item.Field<string>     ("TenHH"                 )                ;
-            string      _DonVi                  = item.Field<string>     ("DonVi"                 )               ;
-            decimal       _SoLuong              = item.Field<decimal>   ("SoLuong"               )           ;
-            decimal      _DonGia                = item.Field<decimal>     ("DonGia"                )        ;
-            decimal      _ThanhTien             = item.Field<decimal>     ("ThanhTien"             )           ;
-            decimal      _ChietKhauTiLe         = item.Field<decimal>     ("ChietKhauTiLe"         )          ;
-            decimal       _ChietKhau            = item.Field<decimal>     ("ChietKhau"             )                ;
-            decimal      _ThanhToan             = item.Field<decimal>     ("ThanhToan"             )                 ;
-                
-            CBanHang bh = new CBanHang
-                (
-                    _MaBH                ,
-                    _NgayLap             ,
-                    _MaKH                ,
-                    _TenKH               ,
-                    _NhanVienBH          ,
-                    _KhoXuat             ,
-                    _DiaChi              ,
-                    _GhiChu              ,
-                    _DienThoai           ,
-                    _SoHoaDonVat         ,
-                    _SoPhieuNhapTay      ,
-                    _DieuKhoanThanhToan  ,
-                    _HinhThucTT          ,
-                    _HanTT               ,
-                    _NgayGiao            ,
-                    _MaHH                ,
-                    _TenHH               ,
-                    _DonVi               ,
-                    float.Parse(_SoLuong      .ToString())       ,
-                    float.Parse(_DonGia       .ToString())       ,
-                    float.Parse(_ThanhTien    .ToString())       ,
-                    float.Parse(_ChietKhauTiLe.ToString())       ,
-                    float.Parse(_ChietKhau    .ToString())       ,
-                    float.Parse(_ThanhToan    .ToString())
-                );
-                lBH.Add(bh);
+            DataTable fBH;
+            if (sale == true)
+                fBH = BUS_KhoXuat.TimBH(gvMain.GetRowCellValue(rowIndex, "Outward_ID").ToString());
+            else
+                fBH = BUS_KhoXuat.TimMH(gvMain.GetRowCellValue(rowIndex, "Inward_ID").ToString());
+            foreach (DataRow item in fBH.Rows)
+            {
+                if (sale == true)
+                {
+                    string _MaBH = item.Field<string>("MaBH");
+                    DateTime _NgayLap = item.Field<DateTime>("NgayLap");
+                    string _MaKH = item.Field<string>("MaKH");
+                    string _TenKH = item.Field<string>("TenKH");
+                    string _NhanVienBH = item.Field<string>("NhanVienBH");
+                    string _KhoXuat = item.Field<string>("KhoXuat");
+                    string _DiaChi = item.Field<string>("DiaChi");
+                    string _GhiChu = item.Field<string>("GhiChu");
+                    string _DienThoai = item.Field<string>("DienThoai");
+                    string _SoHoaDonVat = item.Field<string>("SoHoaDonVat");
+                    string _SoPhieuNhapTay = item.Field<string>("SoPhieuNhapTay");
+                    string _DieuKhoanThanhToan = item.Field<string>("DieuKhoanThanhToan");
+                    string _HinhThucTT = item.Field<string>("HinhThucTT");
+                    DateTime _HanTT = item.Field<DateTime>("HanTT");
+                    DateTime _NgayGiao = item.Field<DateTime>("NgayGiao");
+                    string _MaHH = item.Field<string>("MaHH");
+                    string _TenHH = item.Field<string>("TenHH");
+                    string _DonVi = item.Field<string>("DonVi");
+                    decimal _SoLuong = item.Field<decimal>("SoLuong");
+                    decimal _DonGia = item.Field<decimal>("DonGia");
+                    decimal _ThanhTien = item.Field<decimal>("ThanhTien");
+                    decimal _ChietKhauTiLe = item.Field<decimal>("ChietKhauTiLe");
+                    decimal _ChietKhau = item.Field<decimal>("ChietKhau");
+                    decimal _ThanhToan = item.Field<decimal>("ThanhToan");
+
+
+                    CBanHang bh = new CBanHang
+                        (
+                            _MaBH,
+                            _NgayLap,
+                            _MaKH,
+                            _TenKH,
+                            _NhanVienBH,
+                            _KhoXuat,
+                            _DiaChi,
+                            _GhiChu,
+                            _DienThoai,
+                            _SoHoaDonVat,
+                            _SoPhieuNhapTay,
+                            _DieuKhoanThanhToan,
+                            _HinhThucTT,
+                            _HanTT,
+                            _NgayGiao,
+                            _MaHH,
+                            _TenHH,
+                            _DonVi,
+                            float.Parse(_SoLuong.ToString()),
+                            float.Parse(_DonGia.ToString()),
+                            float.Parse(_ThanhTien.ToString()),
+                            float.Parse(_ChietKhauTiLe.ToString()),
+                            float.Parse(_ChietKhau.ToString()),
+                            float.Parse(_ThanhToan.ToString())
+                        );
+
+                    lBH.Add(bh);
                 }
-            
+                else
+                {
+                    string _MaBH = item.Field<string>("MaBH");
+                    DateTime _NgayLap = item.Field<DateTime>("NgayLap");
+                    string _MaKH = item.Field<string>("MaKH");
+                    string _TenKH = item.Field<string>("TenKH");
+                    string _NhanVienBH = item.Field<string>("NhanVienBH");
+                    string _KhoXuat = item.Field<string>("KhoXuat");
+                    string _DiaChi = item.Field<string>("DiaChi");
+                    string _GhiChu = item.Field<string>("GhiChu");
+                    string _DienThoai = item.Field<string>("DienThoai");
+                    string _SoHoaDonVat = item.Field<string>("SoHoaDonVat");
+                    string _SoPhieuNhapTay = item.Field<string>("SoPhieuNhapTay");
+                    string _DieuKhoanThanhToan = item.Field<string>("DieuKhoanThanhToan");
+                    string _HinhThucTT = item.Field<string>("HinhThucTT");
+                    DateTime _HanTT = item.Field<DateTime>("HanTT");
+                    DateTime _NgayGiao = DateTime.Now;
+                    string _MaHH = item.Field<string>("MaHH");
+                    string _TenHH = item.Field<string>("TenHH");
+                    string _DonVi = item.Field<string>("DonVi");
+                    decimal _SoLuong = item.Field<decimal>("SoLuong");
+                    decimal _DonGia = item.Field<decimal>("DonGia");
+                    decimal _ThanhTien = item.Field<decimal>("ThanhToan");
+                    decimal _ChietKhauTiLe = 0;
+                    decimal _ChietKhau = 0;
+                    decimal _ThanhToan = 0;
+
+
+                    CBanHang bh = new CBanHang
+                        (
+                            _MaBH,
+                            _NgayLap,
+                            _MaKH,
+                            _TenKH,
+                            _NhanVienBH,
+                            _KhoXuat,
+                            _DiaChi,
+                            _GhiChu,
+                            _DienThoai,
+                            _SoHoaDonVat,
+                            _SoPhieuNhapTay,
+                            _DieuKhoanThanhToan,
+                            _HinhThucTT,
+                            _HanTT,
+                            _NgayGiao,
+                            _MaHH,
+                            _TenHH,
+                            _DonVi,
+                            float.Parse(_SoLuong.ToString()),
+                            float.Parse(_DonGia.ToString()),
+                            float.Parse(_ThanhTien.ToString()),
+                            float.Parse(_ChietKhauTiLe.ToString()),
+                            float.Parse(_ChietKhau.ToString()),
+                            float.Parse(_ThanhToan.ToString())
+                        );
+
+                    lBH.Add(bh);
+                }
+            }
             _sua?.Invoke(lBH);
         }
 
@@ -119,8 +224,17 @@ namespace DAQLBH_Devexpress.ChucNang
             if (XtraMessageBox.Show("Bạn có chắc muốn xóa không ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) 
                 == DialogResult.Yes)
             {
-                string ma = gvMain.GetFocusedRowCellValue("Outward_ID").ToString();
-                BUS_KhoXuat.XoaBH(ma);
+                if (sale == true)
+                {
+                    string ma = gvMain.GetFocusedRowCellValue("Outward_ID").ToString();
+                    BUS_KhoXuat.XoaBH(ma);
+                }
+                else
+                {
+                    string ma = gvMain.GetFocusedRowCellValue("Inward_ID").ToString();
+                    BUS_KhoXuat.XoaMH(ma);
+                }
+
                 Refresh();
             }
 
@@ -128,7 +242,7 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void BtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _send?.Invoke();
+            _sendBH?.Invoke();
         }
 
         private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -138,7 +252,10 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void Refresh()
         {
-            gvcMain.DataSource = BUS_KhoXuat.LayChungTuBH();
+            if (sale == true)
+                gvcMain.DataSource = BUS_KhoXuat.LayChungTuBH();
+            else
+                gvcMain.DataSource = BUS_KhoXuat.LayChungTuMH();
         }
     }
 }

@@ -185,18 +185,6 @@ namespace QLBH_BUS
                 throw ex;
             }
         }
-        public static int getMaxID()
-        {
-            try
-            {
-                Kho dao = new Kho();
-                return dao.GetMaxID();
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-        }
 
         //Bán hàng
 
@@ -274,6 +262,7 @@ namespace QLBH_BUS
                 throw ex;
             }
         }
+
         public static void ThemBH(List<CBanHang> bh)
         {
             try
@@ -306,6 +295,115 @@ namespace QLBH_BUS
             {
                 Kho dao = new Kho();
                 dao.XoaBH(MaBH);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Mua Hàng
+        public static DataTable LayChungTuMH()
+        {
+            try
+            {
+                Kho dao = new Kho();
+                DataTable dataTableCT = dao.ChitietChungTuMH();
+                DonViTinh dv = new DonViTinh();
+                DataTable dataTableDV = dv.LoadDVTDonGian();
+                DataTable dataTableKho = dao.LoadKhoHang();
+                DataTable dataTableBH = dao.LayChungTuMH();
+
+                var results = from table1 in dataTableCT.AsEnumerable()
+                              join table2 in dataTableDV.AsEnumerable() on (string)table1["Unit"] equals (string)table2["UNIT_ID"]
+                              join table3 in dataTableKho.AsEnumerable() on (string)table1["Stock_ID"] equals (string)table3["Stock_ID"]
+                              join table4 in dataTableBH.AsEnumerable() on (string)table1["Inward_ID"] equals (string)table4["ID"]
+                              select new
+                              {
+                                  Inward_ID     = table1["Inward_ID"].ToString(),
+                                  RefDate       = DateTime.Parse(table4["RefDate"].ToString()),
+                                  CustomerName  = table4["CustomerName"].ToString(),
+                                  Product_ID    = table1["Product_ID"].ToString(),
+                                  ProductName   = table1["ProductName"].ToString(),
+                                  Stock_ID          = table3["Stock_Name"].ToString(),
+                                  Unit          = table2["Unit_Name"].ToString(),
+                                  Quantity      = float.Parse(table1["Quantity"].ToString()),
+                                  UnitPrice     = float.Parse(table1["UnitPrice"].ToString()),
+                                  Amount        = float.Parse(table1["Amount"].ToString())
+
+                              };
+
+                DataTable rs = new DataTable();
+                rs.Columns.Add("Inward_ID");
+                rs.Columns.Add("RefDate");
+                rs.Columns.Add("CustomerName");
+                rs.Columns.Add("Product_ID");
+                rs.Columns.Add("ProductName");
+                rs.Columns.Add("Stock_ID");
+                rs.Columns.Add("Unit");
+                rs.Columns.Add("Quantity", typeof(float));
+                rs.Columns.Add("UnitPrice", typeof(float));
+                rs.Columns.Add("Amount", typeof(float));
+
+                foreach (var item in results)
+                {
+                    rs.Rows.Add(item.Inward_ID, item.RefDate,item.CustomerName,item.Product_ID, item.ProductName, item.Stock_ID, item.Unit,
+                                item.Quantity, item.UnitPrice, item.Amount);
+                }
+                return rs;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable TimMH(string MaMH)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                DataTable table = dao.GetChitietChungTuMH(MaMH);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ThemMH(List<CBanHang> mh)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.ThemMH(mh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void SuaMH(List<CBanHang> mh)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.SuaMH(mh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void XoaMH(string MaMH)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                dao.XoaMH(MaMH);
             }
             catch (SqlException ex)
             {

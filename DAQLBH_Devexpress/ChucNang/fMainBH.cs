@@ -17,36 +17,70 @@ namespace DAQLBH_Devexpress.ChucNang
     {
         public delegate void BanKebtnThem();
         public delegate void BanKebtnSua(List<CBanHang> t);
-        public fMainBH()
+        bool sale;
+        public fMainBH(bool isSale = true)
         {
             InitializeComponent();
+            sale = isSale;
             Init();
         }
 
         private void Init()
         {
-            fBaseMH_BH bh = new fBaseMH_BH();
-            bh.MdiParent = this;
-            bh.Show();
+            
+            if (sale == true)
+            {
+                Text = "Bán Hàng";
+                btnPhieu.Caption = "Phiếu xuất hàng";
+                fBaseMH_BH bh = new fBaseMH_BH();
+                bh.MdiParent = this;
+                bh.Show();
+            }
+            else
+            {
+                Text = "Mua Hàng";
+                btnPhieu.Caption = "Phiếu nhập hàng";
+                fBaseMH_BH mh = new fBaseMH_BH(false);
+                mh.MdiParent = this;
+                mh.Show();
+            }
         }
 
         private void btnPhieu_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            ThemBH();
+            Them();
         }
 
-        private void ThemBH()
+        private void Them()
         {
-            Form frm = KiemTraTonTai(typeof(fBaseMH_BH), "Phiếu xuất hàng");
+            Form frm;
+            if (sale == true)
+            {
+                frm = KiemTraTonTai(typeof(fBaseMH_BH), "Phiếu xuất hàng");
+            }
+            else
+            {
+                frm = KiemTraTonTai(typeof(fBaseMH_BH), "Phiếu nhập hàng");
+            }
+
             if (frm != null)
             {
                 frm.Activate();
             }
             else
             {
-                fBaseMH_BH bh = new fBaseMH_BH();
-                bh.MdiParent = this;
-                bh.Show();
+                if (sale == true)
+                {
+                    fBaseMH_BH bh = new fBaseMH_BH();
+                    bh.MdiParent = this;
+                    bh.Show();
+                }
+                else
+                {
+                    fBaseMH_BH mh = new fBaseMH_BH(false);
+                    mh.MdiParent = this;
+                    mh.Show();
+                }
             }
         }
 
@@ -95,10 +129,31 @@ namespace DAQLBH_Devexpress.ChucNang
             }
             else
             {
-                fBaseBanKe bh = new fBaseBanKe(ThemBH, SuaBH);
-                bh.MdiParent = this;
-                bh.Show();
+                if (sale == true)
+                {
+                    fBaseBanKe bh = new fBaseBanKe(true, Them, SuaBH);
+                    bh.MdiParent = this;
+                    bh.Show();
+                }
+                else
+                {
+                    fBaseBanKe mh = new fBaseBanKe(false, Them, SuaMH);
+                    mh.MdiParent = this;
+                    mh.Show();
+                }
             }
+        }
+
+        private void SuaMH(List<CBanHang> t)
+        {
+            Form frm = KiemTraTonTai(typeof(fBaseMH_BH), "Phiếu nhập hàng");
+            if (frm != null)
+            {
+                frm.Close();
+            }
+            fBaseMH_BH mh = new fBaseMH_BH(false, false, t);
+            mh.MdiParent = this;
+            mh.Show();
         }
 
         private void btnHangHoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

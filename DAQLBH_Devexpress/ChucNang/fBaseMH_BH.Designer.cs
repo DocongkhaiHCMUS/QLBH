@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcXuat = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.gvcMain = new DevExpress.XtraGrid.GridControl();
@@ -90,7 +90,7 @@
             this.lcIPhieu = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcIKho = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -106,7 +106,6 @@
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -114,6 +113,7 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gcXuat)).BeginInit();
             this.gcXuat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -168,7 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcIPhieu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcIKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -251,7 +251,7 @@
             this.colID.Name = "colID";
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
-            this.colID.Width = 105;
+            this.colID.Width = 115;
             // 
             // leMaHang
             // 
@@ -268,7 +268,7 @@
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
-            this.colName.Width = 208;
+            this.colName.Width = 238;
             // 
             // leTenHang
             // 
@@ -286,7 +286,7 @@
             this.colUnit.Name = "colUnit";
             this.colUnit.Visible = true;
             this.colUnit.VisibleIndex = 2;
-            this.colUnit.Width = 67;
+            this.colUnit.Width = 103;
             // 
             // leDonVi
             // 
@@ -304,7 +304,7 @@
             this.colSoLuong.Name = "colSoLuong";
             this.colSoLuong.Visible = true;
             this.colSoLuong.VisibleIndex = 3;
-            this.colSoLuong.Width = 101;
+            this.colSoLuong.Width = 143;
             // 
             // calceSoLuong
             // 
@@ -324,7 +324,7 @@
             this.colDonGia.Name = "colDonGia";
             this.colDonGia.Visible = true;
             this.colDonGia.VisibleIndex = 4;
-            this.colDonGia.Width = 96;
+            this.colDonGia.Width = 111;
             // 
             // calceDonGia
             // 
@@ -344,6 +344,7 @@
             this.colThanhTien.Name = "colThanhTien";
             this.colThanhTien.Visible = true;
             this.colThanhTien.VisibleIndex = 5;
+            this.colThanhTien.Width = 100;
             // 
             // colChietKhauTiLe
             // 
@@ -354,7 +355,7 @@
             this.colChietKhauTiLe.Name = "colChietKhauTiLe";
             this.colChietKhauTiLe.Visible = true;
             this.colChietKhauTiLe.VisibleIndex = 6;
-            this.colChietKhauTiLe.Width = 84;
+            this.colChietKhauTiLe.Width = 92;
             // 
             // calceChietKhauTiLe
             // 
@@ -564,10 +565,10 @@
             // 
             this.leKH.Location = new System.Drawing.Point(102, 12);
             this.leKH.Name = "leKH";
-            editorButtonImageOptions1.Image = global::DAQLBH_Devexpress.Properties.Resources.add_16x16;
+            editorButtonImageOptions2.Image = global::DAQLBH_Devexpress.Properties.Resources.add_16x16;
             this.leKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.leKH.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CustomerName", "Tên khách hàng"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Customer_ID", "Mã KH")});
@@ -673,7 +674,7 @@
             this.lcIPhieu,
             this.layoutControlItem13,
             this.layoutControlItem14,
-            this.layoutControlItem15,
+            this.lcIKho,
             this.splitterItem1,
             this.emptySpaceItem1});
             this.Root.Name = "Root";
@@ -806,14 +807,14 @@
             this.layoutControlItem14.Text = "Nhân viên BH ";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(87, 13);
             // 
-            // layoutControlItem15
+            // lcIKho
             // 
-            this.layoutControlItem15.Control = this.leKhoXuat;
-            this.layoutControlItem15.Location = new System.Drawing.Point(824, 72);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(288, 24);
-            this.layoutControlItem15.Text = "Kho xuất";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(87, 13);
+            this.lcIKho.Control = this.leKhoXuat;
+            this.lcIKho.Location = new System.Drawing.Point(824, 72);
+            this.lcIKho.Name = "lcIKho";
+            this.lcIKho.Size = new System.Drawing.Size(288, 24);
+            this.lcIKho.Text = "Kho xuất";
+            this.lcIKho.TextSize = new System.Drawing.Size(87, 13);
             // 
             // splitterItem1
             // 
@@ -958,14 +959,6 @@
             this.btnLuu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.Caption = "Xóa";
-            this.btnXoa.Id = 2;
-            this.btnXoa.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.deletelist_32x32;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Caption = "Làm Mới";
@@ -1026,6 +1019,14 @@
             this.barDockControl5.Location = new System.Drawing.Point(1140, 44);
             this.barDockControl5.Manager = this.barManager1;
             this.barDockControl5.Size = new System.Drawing.Size(0, 522);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Id = 2;
+            this.btnXoa.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.deletelist_32x32;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // fBaseMH_BH
             // 
@@ -1095,7 +1096,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcIPhieu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcIKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -1160,7 +1161,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lcIPhieu;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraLayout.LayoutControlItem lcIKho;
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

@@ -16,6 +16,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.DXErrorProvider;
 using QLBH_DTO;
+using DAQLBH_Devexpress.DanhMuc;
 
 namespace DAQLBH_Devexpress.ChucNang
 {
@@ -155,6 +156,7 @@ namespace DAQLBH_Devexpress.ChucNang
                 SetDataSource(leKH, BUS_KhachHang.LayKhachHangDonGian(), "CustomerName", "Customer_ID");
                 leKH.Properties.Columns[0].FieldName = "CustomerName";
                 leKH.Properties.Columns[1].FieldName = "Customer_ID";
+                leKH.Properties.Buttons[1].Click += btnThemKH_BaseMH_BH_Click;
 
                 //Khởi tạo Mã KH
                 leMaKH.Properties.TextEditStyle = TextEditStyles.Standard;
@@ -181,6 +183,7 @@ namespace DAQLBH_Devexpress.ChucNang
                 SetDataSource(leKH, BUS_NhaCungCap.LayNhaCC(), "CustomerName", "Customer_ID");
                 leKH.Properties.Columns[0].FieldName = "CustomerName";
                 leKH.Properties.Columns[1].FieldName = "Customer_ID";
+                leKH.Properties.Buttons[1].Click += btnThenNCC_BaseMH_BH_Click;
 
                 //Khởi tạo Mã NCC
                 leMaKH.Properties.NullText = "Chọn mã Nhà cung cấp ...";
@@ -195,16 +198,44 @@ namespace DAQLBH_Devexpress.ChucNang
                 leMaKH.EditValueChanged += GeMaKH_EditValueChanged;
 
                 Text = "Phiếu nhập hàng";
+
+                deNgayGiao.Visible = false;
+                lcIKho.Text = "Kho nhập";
+                gvMain.Columns["colChietKhauTiLe"].Visible = false;
+                gvMain.Columns["colChietKhau"].Visible = false;
+                gvMain.Columns["colThanhToan"].Visible = false;
+
             }
             table = BUS_KhoXuat.GetTonKhoLookup();
             if (add == true)
+            {
                 phatSinhMa();
+            }
             else
+            {
                 LoadDuLieu();
+            }
+        }
+
+        private void btnThenNCC_BaseMH_BH_Click(object sender, EventArgs e)
+        {
+            fThemNCC ncc = new fThemNCC();
+            ncc.ShowDialog();
+            leKH.Properties.DataSource = BUS_NhaCungCap.LayNhaCC();
+            leMaKH.Properties.DataSource = BUS_NhaCungCap.LayNhaCC();
+        }
+
+        private void btnThemKH_BaseMH_BH_Click(object sender, EventArgs e)
+        {
+            fThemKhachHang kh = new fThemKhachHang();
+            kh.ShowDialog();
+            leKH.Properties.DataSource = BUS_KhachHang.LayKhachHang();
+            leMaKH.Properties.DataSource = BUS_KhachHang.LayKhachHang();
         }
 
         private void LoadDuLieu()
         {
+            txtMa.Enabled = false;
             txtMa.Text              = editBH[0].MaBH;
             deNgay.EditValue        = editBH[0].NgayLap;
             leKhoXuat.EditValue     = editBH[0].KhoXuat;
@@ -218,6 +249,7 @@ namespace DAQLBH_Devexpress.ChucNang
             deNgayGiao.EditValue    = editBH[0].NgayGiao;
             leMaKH.EditValue        = editBH[0].MaKH;
             leNhanVienBH.EditValue  = editBH[0].NhanVienBH;
+
 
             for (int i = 0; i < editBH.Count; i++)
             {
@@ -488,6 +520,8 @@ namespace DAQLBH_Devexpress.ChucNang
             while (grv.RowCount > 1)
             {
                 grv.DeleteRow(0);
+                leMaHang.DataSource = BUS_HangHoa.LayHangHoaLookupEdit();
+                leTenHang.DataSource = BUS_HangHoa.LayHangHoaLookupEdit();
             }
         }
 
@@ -597,10 +631,20 @@ namespace DAQLBH_Devexpress.ChucNang
                     );
                 listBH.Add(bh);
             }
-            if (add == true)
-                BUS_KhoXuat.ThemBH(listBH);
+            if (isSale == true)
+            {
+                if (add == true)
+                    BUS_KhoXuat.ThemBH(listBH);
+                else
+                    BUS_KhoXuat.SuaBH(listBH);
+            }
             else
-                BUS_KhoXuat.SuaBH(listBH);
+            {
+                if (add == true)
+                    BUS_KhoXuat.ThemMH(listBH);
+                else
+                    BUS_KhoXuat.SuaMH(listBH);
+            }
         }
 
         private static float GetColValue(GridView gv,string colName)

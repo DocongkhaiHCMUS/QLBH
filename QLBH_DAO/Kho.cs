@@ -145,6 +145,8 @@ namespace QLBH_DAO
             }
         }
 
+        //Bán Hàng
+
         public DataTable ChitietChungTuBH()
         {
             try
@@ -372,16 +374,210 @@ namespace QLBH_DAO
             }
         }
 
-        public int GetMaxID()
+        //Mua Hàng
+        public DataTable ChitietChungTuMH()
+        {
+            try
+            {
+                string sql = "STOCK_INWARD_DETAIL_GetList";
+                return SelectTable.SelectProcedure(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable LayChungTuMH()
+        {
+            try
+            {
+                string sql = "STOCK_INWARD_GetList";
+                return SelectTable.SelectProcedure(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetChitietChungTuMH(string MaMH)
+        {
+            try
+            {
+                string sql = "KSP_BuyProduct_Get";
+                return SelectTable.SelectProcedure(sql, new SqlParameter { ParameterName = "@MaMH", Value = MaMH });
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ThemMH(List<CBanHang> mh)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                float SthanhTien = 0, SthanhToan = 0;
+                foreach (CBanHang item in mh)
+                {
+                    SthanhTien += item.ThanhTien;
+                    SthanhToan += item.ThanhToan;
+                }
+                dao.Connect();
+                string sql = "KSP_BuyProduct_SI_Insert";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql,
+                    new SqlParameter { ParameterName = "@MaMH", Value = mh[0].MaBH },
+                    new SqlParameter { ParameterName = "@NgayLap", Value = mh[0].NgayLap },
+                    new SqlParameter { ParameterName = "@MaNCC", Value = mh[0].MaKH },
+                    new SqlParameter { ParameterName = "@TenNCC", Value = mh[0].TenKH },
+                    new SqlParameter { ParameterName = "@NhanVienMH", Value = mh[0].NhanVienBH },
+                    new SqlParameter { ParameterName = "@DiaChi", Value = mh[0].DiaChi },
+                    new SqlParameter { ParameterName = "@GhiChu", Value = mh[0].GhiChu },
+                    new SqlParameter { ParameterName = "@DienThoai", Value = mh[0].DienThoai },
+                    new SqlParameter { ParameterName = "@SoHoaDonVat", Value = mh[0].SoHoaDonVat },
+                    new SqlParameter { ParameterName = "@DieuKhoanThanhToan", Value = mh[0].DieuKhoanThanhToan },
+                    new SqlParameter { ParameterName = "@HinhThucTT", Value = mh[0].HinhThucTT },
+                    new SqlParameter { ParameterName = "@HanTT", Value = mh[0].HanTT },
+                    new SqlParameter { ParameterName = "@NgayGiao", Value = mh[0].NgayGiao },
+                    new SqlParameter { ParameterName = "@ThanhTien", Value = SthanhTien },
+                    new SqlParameter { ParameterName = "@ThanhToan", Value = SthanhToan }
+                    );
+
+                int i = 0;
+                foreach (CBanHang item in mh)
+                {
+                    sql = "KSP_BuyProduct_SID_Insert";
+                    dao.ExeCuteNonQuery(type, sql,
+                        new SqlParameter { ParameterName = "@ID", Value = item.MaBH + i.ToString() },
+                        new SqlParameter { ParameterName = "@MaMH", Value = item.MaBH },
+                        new SqlParameter { ParameterName = "@NgayLap", Value = item.NgayLap },
+                        new SqlParameter { ParameterName = "@MaNCC", Value = item.MaKH },
+                        new SqlParameter { ParameterName = "@TenNCC", Value = item.TenKH },
+                        new SqlParameter { ParameterName = "@NhanVienMH", Value = item.NhanVienBH },
+                        new SqlParameter { ParameterName = "@KhoXuat", Value = item.KhoXuat },
+                        new SqlParameter { ParameterName = "@DiaChi", Value = item.DiaChi },
+                        new SqlParameter { ParameterName = "@GhiChu", Value = item.GhiChu },
+                        new SqlParameter { ParameterName = "@DienThoai", Value = item.DienThoai },
+                        new SqlParameter { ParameterName = "@SoHoaDonVat", Value = item.SoHoaDonVat },
+                        new SqlParameter { ParameterName = "@SoPhieuNhapTay", Value = item.SoPhieuNhapTay },
+                        new SqlParameter { ParameterName = "@DieuKhoanThanhToan", Value = item.DieuKhoanThanhToan },
+                        new SqlParameter { ParameterName = "@HinhThucTT", Value = item.HinhThucTT },
+                        new SqlParameter { ParameterName = "@HanTT", Value = item.HanTT },
+                        new SqlParameter { ParameterName = "@NgayGiao", Value = item.NgayGiao },
+                        new SqlParameter { ParameterName = "@MaHH", Value = item.MaHH },
+                        new SqlParameter { ParameterName = "@TenHH", Value = item.TenHH },
+                        new SqlParameter { ParameterName = "@DonVi", Value = item.DonVi },
+                        new SqlParameter { ParameterName = "@SoLuong", Value = item.SoLuong },
+                        new SqlParameter { ParameterName = "@DonGia", Value = item.DonGia },
+                        new SqlParameter { ParameterName = "@ThanhTien", Value = item.ThanhTien },
+                        new SqlParameter { ParameterName = "@ChietKhauTiLe", Value = item.ChietKhauTiLe },
+                        new SqlParameter { ParameterName = "@ChietKhau", Value = item.ChietKhau },
+                        new SqlParameter { ParameterName = "@ThanhToan", Value = item.ThanhToan }
+                        );
+                    i++;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
+
+        public void SuaMH(List<CBanHang> mh)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                float SthanhTien = 0, SthanhToan = 0;
+                foreach (CBanHang item in mh)
+                {
+                    SthanhTien += item.ThanhTien;
+                    SthanhToan += item.ThanhToan;
+                }
+                dao.Connect();
+                string sql = "KSP_BuyProduct_Delete";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql, new SqlParameter { ParameterName = "@MaMH", Value = mh[0].MaBH });
+
+                sql = "KSP_BuyProduct_SI_Insert";
+                dao.ExeCuteNonQuery(type, sql,
+                    new SqlParameter { ParameterName = "@MaMH", Value               = mh[0].MaBH },
+                    new SqlParameter { ParameterName = "@NgayLap", Value            = mh[0].NgayLap },
+                    new SqlParameter { ParameterName = "@MaNCC", Value               = mh[0].MaKH },
+                    new SqlParameter { ParameterName = "@TenNCC", Value              = mh[0].TenKH },
+                    new SqlParameter { ParameterName = "@NhanVienMH", Value         = mh[0].NhanVienBH },
+                    new SqlParameter { ParameterName = "@DiaChi", Value             = mh[0].DiaChi },
+                    new SqlParameter { ParameterName = "@GhiChu", Value             = mh[0].GhiChu },
+                    new SqlParameter { ParameterName = "@DienThoai", Value          = mh[0].DienThoai },
+                    new SqlParameter { ParameterName = "@SoHoaDonVat", Value        = mh[0].SoHoaDonVat },
+                    new SqlParameter { ParameterName = "@DieuKhoanThanhToan", Value = mh[0].DieuKhoanThanhToan },
+                    new SqlParameter { ParameterName = "@HinhThucTT", Value         = mh[0].HinhThucTT },
+                    new SqlParameter { ParameterName = "@HanTT", Value              = mh[0].HanTT },
+                    new SqlParameter { ParameterName = "@NgayGiao", Value           = mh[0].NgayGiao },
+                    new SqlParameter { ParameterName = "@ThanhTien", Value = SthanhTien },
+                    new SqlParameter { ParameterName = "@ThanhToan", Value = SthanhToan }
+                    );
+
+                int i = 0;
+                foreach (CBanHang item in mh)
+                {
+                    sql = "KSP_BuyProduct_SID_Insert";
+                    dao.ExeCuteNonQuery(type, sql,
+                        new SqlParameter { ParameterName = "@ID", Value = item.MaBH + i.ToString() },
+                        new SqlParameter { ParameterName = "@MaMH", Value = item.MaBH },
+                        new SqlParameter { ParameterName = "@NgayLap", Value = item.NgayLap },
+                        new SqlParameter { ParameterName = "@MaNCC", Value = item.MaKH },
+                        new SqlParameter { ParameterName = "@TenNCC", Value = item.TenKH },
+                        new SqlParameter { ParameterName = "@NhanVienMH", Value = item.NhanVienBH },
+                        new SqlParameter { ParameterName = "@KhoXuat", Value = item.KhoXuat },
+                        new SqlParameter { ParameterName = "@DiaChi", Value = item.DiaChi },
+                        new SqlParameter { ParameterName = "@GhiChu", Value = item.GhiChu },
+                        new SqlParameter { ParameterName = "@DienThoai", Value = item.DienThoai },
+                        new SqlParameter { ParameterName = "@SoHoaDonVat", Value = item.SoHoaDonVat },
+                        new SqlParameter { ParameterName = "@SoPhieuNhapTay", Value = item.SoPhieuNhapTay },
+                        new SqlParameter { ParameterName = "@DieuKhoanThanhToan", Value = item.DieuKhoanThanhToan },
+                        new SqlParameter { ParameterName = "@HinhThucTT", Value = item.HinhThucTT },
+                        new SqlParameter { ParameterName = "@HanTT", Value = item.HanTT },
+                        new SqlParameter { ParameterName = "@NgayGiao", Value = item.NgayGiao },
+                        new SqlParameter { ParameterName = "@MaHH", Value = item.MaHH },
+                        new SqlParameter { ParameterName = "@TenHH", Value = item.TenHH },
+                        new SqlParameter { ParameterName = "@DonVi", Value = item.DonVi },
+                        new SqlParameter { ParameterName = "@SoLuong", Value = item.SoLuong },
+                        new SqlParameter { ParameterName = "@DonGia", Value = item.DonGia },
+                        new SqlParameter { ParameterName = "@ThanhTien", Value = item.ThanhTien },
+                        new SqlParameter { ParameterName = "@ChietKhauTiLe", Value = item.ChietKhauTiLe },
+                        new SqlParameter { ParameterName = "@ChietKhau", Value = item.ChietKhau },
+                        new SqlParameter { ParameterName = "@ThanhToan", Value = item.ThanhToan }
+                        );
+                    i++;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
+
+        public void XoaMH(string MaMH)
         {
             Provider dao = new Provider();
             try
             {
                 dao.Connect();
-                string sql = "select Max(ID) from INVENTORY_DETAIL";
-                CommandType type = CommandType.Text;
-                int kq = dao.ExeCuteScalarInt(type, sql);
-                return kq;
+                string sql = "KSP_BuyProduct_Delete";
+                CommandType type = CommandType.StoredProcedure;
+                dao.ExeCuteNonQuery(type, sql, new SqlParameter { ParameterName = "@MaMH", Value = MaMH });
             }
             catch (SqlException ex)
             {
