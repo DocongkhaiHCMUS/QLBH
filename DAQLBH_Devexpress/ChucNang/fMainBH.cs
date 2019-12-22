@@ -27,10 +27,10 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void Init()
         {
-            
             if (sale == true)
             {
                 Text = "Bán Hàng";
+                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.bosaleitem_32x32;
                 btnPhieu.Caption = "Phiếu xuất hàng";
                 fBaseMH_BH bh = new fBaseMH_BH();
                 bh.MdiParent = this;
@@ -39,6 +39,7 @@ namespace DAQLBH_Devexpress.ChucNang
             else
             {
                 Text = "Mua Hàng";
+                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.boorderitem_32x32;
                 btnPhieu.Caption = "Phiếu nhập hàng";
                 fBaseMH_BH mh = new fBaseMH_BH(false);
                 mh.MdiParent = this;

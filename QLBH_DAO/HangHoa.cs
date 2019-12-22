@@ -47,7 +47,6 @@ namespace QLBH_DAO
                 throw ex;
             }
         }
-
         public DataTable GetHH(string MaHH)
         {
             try

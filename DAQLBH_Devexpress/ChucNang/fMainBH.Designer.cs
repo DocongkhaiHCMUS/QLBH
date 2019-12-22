@@ -284,11 +284,6 @@
             // 
             // xtraTabbedMdiManager1
             // 
-            this.xtraTabbedMdiManager1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.xtraTabbedMdiManager1.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.xtraTabbedMdiManager1.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.xtraTabbedMdiManager1.Appearance.Options.UseBackColor = true;
-            this.xtraTabbedMdiManager1.Appearance.Options.UseBorderColor = true;
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
             // fMainBH
@@ -297,13 +292,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 616);
             this.Controls.Add(this.dockPanel1);
+            this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.boproductgroup_32x32;
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "fMainBH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMainBH";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);

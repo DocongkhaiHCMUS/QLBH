@@ -1,4 +1,5 @@
-﻿using DAQLBH_Devexpress.DanhMuc;
+﻿using DAQLBH_Devexpress.ChucNang;
+using DAQLBH_Devexpress.DanhMuc;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
@@ -49,6 +50,18 @@ namespace DAQLBH_Devexpress
             foreach(var f in this.MdiChildren)
             {
                 if(f.GetType() == type)
+                {
+                    return f;
+                }
+            }
+            return null;
+        }
+
+        private Form KiemTraTonTai(Type type,string text)
+        {
+            foreach (var f in this.MdiChildren)
+            {
+                if (f.GetType() == type && f.Text == text)
                 {
                     return f;
                 }
@@ -202,6 +215,56 @@ namespace DAQLBH_Devexpress
                 fNhanVien nhanVien = new fNhanVien();
                 nhanVien.MdiParent = this;
                 nhanVien.Show();
+            }
+        }
+
+        private void btnBanHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = KiemTraTonTai(typeof(fMainBH),"Bán hàng");
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                fMainBH bh = new fMainBH();
+                bh.ShowDialog();
+            }
+        }
+
+        private void btnMuaHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = KiemTraTonTai(typeof(fMainBH), "Mua hàng");
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                
+                fMainBH mh = new fMainBH(false);
+                mh.ShowDialog();
+            }
+        }
+
+        private void btnKetThuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnTonKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = KiemTraTonTai(typeof(fTonKho));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+
+                fTonKho mh = new fTonKho();
+                mh.MdiParent = this;
+                mh.Show();
             }
         }
     }

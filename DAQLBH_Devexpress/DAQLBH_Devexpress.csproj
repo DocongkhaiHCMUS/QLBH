@@ -88,6 +88,12 @@
     <Compile Include="ChucNang\fMainBH.Designer.cs">
       <DependentUpon>fMainBH.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\fTonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fTonKho.Designer.cs">
+      <DependentUpon>fTonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\fBaseKho_NV_HH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fMainBH.resx">
       <DependentUpon>fMainBH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fTonKho.resx">
+      <DependentUpon>fTonKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\fBaseKho_NV_HH.resx">
       <DependentUpon>fBaseKho_NV_HH.cs</DependentUpon>
@@ -584,6 +593,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\differentoddevenpages_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\article.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97-976370_heat-pumps-save-money-on-energy-icon-piggy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Finance_sponsor_investment_loan_money-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Finance_cash_cash_payment-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

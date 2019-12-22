@@ -63,6 +63,16 @@ namespace DAQLBH_Devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _97_976370_heat_pumps_save_money_on_energy_icon_piggy {
+            get {
+                object obj = ResourceManager.GetObject("97-976370_heat-pumps-save-money-on-energy-icon-piggy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_16x16 {
             get {
                 object obj = ResourceManager.GetObject("add_16x16", resourceCulture);
@@ -126,6 +136,26 @@ namespace DAQLBH_Devexpress.Properties {
         internal static System.Drawing.Bitmap administrator {
             get {
                 object obj = ResourceManager.GetObject("administrator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap article {
+            get {
+                object obj = ResourceManager.GetObject("article", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap article1 {
+            get {
+                object obj = ResourceManager.GetObject("article1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -486,6 +516,26 @@ namespace DAQLBH_Devexpress.Properties {
         internal static System.Drawing.Bitmap excel_icon {
             get {
                 object obj = ResourceManager.GetObject("excel-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Finance_cash_cash_payment_512 {
+            get {
+                object obj = ResourceManager.GetObject("Finance_cash_cash_payment-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Finance_sponsor_investment_loan_money_512 {
+            get {
+                object obj = ResourceManager.GetObject("Finance_sponsor_investment_loan_money-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

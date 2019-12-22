@@ -87,16 +87,13 @@
             this.rpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgBaoMat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgDuLieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rpgExcel = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgKhoHang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgToChuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgQLBH = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgCongNo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgTienIch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -227,6 +224,7 @@
             this.btnKetThuc.Name = "btnKetThuc";
             this.btnKetThuc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnKetThuc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKetThuc_ItemClick);
             // 
             // btnDangXuat
             // 
@@ -406,6 +404,7 @@
             this.btnMuaHang.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.boorderitem_16x16;
             this.btnMuaHang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.boorderitem_32x32;
             this.btnMuaHang.Name = "btnMuaHang";
+            this.btnMuaHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMuaHang_ItemClick);
             // 
             // btnBanHang
             // 
@@ -414,12 +413,16 @@
             this.btnBanHang.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.bosaleitem_16x16;
             this.btnBanHang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.bosaleitem_32x32;
             this.btnBanHang.Name = "btnBanHang";
+            this.btnBanHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanHang_ItemClick);
             // 
             // btnTonKho
             // 
             this.btnTonKho.Caption = "Tồn Kho";
             this.btnTonKho.Id = 27;
+            this.btnTonKho.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.database;
             this.btnTonKho.Name = "btnTonKho";
+            this.btnTonKho.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTonKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTonKho_ItemClick);
             // 
             // btnHanSuDung
             // 
@@ -431,13 +434,17 @@
             // 
             this.btnThuTien.Caption = "Thu Tiền";
             this.btnThuTien.Id = 29;
+            this.btnThuTien.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_sponsor_investment_loan_money_512;
             this.btnThuTien.Name = "btnThuTien";
+            this.btnThuTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // btnTraTien
             // 
             this.btnTraTien.Caption = "Trả Tiền";
             this.btnTraTien.Id = 31;
+            this.btnTraTien.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_cash_cash_payment_512;
             this.btnTraTien.Name = "btnTraTien";
+            this.btnTraTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // btnQLCT
             // 
@@ -572,8 +579,7 @@
             // 
             this.rpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgHeThong,
-            this.rpgBaoMat,
-            this.rpgDuLieu});
+            this.rpgBaoMat});
             this.rpHeThong.Name = "rpHeThong";
             this.rpHeThong.Text = "Hệ Thống";
             // 
@@ -592,29 +598,14 @@
             this.rpgBaoMat.Name = "rpgBaoMat";
             this.rpgBaoMat.Text = "Bảo Mật";
             // 
-            // rpgDuLieu
-            // 
-            this.rpgDuLieu.ItemLinks.Add(this.btnSaoLuu);
-            this.rpgDuLieu.ItemLinks.Add(this.btnPhucHoi);
-            this.rpgDuLieu.ItemLinks.Add(this.btnKetChuyen);
-            this.rpgDuLieu.Name = "rpgDuLieu";
-            this.rpgDuLieu.Text = "Dữ Liệu";
-            // 
             // rbpDanhMuc
             // 
             this.rbpDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgExcel,
             this.rpgDoiTac,
             this.rpgKhoHang,
             this.rpgToChuc});
             this.rbpDanhMuc.Name = "rbpDanhMuc";
             this.rbpDanhMuc.Text = "Danh Mục";
-            // 
-            // rpgExcel
-            // 
-            this.rpgExcel.ItemLinks.Add(this.btnNhapExcel);
-            this.rpgExcel.Name = "rpgExcel";
-            this.rpgExcel.Text = "Excel";
             // 
             // rpgDoiTac
             // 
@@ -630,7 +621,6 @@
             this.rpgKhoHang.ItemLinks.Add(this.btnDonViTinh);
             this.rpgKhoHang.ItemLinks.Add(this.btnNhomHang);
             this.rpgKhoHang.ItemLinks.Add(this.btnHangHoa);
-            this.rpgKhoHang.ItemLinks.Add(this.btnInMaVach);
             this.rpgKhoHang.ItemLinks.Add(this.btnTyGia);
             this.rpgKhoHang.Name = "rpgKhoHang";
             this.rpgKhoHang.Text = "Kho Hàng";
@@ -647,7 +637,6 @@
             this.rpChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgQLBH,
             this.rpgCongNo,
-            this.rpgTienIch,
             this.rpgBaoCao});
             this.rpChucNang.Name = "rpChucNang";
             this.rpChucNang.Text = "Chức Năng";
@@ -657,7 +646,6 @@
             this.rpgQLBH.ItemLinks.Add(this.btnMuaHang);
             this.rpgQLBH.ItemLinks.Add(this.btnBanHang);
             this.rpgQLBH.ItemLinks.Add(this.btnTonKho);
-            this.rpgQLBH.ItemLinks.Add(this.btnHanSuDung);
             this.rpgQLBH.Name = "rpgQLBH";
             this.rpgQLBH.Text = "Quản Lý Bán Hàng";
             // 
@@ -667,15 +655,6 @@
             this.rpgCongNo.ItemLinks.Add(this.btnTraTien);
             this.rpgCongNo.Name = "rpgCongNo";
             this.rpgCongNo.Text = "Công Nợ";
-            // 
-            // rpgTienIch
-            // 
-            this.rpgTienIch.ItemLinks.Add(this.btnQLCT);
-            this.rpgTienIch.ItemLinks.Add(this.btnNhapSoDuDauKy);
-            this.rpgTienIch.ItemLinks.Add(this.btnLSHH);
-            this.rpgTienIch.ItemLinks.Add(this.btnTongHopTonKho);
-            this.rpgTienIch.Name = "rpgTienIch";
-            this.rpgTienIch.Text = "Tiện Ích";
             // 
             // rpgBaoCao
             // 
@@ -781,7 +760,6 @@
         private DevExpress.XtraBars.BarButtonItem btnNhatKyHeThong;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpDanhMuc;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDoiTac;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDuLieu;
         private DevExpress.XtraBars.BarButtonItem btnSaoLuu;
         private DevExpress.XtraBars.BarButtonItem btnPhucHoi;
         private DevExpress.XtraBars.BarButtonItem btnKetChuyen;
@@ -807,7 +785,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCongNo;
         private DevExpress.XtraBars.BarButtonItem btnThuTien;
         private DevExpress.XtraBars.BarButtonItem btnTraTien;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTienIch;
         private DevExpress.XtraBars.BarButtonItem btnQLCT;
         private DevExpress.XtraBars.BarButtonItem btnNhapSoDuDauKy;
         private DevExpress.XtraBars.BarButtonItem btnLSHH;
@@ -828,7 +805,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgExcel;
         private DevExpress.XtraBars.BarButtonItem btnNhapExcel;
         private DevExpress.XtraBars.BarEditItem barEditItem2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;

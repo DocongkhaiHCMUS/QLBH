@@ -86,29 +86,37 @@ namespace QLBH_BUS
                 Kho k = new Kho();
                 DataTable dataTableHH = hh.LoadHangHoa();
                 DataTable dataTableHHLK = hh.LoadHHLookupEdit();
+                DataTable dataTableNH = hh.LoadNhomHang();
+
 
                 var results = from table1 in dataTableHHLK.AsEnumerable()
                               join table2 in dataTableHH.AsEnumerable() on (string)table1["Product_ID"] equals (string)table2["Product_ID"]
+                              join table3 in dataTableNH.AsEnumerable() on (string)table2["Product_Group_ID"] equals (string)table3["ProductGroup_ID"]
                               select new
                               {
                                   Product_ID = table1["Product_ID"].ToString(),
                                   Product_Name = table1["Product_Name"].ToString(),
                                   Unit = table2["Unit"].ToString(),
                                   Quantity = float.Parse(table1["Quantity"].ToString()),
-                                  Stock_Name = table1["Stock_Name"].ToString()
+                                  Stock_Name = table1["Stock_Name"].ToString(),
+                                  Product_Group_ID = table3["ProductGroup_Name"].ToString(),
+                                  Active = bool.Parse(table2["Active"].ToString())
+
                               };
 
                 results = results.Select(row => row).Distinct();
                 DataTable rs = new DataTable();
-                rs.Columns.Add("Product_ID");
-                rs.Columns.Add("Product_Name");
-                rs.Columns.Add("Quantity",typeof(int));
-                rs.Columns.Add("Stock_Name");
-                rs.Columns.Add("Unit");
+                rs.Columns.Add("Product_ID"         );
+                rs.Columns.Add("Product_Name"       );
+                rs.Columns.Add("Quantity"           ,typeof(int));
+                rs.Columns.Add("Stock_Name"         );
+                rs.Columns.Add("Unit"               );
+                rs.Columns.Add("Product_Group_ID" );
+                rs.Columns.Add("Active"             ,typeof(bool));
 
                 foreach (var item in results)
                 {
-                    rs.Rows.Add(item.Product_ID, item.Product_Name,item.Quantity, item.Stock_Name, item.Unit);
+                    rs.Rows.Add(item.Product_ID, item.Product_Name,item.Quantity, item.Stock_Name, item.Unit,item.Product_Group_ID,item.Active);
                 }
                 return rs;
             }
