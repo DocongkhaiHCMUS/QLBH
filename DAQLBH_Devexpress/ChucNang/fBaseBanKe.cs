@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
+using QLBH_DTO;
 
 namespace DAQLBH_Devexpress.ChucNang
 {
     public partial class fBaseBanKe : fBaseStatic
     {
-        public fBaseBanKe()
+        fMainBH.BanKebtnThem _send;
+        fMainBH.BanKebtnSua _sua;
+        public fBaseBanKe(fMainBH.BanKebtnThem send,fMainBH.BanKebtnSua sua)
         {
             InitializeComponent();
+            _send = send;
+            _sua = sua;
             Init();
         }
 
@@ -40,14 +45,98 @@ namespace DAQLBH_Devexpress.ChucNang
 
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
             btnThem.ItemClick += BtnThem_ItemClick;
+            btnXoa.ItemClick += BtnXoa_ItemClick;
+            btnSua.ItemClick += BtnSua_ItemClick;
+        }
+
+        private void BtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            List<CBanHang> lBH = new List<CBanHang>();
+            int rowIndex = gvMain.FocusedRowHandle;
+            DataTable fBH = BUS_KhoXuat.TimBH(gvMain.GetRowCellValue(rowIndex, "Outward_ID").ToString());
+            foreach(DataRow item in fBH.Rows)
+            { 
+            string      _MaBH                   = item.Field<string>     ("MaBH"                   )          ;
+            DateTime      _NgayLap              = item.Field<DateTime>     ("NgayLap"                )        ;
+            string      _MaKH                   = item.Field<string>       ("MaKH"                   )                    ;
+            string      _TenKH                  = item.Field<string>     ("TenKH"                 )              ;
+            string      _NhanVienBH             = item.Field<string>     ("NhanVienBH"            )                ;
+            string      _KhoXuat                = item.Field<string>     ("KhoXuat"               )               ;
+            string      _DiaChi                 = item.Field<string>   ("DiaChi"                )           ;
+            string      _GhiChu                 = item.Field<string>     ("GhiChu"                )        ;
+            string      _DienThoai              = item.Field<string>     ("DienThoai"             )           ;
+            string      _SoHoaDonVat            = item.Field<string>     ("SoHoaDonVat"           )          ;
+            string      _SoPhieuNhapTay         = item.Field<string>     ("SoPhieuNhapTay"        )                ;
+            string      _DieuKhoanThanhToan     = item.Field<string>       ("DieuKhoanThanhToan"    )                 ;
+            string      _HinhThucTT             = item.Field<string>     ("HinhThucTT"            )          ;
+            DateTime      _HanTT                = item.Field<DateTime>     ("HanTT"                 )        ;
+            DateTime _NgayGiao                  = item.Field<DateTime>       ("NgayGiao"              )                    ;
+            string      _MaHH                   = item.Field<string>     ("MaHH"                  )              ;
+            string      _TenHH                  = item.Field<string>     ("TenHH"                 )                ;
+            string      _DonVi                  = item.Field<string>     ("DonVi"                 )               ;
+            decimal       _SoLuong              = item.Field<decimal>   ("SoLuong"               )           ;
+            decimal      _DonGia                = item.Field<decimal>     ("DonGia"                )        ;
+            decimal      _ThanhTien             = item.Field<decimal>     ("ThanhTien"             )           ;
+            decimal      _ChietKhauTiLe         = item.Field<decimal>     ("ChietKhauTiLe"         )          ;
+            decimal       _ChietKhau            = item.Field<decimal>     ("ChietKhau"             )                ;
+            decimal      _ThanhToan             = item.Field<decimal>     ("ThanhToan"             )                 ;
+                
+            CBanHang bh = new CBanHang
+                (
+                    _MaBH                ,
+                    _NgayLap             ,
+                    _MaKH                ,
+                    _TenKH               ,
+                    _NhanVienBH          ,
+                    _KhoXuat             ,
+                    _DiaChi              ,
+                    _GhiChu              ,
+                    _DienThoai           ,
+                    _SoHoaDonVat         ,
+                    _SoPhieuNhapTay      ,
+                    _DieuKhoanThanhToan  ,
+                    _HinhThucTT          ,
+                    _HanTT               ,
+                    _NgayGiao            ,
+                    _MaHH                ,
+                    _TenHH               ,
+                    _DonVi               ,
+                    float.Parse(_SoLuong      .ToString())       ,
+                    float.Parse(_DonGia       .ToString())       ,
+                    float.Parse(_ThanhTien    .ToString())       ,
+                    float.Parse(_ChietKhauTiLe.ToString())       ,
+                    float.Parse(_ChietKhau    .ToString())       ,
+                    float.Parse(_ThanhToan    .ToString())
+                );
+                lBH.Add(bh);
+                }
+            
+            _sua?.Invoke(lBH);
+        }
+
+        private void BtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa không ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) 
+                == DialogResult.Yes)
+            {
+                string ma = gvMain.GetFocusedRowCellValue("Outward_ID").ToString();
+                BUS_KhoXuat.XoaBH(ma);
+                Refresh();
+            }
+
         }
 
         private void BtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            _send?.Invoke();
         }
 
         private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void Refresh()
         {
             gvcMain.DataSource = BUS_KhoXuat.LayChungTuBH();
         }

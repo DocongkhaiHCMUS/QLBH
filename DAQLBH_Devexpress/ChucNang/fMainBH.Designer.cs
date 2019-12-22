@@ -40,7 +40,7 @@
             this.btnKhoHang = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnBanKe = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnPhieu = new DevExpress.XtraNavBar.NavBarItem();
@@ -152,18 +152,21 @@
             this.btnHangHoa.Caption = "Hàng hóa";
             this.btnHangHoa.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.box;
             this.btnHangHoa.Name = "btnHangHoa";
+            this.btnHangHoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnHangHoa_LinkClicked);
             // 
             // btnKhachhang
             // 
             this.btnKhachhang.Caption = "Khách hàng";
             this.btnKhachhang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.user_32x32;
             this.btnKhachhang.Name = "btnKhachhang";
+            this.btnKhachhang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnKhachhang_LinkClicked);
             // 
             // btnKhoHang
             // 
             this.btnKhoHang.Caption = "Kho Hàng";
             this.btnKhoHang.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.home_32x32;
             this.btnKhoHang.Name = "btnKhoHang";
+            this.btnKhoHang.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnKhoHang_LinkClicked);
             // 
             // navBarControl2
             // 
@@ -171,7 +174,7 @@
             this.navBarControl2.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup2});
             this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItem1});
+            this.btnBanKe});
             this.navBarControl2.Location = new System.Drawing.Point(3, 160);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 187;
@@ -187,15 +190,16 @@
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnBanKe)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
-            // navBarItem1
+            // btnBanKe
             // 
-            this.navBarItem1.Caption = "navBarItem1";
-            this.navBarItem1.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_32x32;
-            this.navBarItem1.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_32x32;
-            this.navBarItem1.Name = "navBarItem1";
+            this.btnBanKe.Caption = "Bản kê";
+            this.btnBanKe.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_32x32;
+            this.btnBanKe.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.differentoddevenpages_32x32;
+            this.btnBanKe.Name = "btnBanKe";
+            this.btnBanKe.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
             // navBarControl1
             // 
@@ -280,8 +284,8 @@
             // 
             // xtraTabbedMdiManager1
             // 
-            this.xtraTabbedMdiManager1.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.xtraTabbedMdiManager1.Appearance.BackColor2 = System.Drawing.SystemColors.Control;
+            this.xtraTabbedMdiManager1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.xtraTabbedMdiManager1.Appearance.BackColor2 = System.Drawing.Color.Transparent;
             this.xtraTabbedMdiManager1.Appearance.BorderColor = System.Drawing.Color.Transparent;
             this.xtraTabbedMdiManager1.Appearance.Options.UseBackColor = true;
             this.xtraTabbedMdiManager1.Appearance.Options.UseBorderColor = true;
@@ -337,7 +341,7 @@
         private DevExpress.XtraNavBar.NavBarItem btnHangHoa;
         private DevExpress.XtraNavBar.NavBarItem btnKhachhang;
         private DevExpress.XtraNavBar.NavBarItem btnKhoHang;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
+        private DevExpress.XtraNavBar.NavBarItem btnBanKe;
         private DevExpress.XtraNavBar.NavBarItem btnPhieu;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;

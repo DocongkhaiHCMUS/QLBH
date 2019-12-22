@@ -68,7 +68,7 @@ namespace QLBH_DAO
             }
         }
 
-        public int ExeCuteScalar(CommandType type, string sql, params SqlParameter[] param)
+        public int ExeCuteScalarInt(CommandType type, string sql, params SqlParameter[] param)
         {
             try
             {
@@ -78,6 +78,23 @@ namespace QLBH_DAO
                 if (param != null && param.Length > 0)
                     sqlCommand.Parameters.AddRange(param);
                 int rs = int.Parse(sqlCommand.ExecuteScalar().ToString());
+                return rs;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public string ExeCuteScalar(CommandType type, string sql, params SqlParameter[] param)
+        {
+            try
+            {
+                SqlCommand sqlCommand = Connection.CreateCommand();
+                sqlCommand.CommandType = type;
+                sqlCommand.CommandText = sql;
+                if (param != null && param.Length > 0)
+                    sqlCommand.Parameters.AddRange(param);
+                string rs = sqlCommand.ExecuteScalar().ToString();
                 return rs;
             }
             catch (SqlException ex)

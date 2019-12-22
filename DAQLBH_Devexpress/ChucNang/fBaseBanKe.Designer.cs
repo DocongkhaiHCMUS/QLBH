@@ -30,7 +30,6 @@
         {
             this.gvcMain = new DevExpress.XtraGrid.GridControl();
             this.gvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colChungTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKhachhang = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,6 +43,7 @@
             this.colChietKhauTiLe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colChietKhau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colThanhToan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -98,15 +98,6 @@
             this.gvMain.OptionsView.ShowAutoFilterRow = true;
             this.gvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colKhoHang, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gvcMain;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(908, 349);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // colChungTu
             // 
@@ -174,6 +165,8 @@
             // colDonGia
             // 
             this.colDonGia.Caption = "Đơn Giá";
+            this.colDonGia.DisplayFormat.FormatString = ".##";
+            this.colDonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDonGia.Name = "colDonGia";
             this.colDonGia.Visible = true;
             this.colDonGia.VisibleIndex = 7;
@@ -181,6 +174,8 @@
             // colThanhTien
             // 
             this.colThanhTien.Caption = "Thành Tiền";
+            this.colThanhTien.DisplayFormat.FormatString = ".##";
+            this.colThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhTien.Name = "colThanhTien";
             this.colThanhTien.Visible = true;
             this.colThanhTien.VisibleIndex = 8;
@@ -188,6 +183,8 @@
             // colChietKhauTiLe
             // 
             this.colChietKhauTiLe.Caption = "CK %";
+            this.colChietKhauTiLe.DisplayFormat.FormatString = ".##";
+            this.colChietKhauTiLe.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colChietKhauTiLe.Name = "colChietKhauTiLe";
             this.colChietKhauTiLe.Visible = true;
             this.colChietKhauTiLe.VisibleIndex = 9;
@@ -202,9 +199,20 @@
             // colThanhToan
             // 
             this.colThanhToan.Caption = "Thanh Toán";
+            this.colThanhToan.DisplayFormat.FormatString = ".##";
+            this.colThanhToan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhToan.Name = "colThanhToan";
             this.colThanhToan.Visible = true;
             this.colThanhToan.VisibleIndex = 11;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gvcMain;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(908, 349);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // fBaseBanKe
             // 
@@ -213,7 +221,7 @@
             this.ClientSize = new System.Drawing.Size(928, 413);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "fBaseBanKe";
-            this.Text = "fBaseBanKe";
+            this.Text = "Bản kê";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();

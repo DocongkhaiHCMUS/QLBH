@@ -241,12 +241,12 @@ namespace QLBH_BUS
                 rs.Columns.Add("ProductName"   );
                 rs.Columns.Add("Stock_ID"      );
                 rs.Columns.Add("Unit"          );
-                rs.Columns.Add("Quantity"      );
-                rs.Columns.Add("UnitPrice"     );
-                rs.Columns.Add("Charge"        );
-                rs.Columns.Add("DiscountRate"  );
-                rs.Columns.Add("Discount"      );
-                rs.Columns.Add("Amount");
+                rs.Columns.Add("Quantity"      ,typeof(float));
+                rs.Columns.Add("UnitPrice", typeof(float));
+                rs.Columns.Add("Charge", typeof(float));
+                rs.Columns.Add("DiscountRate", typeof(float));
+                rs.Columns.Add("Discount", typeof(float));
+                rs.Columns.Add("Amount", typeof(float));
 
                 foreach (var item in results)
                 {
@@ -261,7 +261,20 @@ namespace QLBH_BUS
             }
         }
 
-        public static void ThemBH(CBanHang bh)
+        public static DataTable TimBH(string MaBH)
+        {
+            try
+            {
+                Kho dao = new Kho();
+                DataTable table = dao.GetChitietChungTuBH(MaBH);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void ThemBH(List<CBanHang> bh)
         {
             try
             {
@@ -274,7 +287,7 @@ namespace QLBH_BUS
             }
         }
 
-        public static void SuaBH(CBanHang bh)
+        public static void SuaBH(List<CBanHang> bh)
         {
             try
             {
