@@ -82,11 +82,35 @@
     <Compile Include="ChucNang\fBaseMH_BH.Designer.cs">
       <DependentUpon>fBaseMH_BH.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\fBaseThuTien_TraTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fBaseThuTien_TraTien.Designer.cs">
+      <DependentUpon>fBaseThuTien_TraTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\fCongNoTraNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fCongNoTraNgay.Designer.cs">
+      <DependentUpon>fCongNoTraNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\fDSCongNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fDSCongNo.Designer.cs">
+      <DependentUpon>fDSCongNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\fMainBH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChucNang\fMainBH.Designer.cs">
       <DependentUpon>fMainBH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\fPhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fPhieuThu.Designer.cs">
+      <DependentUpon>fPhieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\fTonKho.cs">
       <SubType>Form</SubType>
@@ -238,10 +262,10 @@
     <Compile Include="DanhMuc\fNhomHang.Designer.cs">
       <DependentUpon>fNhomHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="fThongTin.cs">
+    <Compile Include="HeThong\fThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fThongTin.Designer.cs">
+    <Compile Include="HeThong\fThongTin.Designer.cs">
       <DependentUpon>fThongTin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -252,8 +276,20 @@
     <EmbeddedResource Include="ChucNang\fBaseMH_BH.resx">
       <DependentUpon>fBaseMH_BH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fBaseThuTien_TraTien.resx">
+      <DependentUpon>fBaseThuTien_TraTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fCongNoTraNgay.resx">
+      <DependentUpon>fCongNoTraNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fDSCongNo.resx">
+      <DependentUpon>fDSCongNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fMainBH.resx">
       <DependentUpon>fMainBH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fPhieuThu.resx">
+      <DependentUpon>fPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fTonKho.resx">
       <DependentUpon>fTonKho.cs</DependentUpon>
@@ -330,7 +366,7 @@
     <EmbeddedResource Include="DanhMuc\fNhomHang.resx">
       <DependentUpon>fNhomHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fThongTin.resx">
+    <EmbeddedResource Include="HeThong\fThongTin.resx">
       <DependentUpon>fThongTin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -605,6 +641,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Finance_cash_cash_payment-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snapheader_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snapheader_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupheader_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupheader_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

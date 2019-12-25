@@ -5,11 +5,13 @@ using DevExpress.XtraEditors;
 using QLBH_BUS;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors.DXErrorProvider;
+using QLBH_DAO;
 
 namespace DAQLBH_Devexpress
 {
     public partial class fDangNhap : DevExpress.XtraEditors.XtraForm
     {
+        public static string userName ;
         bool isHide = true;
         public fDangNhap()
         {
@@ -25,6 +27,7 @@ namespace DAQLBH_Devexpress
             txtPassword.ButtonClick += TxtPassword_ButtonClick;
             txtPassword.Properties.UseSystemPasswordChar = true;
             InitValidDation();
+            //XtraMessageBox.Show(TaiKhoan.encrypt("").ToString());
         }
 
         private void InitValidDation()
@@ -71,6 +74,7 @@ namespace DAQLBH_Devexpress
                 string NameUser = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "UserName");
                 if(NameUser != "")
                 {
+                    userName = NameUser;
                     fMain Main = new fMain();
                     Main.ShowDialog();
                     this.Close();
@@ -90,10 +94,7 @@ namespace DAQLBH_Devexpress
         }
         private void BtnThoat_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn thoát ứng dụng ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                this.Dispose();
-            else
-                return;
+            Close();
         }
     }
 }

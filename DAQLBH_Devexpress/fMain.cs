@@ -17,7 +17,12 @@ namespace DAQLBH_Devexpress
             timer1.Tick += Timer1_Tick;
             timer1.Start();
             FormClosing += FMain_FormClosing;
-             
+            btnKetThuc.ItemClick += BtnKetThuc_ItemClick; ;
+        }
+
+        private void BtnKetThuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
         }
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,6 +77,7 @@ namespace DAQLBH_Devexpress
         private void FMain_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
+            barXinChao.Caption = "Xin chào : " + fDangNhap.userName;
             txtDate.Border = BorderStyles.Style3D;
             txtTime.Border = BorderStyles.Style3D;
             txtDate.Caption = DateTime.Today.ToString("dd/MM/yyyy");
@@ -247,11 +253,6 @@ namespace DAQLBH_Devexpress
             }
         }
 
-        private void btnKetThuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
-        }
-
         private void btnTonKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = KiemTraTonTai(typeof(fTonKho));
@@ -266,6 +267,12 @@ namespace DAQLBH_Devexpress
                 mh.MdiParent = this;
                 mh.Show();
             }
+        }
+
+        private void btnThongTin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fThongTin tt = new fThongTin();
+            tt.Show();
         }
     }
 }

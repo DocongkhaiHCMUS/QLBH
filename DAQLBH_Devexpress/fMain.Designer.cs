@@ -34,7 +34,7 @@
             this.repositoryItemRibbonSearchEdit1 = new DevExpress.XtraBars.Ribbon.Internal.RepositoryItemRibbonSearchEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barXinChao = new DevExpress.XtraBars.BarStaticItem();
             this.srgMain = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.btnKetThuc = new DevExpress.XtraBars.BarButtonItem();
@@ -95,9 +95,6 @@
             this.rpgQLBH = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgCongNo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rpgTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgThongTin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.rpgGiaoDien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -122,11 +119,11 @@
             // ribbonControl1
             // 
             this.ribbonControl1.CaptionBarItemLinks.Add(this.barEditItem1);
-            this.ribbonControl1.CaptionBarItemLinks.Add(this.barStaticItem2);
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barXinChao);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barEditItem1,
-            this.barStaticItem2,
+            this.barXinChao,
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.srgMain,
@@ -184,8 +181,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHeThong,
             this.rbpDanhMuc,
-            this.rpChucNang,
-            this.rpTroGiup});
+            this.rpChucNang});
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem2);
             this.ribbonControl1.Size = new System.Drawing.Size(1053, 147);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
@@ -196,13 +192,12 @@
             this.barEditItem1.Id = 3;
             this.barEditItem1.Name = "barEditItem1";
             // 
-            // barStaticItem2
+            // barXinChao
             // 
-            this.barStaticItem2.Caption = "Xin chào : Đỗ Công Khải";
-            this.barStaticItem2.Id = 62;
-            this.barStaticItem2.ImageOptions.SvgImage = global::DAQLBH_Devexpress.Properties.Resources.bo_customer;
-            this.barStaticItem2.Name = "barStaticItem2";
-            this.barStaticItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barXinChao.Caption = "Xin chào : Đỗ Công Khải";
+            this.barXinChao.Id = 62;
+            this.barXinChao.ImageOptions.SvgImage = global::DAQLBH_Devexpress.Properties.Resources.bo_customer;
+            this.barXinChao.Name = "barXinChao";
             // 
             // srgMain
             // 
@@ -224,7 +219,6 @@
             this.btnKetThuc.Name = "btnKetThuc";
             this.btnKetThuc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnKetThuc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKetThuc_ItemClick);
             // 
             // btnDangXuat
             // 
@@ -238,6 +232,7 @@
             this.btnThongTin.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.bodetails_16x16;
             this.btnThongTin.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.bodetails_32x32;
             this.btnThongTin.Name = "btnThongTin";
+            this.btnThongTin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThongTin_ItemClick);
             // 
             // btnVaiTro
             // 
@@ -662,29 +657,6 @@
             this.rpgBaoCao.Name = "rpgBaoCao";
             this.rpgBaoCao.Text = "Báo Cáo";
             // 
-            // rpTroGiup
-            // 
-            this.rpTroGiup.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgTroGiup,
-            this.rpgThongTin});
-            this.rpTroGiup.Name = "rpTroGiup";
-            this.rpTroGiup.Text = "Trợ Giúp";
-            // 
-            // rpgTroGiup
-            // 
-            this.rpgTroGiup.ItemLinks.Add(this.btnHDSD);
-            this.rpgTroGiup.ItemLinks.Add(this.btnLienHe);
-            this.rpgTroGiup.Name = "rpgTroGiup";
-            this.rpgTroGiup.Text = "Trợ Giúp";
-            // 
-            // rpgThongTin
-            // 
-            this.rpgThongTin.ItemLinks.Add(this.btnDangKy);
-            this.rpgThongTin.ItemLinks.Add(this.btnCapNhat);
-            this.rpgThongTin.ItemLinks.Add(this.btnThongTinChung);
-            this.rpgThongTin.Name = "rpgThongTin";
-            this.rpgThongTin.Text = "Thông Tin";
-            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -791,11 +763,8 @@
         private DevExpress.XtraBars.BarButtonItem btnTongHopTonKho;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBaoCao;
         private DevExpress.XtraBars.BarButtonItem btnDoanhThu;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpTroGiup;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTroGiup;
         private DevExpress.XtraBars.BarButtonItem btnHDSD;
         private DevExpress.XtraBars.BarButtonItem btnLienHe;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgThongTin;
         private DevExpress.XtraBars.BarButtonItem btnDangKy;
         private DevExpress.XtraBars.BarButtonItem btnCapNhat;
         private DevExpress.XtraBars.BarButtonItem btnThongTinChung;
@@ -811,7 +780,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private System.Windows.Forms.Timer timer1;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraBars.BarStaticItem barXinChao;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtcmMain;
         private DevExpress.XtraBars.BarStaticItem txtTime;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;

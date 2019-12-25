@@ -103,9 +103,49 @@ namespace DAQLBH_Devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addfile_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("addfile_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addfile_16x162 {
+            get {
+                object obj = ResourceManager.GetObject("addfile_16x162", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addfile_32x32 {
             get {
                 object obj = ResourceManager.GetObject("addfile_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addfile_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("addfile_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addfile_32x322 {
+            get {
+                object obj = ResourceManager.GetObject("addfile_32x322", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,6 +603,26 @@ namespace DAQLBH_Devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap groupheader_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("groupheader_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap groupheader_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("groupheader_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hide_16x16 {
             get {
                 object obj = ResourceManager.GetObject("hide_16x16", resourceCulture);
@@ -826,6 +886,26 @@ namespace DAQLBH_Devexpress.Properties {
         internal static System.Drawing.Bitmap show_32x32 {
             get {
                 object obj = ResourceManager.GetObject("show_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snapheader_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("snapheader_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snapheader_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("snapheader_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -21,7 +21,7 @@ namespace QLBH_DAO
             }
         }
 
-        private StringBuilder encrypt(String str)
+        public static StringBuilder encrypt(String str)
         {
             StringBuilder sb = new StringBuilder();
             MD5 md5 = MD5.Create();
