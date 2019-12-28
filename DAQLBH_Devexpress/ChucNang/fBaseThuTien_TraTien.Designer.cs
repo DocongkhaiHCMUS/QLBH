@@ -88,7 +88,7 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(200, 449);
+            this.dockPanel1.Size = new System.Drawing.Size(200, 525);
             this.dockPanel1.Text = "Chức năng";
             // 
             // dockPanel1_Container
@@ -96,7 +96,7 @@
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(3, 29);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 417);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 493);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
@@ -108,7 +108,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(246, 132, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(193, 417);
+            this.layoutControl1.Size = new System.Drawing.Size(193, 493);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -120,10 +120,10 @@
             this.navBarControl2.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
             this.navBarItem2});
-            this.navBarControl2.Location = new System.Drawing.Point(5, 153);
+            this.navBarControl2.Location = new System.Drawing.Point(5, 216);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 183;
-            this.navBarControl2.Size = new System.Drawing.Size(183, 259);
+            this.navBarControl2.Size = new System.Drawing.Size(183, 272);
             this.navBarControl2.TabIndex = 5;
             this.navBarControl2.Text = "navBarControl2";
             // 
@@ -141,17 +141,19 @@
             // 
             // navBarItem1
             // 
-            this.navBarItem1.Caption = "navBarItem1";
+            this.navBarItem1.Caption = "Danh Sách Phiếu Công Nợ";
             this.navBarItem1.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.groupheader_32x32;
             this.navBarItem1.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.groupheader_16x16;
             this.navBarItem1.Name = "navBarItem1";
+            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
             // navBarItem2
             // 
-            this.navBarItem2.Caption = "navBarItem2";
+            this.navBarItem2.Caption = "Danh Sách Phiếu Trả Ngay";
             this.navBarItem2.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.groupheader_32x32;
             this.navBarItem2.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.groupheader_32x32;
             this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarControl1
             // 
@@ -160,10 +162,10 @@
             this.nbgPhieu});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.btnPhieuThu});
-            this.navBarControl1.Location = new System.Drawing.Point(5, 16);
+            this.navBarControl1.Location = new System.Drawing.Point(5, 18);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 183;
-            this.navBarControl1.Size = new System.Drawing.Size(183, 122);
+            this.navBarControl1.Size = new System.Drawing.Size(183, 145);
             this.navBarControl1.TabIndex = 4;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -184,6 +186,7 @@
             this.btnPhieuThu.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.snapheader_32x32;
             this.btnPhieuThu.ImageOptions.SmallImage = global::DAQLBH_Devexpress.Properties.Resources.snapheader_16x16;
             this.btnPhieuThu.Name = "btnPhieuThu";
+            this.btnPhieuThu.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPhieuThu_LinkClicked);
             // 
             // Root
             // 
@@ -196,33 +199,33 @@
             this.emptySpaceItem2});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.Root.Size = new System.Drawing.Size(193, 417);
+            this.Root.Size = new System.Drawing.Size(193, 493);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.navBarControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 11);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 13);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(187, 126);
+            this.layoutControlItem1.Size = new System.Drawing.Size(187, 149);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.navBarControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 148);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 211);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(187, 263);
+            this.layoutControlItem2.Size = new System.Drawing.Size(187, 276);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 137);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 162);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(187, 11);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(187, 49);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -230,7 +233,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(187, 11);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(187, 13);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // xtraTabbedMdiManager1
@@ -241,7 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 449);
+            this.ClientSize = new System.Drawing.Size(1050, 525);
             this.Controls.Add(this.dockPanel1);
             this.IsMdiContainer = true;
             this.Name = "fBaseThuTien_TraTien";

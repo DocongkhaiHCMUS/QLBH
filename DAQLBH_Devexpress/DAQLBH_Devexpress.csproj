@@ -112,6 +112,12 @@
     <Compile Include="ChucNang\fPhieuThu.Designer.cs">
       <DependentUpon>fPhieuThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\fPhieuTraTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\fPhieuTraTien.Designer.cs">
+      <DependentUpon>fPhieuTraTien.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\fTonKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fPhieuThu.resx">
       <DependentUpon>fPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\fPhieuTraTien.resx">
+      <DependentUpon>fPhieuTraTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\fTonKho.resx">
       <DependentUpon>fTonKho.cs</DependentUpon>

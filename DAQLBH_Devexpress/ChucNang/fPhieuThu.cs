@@ -36,6 +36,8 @@ namespace DAQLBH_Devexpress.ChucNang
                 gvMain.Columns[4].FieldName = "TenKH";
                 gvMain.Columns[5].FieldName = "SoTienTra";
                 gvMain.Columns[6].FieldName = "GhiChu";
+
+                Text = "Danh Sách Phiếu Thu";
             }
             else
             {
@@ -51,6 +53,7 @@ namespace DAQLBH_Devexpress.ChucNang
 
                 gvMain.Columns[2].Caption = "Mã NCC";
                 gvMain.Columns[3].Caption = "Nhà Cung Cấp";
+                Text = "Danh Sách Phiếu Chi";
             }
 
             gvMain.IndicatorWidth = 50;

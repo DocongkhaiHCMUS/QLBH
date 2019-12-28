@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CBanHang.cs" />
     <Compile Include="CBoPhan.cs" />
+    <Compile Include="CCongNo.cs" />
     <Compile Include="CDonViTinh.cs" />
     <Compile Include="CHangHoa.cs" />
     <Compile Include="CKhachHang.cs" />
