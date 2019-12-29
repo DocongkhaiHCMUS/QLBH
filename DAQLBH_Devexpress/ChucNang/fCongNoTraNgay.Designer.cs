@@ -48,6 +48,7 @@
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -68,9 +69,10 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnLapPhieu,
-            this.btnDong});
+            this.btnDong,
+            this.barButtonItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
+            this.barManager1.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -80,6 +82,7 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnLapPhieu),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDong, true)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.DrawDragBorder = false;
@@ -95,6 +98,7 @@
             this.btnLapPhieu.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.addfile_32x322;
             this.btnLapPhieu.Name = "btnLapPhieu";
             this.btnLapPhieu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLapPhieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapPhieu_ItemClick);
             // 
             // btnDong
             // 
@@ -249,6 +253,15 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Làm mới";
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.refreshallpivottable_32x32;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // fCongNoTraNgay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +274,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fCongNoTraNgay";
             this.Text = "Bảng Kê Phiếu Thanh Toán Ngay";
+            this.Activated += new System.EventHandler(this.fCongNoTraNgay_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -294,5 +308,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoTienNo;
         private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

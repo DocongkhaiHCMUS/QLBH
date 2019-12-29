@@ -274,5 +274,17 @@ namespace DAQLBH_Devexpress
             fThongTin tt = new fThongTin();
             tt.Show();
         }
+
+        private void btnThuTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fBaseThuTien_TraTien thutien = new fBaseThuTien_TraTien();
+            thutien.ShowDialog();
+        }
+
+        private void btnTraTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fBaseThuTien_TraTien traTien = new fBaseThuTien_TraTien(false);
+            traTien.ShowDialog();
+        }
     }
 }

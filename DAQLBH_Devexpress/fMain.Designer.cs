@@ -198,6 +198,7 @@
             this.barXinChao.Id = 62;
             this.barXinChao.ImageOptions.SvgImage = global::DAQLBH_Devexpress.Properties.Resources.bo_customer;
             this.barXinChao.Name = "barXinChao";
+            this.barXinChao.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // srgMain
             // 
@@ -432,6 +433,7 @@
             this.btnThuTien.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_sponsor_investment_loan_money_512;
             this.btnThuTien.Name = "btnThuTien";
             this.btnThuTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnThuTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThuTien_ItemClick);
             // 
             // btnTraTien
             // 
@@ -440,6 +442,7 @@
             this.btnTraTien.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_cash_cash_payment_512;
             this.btnTraTien.Name = "btnTraTien";
             this.btnTraTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTraTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraTien_ItemClick);
             // 
             // btnQLCT
             // 

@@ -56,7 +56,7 @@ namespace DAQLBH_Devexpress.ChucNang
             deNgay.EditValue = DateTime.Now;
             calcSoTien.EditValue = addCN.SoTien;
             calcConNo.EditValue = addCN.SoTienConNo;
-            calcTraTien.EditValue = addCN.SoTien;
+            calcTraTien.EditValue = addCN.SoTienConNo;
         }
 
         private void PhatSinhMa()
@@ -135,9 +135,9 @@ namespace DAQLBH_Devexpress.ChucNang
         private void XLThem()
         {
             string      _MaPT        =   txtPhieu.Text    ;
-            DateTime    _NgayLap     =   DateTime.Parse(deNgayLap.EditValue.ToString())    ;
+            DateTime    _NgayLap     =   DateTime.Parse(deNgay.EditValue.ToString())    ;
             string      _MaBH        =   txtCT.Text    ;
-            string      _MaKH        =   addCN.MaBH    ;
+            string      _MaKH        =   addCN.MaKH    ;
             string      _TenKH       =   txtKH.Text    ;
             decimal     _SoTienTra   =   decimal.Parse(calcTraTien.EditValue.ToString())    ;
             string      _TaoBoi      =   "admin"    ;
@@ -156,7 +156,16 @@ namespace DAQLBH_Devexpress.ChucNang
                     _MaNV          ,
                     _GhiChu
                 );
+            if(PThu==true)
+            {
+                BUS_CongNo.ThemPT(cn);
+            }
+            else
+            {
+                BUS_CongNo.ThemPC(cn);
+            }
 
+            Close();
         }
     }
 }

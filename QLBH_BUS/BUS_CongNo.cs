@@ -1,4 +1,5 @@
 ﻿using QLBH_DAO;
+using QLBH_DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -80,6 +81,56 @@ namespace QLBH_BUS
             {
                 CongNo dao = new CongNo();
                 return dao.LoadPhieuChi();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ThemPT(CCongNo pt)
+        {
+            try
+            {
+                CongNo dao = new CongNo();
+                dao.ThemPhieuThu(pt);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public static void XoaPT(string MaPT)
+        {
+            try
+            {
+                CongNo dao = new CongNo();
+                dao.XoaPT(MaPT);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ThemPC(CCongNo pc)
+        {
+            try
+            {
+                CongNo dao = new CongNo();
+                dao.ThemPhieuChi(pc);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public static void XoaPC(string MaPC)
+        {
+            try
+            {
+                CongNo dao = new CongNo();
+                dao.XoaPC(MaPC);
             }
             catch (SqlException ex)
             {

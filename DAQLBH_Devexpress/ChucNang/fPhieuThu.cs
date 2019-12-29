@@ -77,5 +77,46 @@ namespace DAQLBH_Devexpress.ChucNang
         {
             Close();
         }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa ?", "CẢNH BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+            string Ma = PThu == true ? gvMain.GetFocusedRowCellValue("MaPT").ToString() : gvMain.GetFocusedRowCellValue("MaPC").ToString();
+            if(PThu == true)
+            {
+                BUS_CongNo.XoaPT(Ma);
+                gcMain.DataSource = BUS_CongNo.LoadPhieuThu();
+            }
+            else
+            {
+                BUS_CongNo.XoaPC(Ma);
+                gcMain.DataSource = BUS_CongNo.LoadPhieuChi();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (PThu == true)
+            {
+                gcMain.DataSource = BUS_CongNo.LoadPhieuThu();
+            }
+            else
+            {
+                gcMain.DataSource = BUS_CongNo.LoadPhieuChi();
+            }
+        }
+
+        private void fPhieuThu_Activated(object sender, EventArgs e)
+        {
+            if (PThu == true)
+            {
+                gcMain.DataSource = BUS_CongNo.LoadPhieuThu();
+            }
+            else
+            {
+                gcMain.DataSource = BUS_CongNo.LoadPhieuChi();
+            }
+        }
     }
 }

@@ -248,6 +248,7 @@
             this.Controls.Add(this.dockPanel1);
             this.IsMdiContainer = true;
             this.Name = "fBaseThuTien_TraTien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBaseThuTien_TraTien";
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);

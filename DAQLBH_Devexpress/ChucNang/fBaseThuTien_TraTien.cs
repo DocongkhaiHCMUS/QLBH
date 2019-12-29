@@ -25,8 +25,8 @@ namespace DAQLBH_Devexpress.ChucNang
         {
             if (thu == true)
             {
-                Text = "Bán Hàng";
-                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.bosaleitem_32x32;
+                Text = "Thu Tiền";
+                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_sponsor_investment_loan_money_512;
                 btnPhieuThu.Caption = "Phiếu Danh Sách Phiếu Thu";
                 fPhieuThu pt = new fPhieuThu();
                 pt.MdiParent = this;
@@ -34,8 +34,8 @@ namespace DAQLBH_Devexpress.ChucNang
             }
             else
             {
-                Text = "Mua Hàng";
-                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.boorderitem_32x32;
+                Text = "Trả Tiền";
+                this.IconOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.Finance_cash_cash_payment_512;
                 btnPhieuThu.Caption = "Phiếu Danh Sách Phiếu Chi";
                 fPhieuThu pc = new fPhieuThu(false);
                 pc.MdiParent = this;
