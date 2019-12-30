@@ -13,18 +13,20 @@ namespace DAQLBH_Devexpress.HeThong
 {
     public partial class fLuaChon : DevExpress.XtraEditors.XtraForm
     {
-        bool xoa;
-        public fLuaChon(bool isDel = true)
+        public fLuaChon(int isDel = 1)
         {
             InitializeComponent();
-            if (isDel == true)
+            if (isDel == 1)
             {
-                btnQuyen.Visible = false;
                 labelControl1.Text = "Bạn Muốn Xóa ?";
+            }
+            else if(isDel == 2)
+            {
+                labelControl1.Text = "Bạn Muốn Sửa ?";
             }
             else
             {
-                labelControl1.Text = "Bạn Muốn Sửa ?";
+                labelControl1.Text = "Bạn Muốn Thêm ?";
             }
         }
 

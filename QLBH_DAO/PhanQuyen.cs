@@ -59,6 +59,10 @@ namespace QLBH_DAO
                 string sql = string.Format("delete K_Permision where ID ='{0}'", Ma);
                 CommandType type = CommandType.Text;
                 dao.ExeCuteNonQuery(type, sql);
+
+                sql = string.Format("delete K_Permision_Detail where PER_ID ='{0}'", Ma);
+                type = CommandType.Text;
+                dao.ExeCuteNonQuery(type, sql);
             }
             catch (SqlException ex)
             {
@@ -119,7 +123,7 @@ namespace QLBH_DAO
                 dao.Connect();
                 string sql = 
                     string.Format("INSERT dbo.SYS_USER( UserID ,UserName ,Password ,Group_ID ,Description ,PartID ,Active)VALUES('{0}', N'{1}', '{2}', '{3}', N'{4}', '{5}', {6})",
-                    us.UserID, us.UserName, us.Password, us.GroupID, us.Description,us.PartID,us.Active);
+                    us.UserID, us.UserName, us.Password, us.GroupID, us.Description,us.PartID,us.Active==true ? 1:0);
                 CommandType type = CommandType.Text;
                 dao.ExeCuteNonQuery(type, sql);
             }
@@ -162,6 +166,35 @@ namespace QLBH_DAO
             }
         }
 
+        public void ThemVaiTro(CQuyen q, List<CQuyenHan> qh)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                dao.Connect();
+                string sql = string.Format("INSERT dbo.K_PERMISION( ID, Name, Description, ACTIVE )VALUES  ( '{0}',N'{1}',N'{2}',{3})"
+                    , q.ID, q.Name, q.Description, q.ACTIVE == true ? 1 : 0);
+                CommandType type = CommandType.Text;
+                dao.ExeCuteNonQuery(type, sql);
+
+                foreach (var item in qh)
+                {
+                    sql = string.Format("INSERT dbo.K_Permision_Detail( PER_ID ,Object_ID ,AllowAdd ,AllowDelete ,AllowEdit ,Active ,AllowView)" +
+                        "VALUES('{0}', '{1}', {2}, {3}, {4}, {5}, {6})"
+                        , item.PER_ID, item.Object_ID, item.AllowAdd == true ? 1 : 0, item.AllowDelete == true ? 1 : 0, item.AllowEdit == true ? 1 : 0, item.Active == true ? 1 : 0, item.AllowView == true ? 1 : 0);
+                    type = CommandType.Text;
+                    dao.ExeCuteNonQuery(type, sql);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
         public DataTable LoadPhanQuyen(string vaitro)
         {
             try

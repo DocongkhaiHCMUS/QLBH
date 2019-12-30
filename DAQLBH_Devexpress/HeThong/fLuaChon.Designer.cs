@@ -32,7 +32,6 @@
             this.btnNguoiDung = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnQuyen = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // btnVaiTro
@@ -79,22 +78,11 @@
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Bạn muốn xóa ?";
             // 
-            // btnQuyen
-            // 
-            this.btnQuyen.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.btnQuyen.Location = new System.Drawing.Point(126, 143);
-            this.btnQuyen.Name = "btnQuyen";
-            this.btnQuyen.Size = new System.Drawing.Size(97, 31);
-            this.btnQuyen.TabIndex = 4;
-            this.btnQuyen.Text = "Quyền Hạn";
-            this.btnQuyen.Click += new System.EventHandler(this.btnQuyen_Click);
-            // 
             // fLuaChon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 241);
-            this.Controls.Add(this.btnQuyen);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnNguoiDung);
@@ -113,6 +101,5 @@
         private DevExpress.XtraEditors.SimpleButton btnNguoiDung;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnQuyen;
     }
 }

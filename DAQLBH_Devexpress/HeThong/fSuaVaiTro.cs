@@ -161,15 +161,27 @@ namespace DAQLBH_Devexpress.HeThong
                     );
 
                 lqh.Add(qh);
+                }
                 if(add==true)
                 {
+                    BUS_PhanQuyen.ThemVaiTro(editq, lqh);
 
+                    Action.Module = "Vai Trò";
+                    Action.ActionName = "Thêm";
+                    Action.Reference = editq.ID;
+                    //Action.LuuThongTin();
                 }
                 else
                 {
                     BUS_PhanQuyen.SuaVaiTro(editq, lqh);
+
+                    Action.Module = "Vai Trò";
+                    Action.ActionName = "Sửa";
+                    Action.Reference = editq.ID;
+                    //Action.LuuThongTin();
                 }
-            }
+
+                Close();
         }
     }
 }

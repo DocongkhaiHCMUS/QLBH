@@ -19,7 +19,7 @@ namespace DAQLBH_Devexpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fSuaVaiTro());
+            Application.Run(new fDangNhap());
         }
     }
 }

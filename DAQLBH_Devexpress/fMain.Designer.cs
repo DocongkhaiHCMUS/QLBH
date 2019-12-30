@@ -242,6 +242,7 @@
             this.btnVaiTro.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.editrangepermission_16x16;
             this.btnVaiTro.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.editrangepermission_32x32;
             this.btnVaiTro.Name = "btnVaiTro";
+            this.btnVaiTro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVaiTro_ItemClick);
             // 
             // btnNguoiDung
             // 

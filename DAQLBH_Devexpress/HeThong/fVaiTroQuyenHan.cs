@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
+using QLBH_DTO;
 
 namespace DAQLBH_Devexpress.HeThong
 {
@@ -49,30 +50,86 @@ namespace DAQLBH_Devexpress.HeThong
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;
             btnSua.ItemClick += BtnSua_ItemClick;
+            btnThem.ItemClick += BtnThem_ItemClick;
+        }
+
+        private void BtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            lc = new fLuaChon(3);
+            DialogResult rs = lc.ShowDialog();
+            if (rs == DialogResult.OK)//Vai trò
+            {
+                fSuaVaiTro vt = new fSuaVaiTro(true);
+                vt.ShowDialog();
+                return;
+            }
+            else if (rs == DialogResult.Yes)//Người dùng
+            {
+                fSuaNguoiDung nd = new fSuaNguoiDung(true);
+                nd.ShowDialog();
+                return;
+            }
         }
 
         private void BtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            lc = new fLuaChon(false);
-            if (lc.ShowDialog() == DialogResult.OK)//Vai trò
+            lc = new fLuaChon(2);
+            DialogResult rs = lc.ShowDialog();
+            if (rs == DialogResult.OK)//Vai trò
             {
-                
+
+                string      _ID              =   gvPermision.GetFocusedRowCellValue("ID").ToString();
+                string      _Name            =  gvPermision.GetFocusedRowCellValue("Name").ToString();
+                string      _Description     =  gvPermision.GetFocusedRowCellValue("Description").ToString();
+                bool        _ACTIVE          =  bool.Parse(gvPermision.GetFocusedRowCellValue("ACTIVE").ToString());
+                CQuyen q = new CQuyen
+                    (
+                        _ID           ,
+                        _Name         ,
+                        _Description  ,
+                        _ACTIVE
+                    );
+
+                fSuaVaiTro vt = new fSuaVaiTro(false,q);
+                vt.ShowDialog();
+                return;
             }
-            else if (lc.ShowDialog() == DialogResult.Yes)//Người dùng
+            else if (rs == DialogResult.Yes)//Người dùng
             {
-                
+                string  _UserID         = gvUser.GetFocusedRowCellValue("UserID").ToString();
+                string  _UserName       = gvUser.GetFocusedRowCellValue("UserName").ToString();
+                string  _Password       = gvUser.GetFocusedRowCellValue("Password").ToString();
+                string  _GroupID        = gvUser.GetFocusedRowCellValue("GroupID").ToString();
+                string  _Description    = gvUser.GetFocusedRowCellValue("Description").ToString();
+                string  _PartID         = gvUser.GetFocusedRowCellValue("PartID").ToString();
+                bool    _Active         = bool.Parse(gvUser.GetFocusedRowCellValue("Active").ToString());
+
+                CUser us = new CUser
+                    (
+                        _UserID      ,
+                        _UserName    ,
+                        _Password    ,
+                        _GroupID     ,
+                        _Description ,
+                        _PartID      ,
+                        _Active
+                    );
+                fSuaNguoiDung nd = new fSuaNguoiDung(false, us);
+                nd.ShowDialog();
+                return;
             }
         }
 
         private void BtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(lc.ShowDialog() == DialogResult.OK)//Vai trò
+            DialogResult rs = lc.ShowDialog();
+            if (rs == DialogResult.OK)//Vai trò
             {
                 string ma = gvPermision.GetFocusedRowCellValue("ID").ToString();
                 BUS_PhanQuyen.XoaVaiTro(ma);
                 return;
             }
-            else if (lc.ShowDialog() == DialogResult.Yes)//Người dùng
+            else if (rs == DialogResult.Yes)//Người dùng
             {
                 string ma = gvUser.GetFocusedRowCellValue("UserID").ToString();
                 BUS_PhanQuyen.XoaUser(ma);
@@ -83,6 +140,7 @@ namespace DAQLBH_Devexpress.HeThong
         private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gcUser.DataSource = BUS_PhanQuyen.LoadUser();
+            gcPermision.DataSource = BUS_PhanQuyen.LoadPermision();
             string ma = gvUser.GetFocusedRowCellValue("Group_ID").ToString();
             gcRule.DataSource = BUS_PhanQuyen.LoadPhanQuyen(ma);
         }

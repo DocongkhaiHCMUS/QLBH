@@ -420,5 +420,24 @@ namespace DAQLBH_Devexpress
             fDoiMatKhau doi = new fDoiMatKhau();
             doi.ShowDialog();
         }
+
+        private void btnVaiTro_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = KiemTraTonTai(typeof(fVaiTroQuyenHan));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                fVaiTroQuyenHan vaiTroQuyenHan = new fVaiTroQuyenHan();
+                vaiTroQuyenHan.MdiParent = this;
+                Action.Module = "Vai Trò Quyền Hạn";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
+                vaiTroQuyenHan.Show();
+            }
+        }
     }
 }

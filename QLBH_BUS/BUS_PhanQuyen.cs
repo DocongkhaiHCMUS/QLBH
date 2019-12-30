@@ -117,6 +117,19 @@ namespace QLBH_BUS
             }
         }
 
+        public static void ThemVaiTro(CQuyen q, List<CQuyenHan> qh)
+        {
+            try
+            {
+                PhanQuyen dao = new PhanQuyen();
+                dao.ThemVaiTro(q, qh);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public static DataTable LoadPhanQuyen(string vaitro)
         {
             try
