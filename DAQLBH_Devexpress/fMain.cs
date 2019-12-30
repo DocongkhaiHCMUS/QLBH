@@ -393,5 +393,11 @@ namespace DAQLBH_Devexpress
                 nk.Show();
             }
         }
+
+        private void btnDoiMatKhau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fDoiMatKhau doi = new fDoiMatKhau();
+            doi.ShowDialog();
+        }
     }
 }

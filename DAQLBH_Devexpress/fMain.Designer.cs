@@ -256,6 +256,7 @@
             this.btnDoiMatKhau.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.encryptdocument_16x16;
             this.btnDoiMatKhau.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.encryptdocument_32x32;
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnDoiMatKhau.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoiMatKhau_ItemClick);
             // 
             // btnNhatKyHeThong
             // 

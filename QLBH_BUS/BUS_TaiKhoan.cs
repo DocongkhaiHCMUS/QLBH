@@ -40,5 +40,18 @@ namespace QLBH_BUS
             }
             return rs;
         }
+
+        public static void DoiMatKhau(string userId,string pass)
+        {
+            try
+            {
+                TaiKhoan dao = new TaiKhoan();
+                dao.DoiMatKhau(userId,pass);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

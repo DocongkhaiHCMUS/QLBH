@@ -46,5 +46,25 @@ namespace QLBH_DAO
                 throw ex;
             }
         }
+
+        public void DoiMatKhau(string user_ID,string pass)
+        {
+            Provider dao = new Provider();
+            try
+            {
+                dao.Connect();
+                string sql =string.Format("UPDATE dbo.SYS_USER SET Password='{0}' WHERE UserID ='{1}'",pass,user_ID);
+                CommandType type = CommandType.Text;
+                dao.ExeCuteNonQuery(type, sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dao.DisConnect();
+            }
+        }
     }
 }

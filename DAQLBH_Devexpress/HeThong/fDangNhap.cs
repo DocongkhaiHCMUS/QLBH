@@ -40,6 +40,7 @@ namespace DAQLBH_Devexpress
             dxValidationProvider1.SetValidationRule(cbTaiKhoan, rule);
             dxValidationProvider1.SetValidationRule(txtPassword, rule);
         }
+
         private void LoadUserName()
         {
             DataTable dt = BUS_TaiKhoan.LayTenUser();
