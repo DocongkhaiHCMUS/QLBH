@@ -18,6 +18,14 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnNhaPhanPhoi");
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = BarItemVisibility.Never;
+
             InitColumns();
             LoadData();
 

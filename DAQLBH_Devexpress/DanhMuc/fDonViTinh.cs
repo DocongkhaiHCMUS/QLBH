@@ -12,6 +12,7 @@ using QLBH_BUS;
 using DevExpress.XtraGrid.Views.Grid;
 using DAQLBH_Devexpress.DanhMuc;
 using QLBH_DTO;
+using DevExpress.XtraBars;
 
 namespace DAQLBH_Devexpress
 {
@@ -26,6 +27,14 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnDonViTinh");
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = BarItemVisibility.Never;
+
             LoadData();
 
             gvMain.Columns[0].FieldName = "Unit_ID";

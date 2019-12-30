@@ -49,6 +49,7 @@
     <Compile Include="NhaCungCap.cs" />
     <Compile Include="NhanVien.cs" />
     <Compile Include="NhatKy.cs" />
+    <Compile Include="PhanQuyen.cs" />
     <Compile Include="SelectTable.cs" />
     <Compile Include="TaiKhoan.cs" />
     <Compile Include="KhuVuc.cs" />

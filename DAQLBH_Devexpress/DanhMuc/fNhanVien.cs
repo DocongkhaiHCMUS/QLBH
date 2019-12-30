@@ -26,6 +26,14 @@ namespace DAQLBH_Devexpress.DanhMuc
 
         private void Init()
         {
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnNhanVien");
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = BarItemVisibility.Never;
+
             LoadData();
 
             gvMain.Columns[0].FieldName = "Employee_ID";

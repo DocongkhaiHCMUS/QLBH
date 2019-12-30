@@ -1,9 +1,11 @@
 ﻿using DAQLBH_Devexpress.ChucNang;
 using DAQLBH_Devexpress.DanhMuc;
 using DAQLBH_Devexpress.HeThong;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace DAQLBH_Devexpress
@@ -13,13 +15,32 @@ namespace DAQLBH_Devexpress
         public fMain()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            DataTable table = QuyenNguoiDung.LayQuyenNguoiDung();
+            DataRow[] dtr = table.Select("Active = 0 ");
+            foreach(DataRow dt in dtr)
+            {
+                foreach(var c in ribbonControl1.Items)
+                {
+                    if (c is BarButtonItem)
+                    {
+                        BarButtonItem t = c as BarButtonItem;
+                        if (t.Name == dt["Object_ID"].ToString())
+                            t.Visibility = BarItemVisibility.Never;
+                    }
+                }
+            }
 
             Load += FMain_Load;
             btnKhuVuc.ItemClick += BtnKhuVuc_ItemClick;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
             FormClosing += FMain_FormClosing;
-            btnKetThuc.ItemClick += BtnKetThuc_ItemClick; 
+            btnKetThuc.ItemClick += BtnKetThuc_ItemClick;
         }
 
         private void BtnKetThuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

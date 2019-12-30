@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using DAQLBH_Devexpress.DanhMuc;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
 using QLBH_DTO;
@@ -20,6 +21,14 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnKhuVuc");
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = BarItemVisibility.Never;
+
             Load += FKhuVuc_Load;
             btnLamMoi.ItemClick += FKhuVuc_Load;
 

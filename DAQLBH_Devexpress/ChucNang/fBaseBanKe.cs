@@ -32,11 +32,21 @@ namespace DAQLBH_Devexpress.ChucNang
             if (sale == true)
             {
                 KhoiTaoChungTuBH();
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnBanHang");
             }
             else
             {
                 KhoiTaoChungTuMH();
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnMuaHang");
             }
+
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
             btnThem.ItemClick += BtnThem_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;

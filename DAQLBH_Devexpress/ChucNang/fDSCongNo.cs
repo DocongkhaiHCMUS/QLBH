@@ -42,6 +42,10 @@ namespace DAQLBH_Devexpress.ChucNang
                 gvMain.Columns[7].FieldName = "GhiChu";
 
                 Text = "Danh Sách Công Nợ Chi Tiết";
+
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnThuTien");
+                if (QuyenNguoiDung.Them == false)
+                    btnLapPhieu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
             else
             {
@@ -60,6 +64,10 @@ namespace DAQLBH_Devexpress.ChucNang
                 gvMain.Columns[3].Caption = "Nhà Cung Cấp";
 
                 Text = "Danh Sách Công Nợ Phải Chi";
+
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnTraTien");
+                if (QuyenNguoiDung.Them == false)
+                    btnLapPhieu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
 
             gvMain.IndicatorWidth = 50;

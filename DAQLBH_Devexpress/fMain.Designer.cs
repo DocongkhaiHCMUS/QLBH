@@ -176,7 +176,7 @@
             this.barButtonItem3,
             this.txtDate});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 70;
+            this.ribbonControl1.MaxItemId = 71;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHeThong,

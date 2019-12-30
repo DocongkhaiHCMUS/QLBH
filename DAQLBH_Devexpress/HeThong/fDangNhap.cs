@@ -76,15 +76,19 @@ namespace DAQLBH_Devexpress
                 string NameUser = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "UserName");
                 string ID = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "UserID");
                 string password = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "Password");
+                string Vaitro = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "Group_ID");
                 if (NameUser != "")
                 {
                     userName = NameUser;
                     userID = ID;
                     Password = password;
+                    QuyenNguoiDung.vaitro = Vaitro;
+
                     if (checkNhoTaiKhoanMatKhau.Checked == true)
                     {
                         Properties.Settings.Default["TaiKhoan"] = userName;
                         Properties.Settings.Default["MatKhau"] = password;
+                        Properties.Settings.Default.Save();
                     }
 
                     Action.UserID = userID;

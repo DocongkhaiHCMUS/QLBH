@@ -23,6 +23,14 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void Init()
         {
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnTonKho");
+            if (QuyenNguoiDung.Them == false)
+                btnThem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (QuyenNguoiDung.Sua == false)
+                btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (QuyenNguoiDung.Xoa == false)
+                btnXoa.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
             gcMain.DataSource = BUS_HangHoa.LayHangHoaLookupEdit();
 
             gvMain.Columns[0].FieldName = "Product_ID"             ;

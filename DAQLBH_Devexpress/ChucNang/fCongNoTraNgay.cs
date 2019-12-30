@@ -35,6 +35,10 @@ namespace DAQLBH_Devexpress.ChucNang
                 gvMain.Columns[2].FieldName = "MaKH";
                 gvMain.Columns[3].FieldName = "TenKH";
                 gvMain.Columns[4].FieldName = "SoTienConNo";
+
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnThuTien");
+                if (QuyenNguoiDung.Them == false)
+                    btnLapPhieu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
             else
             {
@@ -45,6 +49,10 @@ namespace DAQLBH_Devexpress.ChucNang
                 gvMain.Columns[2].FieldName = "MaNCC";
                 gvMain.Columns[3].FieldName = "TenNCC";
                 gvMain.Columns[4].FieldName = "SoTienConNo";
+
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnTraTien");
+                if (QuyenNguoiDung.Them == false)
+                    btnLapPhieu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
 
             gvMain.IndicatorWidth = 50;

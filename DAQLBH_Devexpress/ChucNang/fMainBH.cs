@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DAQLBH_Devexpress.DanhMuc;
 using QLBH_DTO;
+using DevExpress.XtraBars;
 
 namespace DAQLBH_Devexpress.ChucNang
 {
@@ -27,6 +28,19 @@ namespace DAQLBH_Devexpress.ChucNang
 
         private void Init()
         {
+            if (sale == true)
+            {
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnBanHang");
+                if (QuyenNguoiDung.Them == false)
+                    btnPhieu.Visible = false;
+            }
+            else
+            {
+                QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnMuaHang");
+                if (QuyenNguoiDung.Them == false)
+                    btnPhieu.Visible = false;
+            }
+
             if (sale == true)
             {
                 Text = "Bán Hàng";
