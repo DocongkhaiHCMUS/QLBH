@@ -275,17 +275,41 @@
     <Compile Include="HeThong\fDoiMatKhau.Designer.cs">
       <DependentUpon>fDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\fLuaChon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\fLuaChon.Designer.cs">
+      <DependentUpon>fLuaChon.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\fNhatKyHeThong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\fNhatKyHeThong.Designer.cs">
       <DependentUpon>fNhatKyHeThong.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\fSuaNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\fSuaNguoiDung.Designer.cs">
+      <DependentUpon>fSuaNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\fSuaVaiTro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\fSuaVaiTro.Designer.cs">
+      <DependentUpon>fSuaVaiTro.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\fThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\fThongTin.Designer.cs">
       <DependentUpon>fThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\fVaiTroQuyenHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\fVaiTroQuyenHan.Designer.cs">
+      <DependentUpon>fVaiTroQuyenHan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -392,11 +416,23 @@
     <EmbeddedResource Include="HeThong\fDoiMatKhau.resx">
       <DependentUpon>fDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\fLuaChon.resx">
+      <DependentUpon>fLuaChon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\fNhatKyHeThong.resx">
       <DependentUpon>fNhatKyHeThong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\fSuaNguoiDung.resx">
+      <DependentUpon>fSuaNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\fSuaVaiTro.resx">
+      <DependentUpon>fSuaVaiTro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\fThongTin.resx">
       <DependentUpon>fThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\fVaiTroQuyenHan.resx">
+      <DependentUpon>fVaiTroQuyenHan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -13,7 +13,7 @@ namespace QLBH_DAO
         {
             try
             {
-                return SelectTable.SelectQuery("select UserName from SYS_USER");
+                return SelectTable.SelectQuery("select UserName from SYS_USER where Active = 1");
             }
             catch (SqlException ex)
             {

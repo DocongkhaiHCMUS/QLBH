@@ -8,12 +8,33 @@ namespace QLBH_DTO
 {
     public class CUser
     {
-        string UserID { get; set; }
-        string UserName { get; set; }
-        string Password { get; set; }
-        string GroupID { get; set; }
-        string Description { get; set; }
-        string PartID { get; set; }
-        bool Active { get; set; }
+        public string      UserID      { get; set; }
+        public string      UserName    { get; set; }
+        public string      Password    { get; set; }
+        public string      GroupID     { get; set; }
+        public string      Description { get; set; }
+        public string      PartID      { get; set; }
+        public bool        Active      { get; set; }
+
+        public CUser() { }
+        public CUser
+            (
+                string      _UserID      ,
+                string      _UserName    ,
+                string      _Password    ,
+                string      _GroupID     ,
+                string      _Description ,
+                string      _PartID      ,
+                bool        _Active     
+            )
+        {
+            UserID         =        _UserID        ;
+            UserName       =        _UserName      ;
+            Password       =        _Password      ;
+            GroupID        =        _GroupID       ;
+            Description    =        _Description   ;
+            PartID         =        _PartID        ;
+            Active         =        _Active        ;
+        }
     }
 }

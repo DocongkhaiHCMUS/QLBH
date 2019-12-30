@@ -53,6 +53,8 @@
     <Compile Include="CNhanVien.cs" />
     <Compile Include="CNhatKy.cs" />
     <Compile Include="CNhomHang.cs" />
+    <Compile Include="CQuyen.cs" />
+    <Compile Include="CQuyenHan.cs" />
     <Compile Include="CTyGia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CUser.cs" />
