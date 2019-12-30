@@ -80,6 +80,11 @@ namespace DAQLBH_Devexpress
                     userName = NameUser;
                     userID = ID;
                     Password = password;
+                    if (checkNhoTaiKhoanMatKhau.Checked == true)
+                    {
+                        Properties.Settings.Default["TaiKhoan"] = userName;
+                        Properties.Settings.Default["MatKhau"] = password;
+                    }
 
                     Action.UserID = userID;
                     Action.Module = "Hệ Thống";
@@ -103,6 +108,18 @@ namespace DAQLBH_Devexpress
                 throw ex;
             }
         }
+
+        private void cbTaiKhoan_TextChanged(object sender, EventArgs e)
+        {
+            if(cbTaiKhoan.Text != "")
+            {
+                if(cbTaiKhoan.Text == Properties.Settings.Default["TaiKhoan"].ToString())
+                {
+                    txtPassword.Text = Properties.Settings.Default["MatKhau"].ToString();
+                }
+            }
+        }
+
         private void BtnThoat_Click(object sender, EventArgs e)
         {
             Close();

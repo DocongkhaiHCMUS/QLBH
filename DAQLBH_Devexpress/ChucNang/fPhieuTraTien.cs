@@ -159,10 +159,19 @@ namespace DAQLBH_Devexpress.ChucNang
             if(PThu==true)
             {
                 BUS_CongNo.ThemPT(cn);
+
+                Action.Module = "Phiếu Thu Tiền";
+                Action.ActionName = "Thêm";
+                Action.Reference = _MaPT;
+                Action.LuuThongTin();
             }
             else
             {
                 BUS_CongNo.ThemPC(cn);
+                Action.Module = "Phiếu Chi Tiền";
+                Action.ActionName = "Thêm";
+                Action.Reference = _MaPT;
+                Action.LuuThongTin();
             }
 
             Close();

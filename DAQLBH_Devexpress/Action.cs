@@ -17,7 +17,7 @@ namespace DAQLBH_Devexpress
 
         public static void LuuThongTin()
         {
-            CNhatKy nk = new CNhatKy(UserID, DateTime.Now, Module, ActionName, Reference, ActionName +" " + Module);
+            CNhatKy nk = new CNhatKy(UserID, DateTime.Now, Module, ActionName, Reference, ActionName +" " + Module +(Reference==""|| Reference == null ? "" : " - "+Reference) );
             BUS_NhatKy.ThemNhatKy(nk);
         }
     }

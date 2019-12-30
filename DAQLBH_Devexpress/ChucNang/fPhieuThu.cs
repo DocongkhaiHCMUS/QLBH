@@ -86,11 +86,23 @@ namespace DAQLBH_Devexpress.ChucNang
             if(PThu == true)
             {
                 BUS_CongNo.XoaPT(Ma);
+
+                Action.Module = "Phiếu Thu Tiền";
+                Action.ActionName = "Xóa";
+                Action.Reference = Ma;
+                Action.LuuThongTin();
+
                 gcMain.DataSource = BUS_CongNo.LoadPhieuThu();
             }
             else
             {
                 BUS_CongNo.XoaPC(Ma);
+
+                Action.Module = "Phiếu Chi Tiền";
+                Action.ActionName = "Xóa";
+                Action.Reference = Ma;
+                Action.LuuThongTin();
+
                 gcMain.DataSource = BUS_CongNo.LoadPhieuChi();
             }
         }

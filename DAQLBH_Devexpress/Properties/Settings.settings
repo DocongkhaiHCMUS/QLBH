@@ -10,5 +10,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=dell-latitudee5\sqlexpress;Initial Catalog=SaleExample;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="TaiKhoan" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Đỗ Công Khải</Value>
+    </Setting>
+    <Setting Name="MatKhau" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

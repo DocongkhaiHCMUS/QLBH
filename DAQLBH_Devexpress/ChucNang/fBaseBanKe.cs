@@ -217,6 +217,8 @@ namespace DAQLBH_Devexpress.ChucNang
                 }
             }
             _sua?.Invoke(lBH);
+
+
         }
 
         private void BtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -228,11 +230,23 @@ namespace DAQLBH_Devexpress.ChucNang
                 {
                     string ma = gvMain.GetFocusedRowCellValue("Outward_ID").ToString();
                     BUS_KhoXuat.XoaBH(ma);
+
+                    Action.Module = "Bán Hàng";
+                    Action.ActionName = "Xóa";
+                    Action.Reference = ma;
+
+                    Action.LuuThongTin();
                 }
                 else
                 {
                     string ma = gvMain.GetFocusedRowCellValue("Inward_ID").ToString();
                     BUS_KhoXuat.XoaMH(ma);
+
+                    Action.Module = "Mua Hàng";
+                    Action.ActionName = "Xóa";
+                    Action.Reference = ma;
+
+                    Action.LuuThongTin();
                 }
 
                 Refresh();

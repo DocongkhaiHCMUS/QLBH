@@ -134,12 +134,22 @@ namespace DAQLBH_Devexpress.ChucNang
                 {
                     fBaseBanKe bh = new fBaseBanKe(true, Them, SuaBH);
                     bh.MdiParent = this;
+
+                    Action.Module = "Bản Kê";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     bh.Show();
                 }
                 else
                 {
                     fBaseBanKe mh = new fBaseBanKe(false, Them, SuaMH);
                     mh.MdiParent = this;
+
+                    Action.Module = "Bản Kê";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     mh.Show();
                 }
             }

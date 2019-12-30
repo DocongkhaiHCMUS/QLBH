@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,24 +44,25 @@
             this.cbTaiKhoan = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtPassword = new DevExpress.XtraEditors.ButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnKetNoi = new DevExpress.XtraEditors.SimpleButton();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.checkNhoTaiKhoanMatKhau = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNhoTaiKhoanMatKhau.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThoat
             // 
             this.btnThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Appearance.Options.UseFont = true;
-            this.btnThoat.Location = new System.Drawing.Point(235, 166);
+            this.btnThoat.Location = new System.Drawing.Point(235, 183);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 32);
             this.btnThoat.TabIndex = 6;
@@ -71,7 +72,7 @@
             // 
             this.btnDangNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.Appearance.Options.UseFont = true;
-            this.btnDangNhap.Location = new System.Drawing.Point(105, 166);
+            this.btnDangNhap.Location = new System.Drawing.Point(105, 183);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(100, 32);
             this.btnDangNhap.TabIndex = 5;
@@ -110,6 +111,7 @@
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.checkNhoTaiKhoanMatKhau);
             this.panelControl2.Controls.Add(this.cbTaiKhoan);
             this.panelControl2.Controls.Add(this.txtPassword);
             this.panelControl2.Controls.Add(this.btnThoat);
@@ -133,10 +135,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbTaiKhoan.Size = new System.Drawing.Size(230, 24);
             this.cbTaiKhoan.TabIndex = 7;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Contains;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.Value1 = "";
-            this.dxValidationProvider1.SetValidationRule(this.cbTaiKhoan, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Contains;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.Value1 = "";
+            this.dxValidationProvider1.SetValidationRule(this.cbTaiKhoan, conditionValidationRule2);
+            this.cbTaiKhoan.TextChanged += new System.EventHandler(this.cbTaiKhoan_TextChanged);
             // 
             // txtPassword
             // 
@@ -145,9 +148,9 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.Image = global::DAQLBH_Devexpress.Properties.Resources.hide_16x16;
+            editorButtonImageOptions2.Image = global::DAQLBH_Devexpress.Properties.Resources.hide_16x16;
             this.txtPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -3, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -3, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPassword.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtPassword.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
             this.txtPassword.Properties.Mask.EditMask = "\\w+";
@@ -160,23 +163,12 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.btnKetNoi);
             this.panelControl1.Controls.Add(this.pictureBox1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(153, 227);
             this.panelControl1.TabIndex = 0;
-            // 
-            // btnKetNoi
-            // 
-            this.btnKetNoi.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKetNoi.Appearance.Options.UseFont = true;
-            this.btnKetNoi.Location = new System.Drawing.Point(30, 166);
-            this.btnKetNoi.Name = "btnKetNoi";
-            this.btnKetNoi.Size = new System.Drawing.Size(100, 32);
-            this.btnKetNoi.TabIndex = 6;
-            this.btnKetNoi.Text = "Kết Nối CSDL";
             // 
             // pictureBox1
             // 
@@ -188,6 +180,15 @@
             this.pictureBox1.Size = new System.Drawing.Size(153, 151);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // checkNhoTaiKhoanMatKhau
+            // 
+            this.checkNhoTaiKhoanMatKhau.EditValue = true;
+            this.checkNhoTaiKhoanMatKhau.Location = new System.Drawing.Point(185, 148);
+            this.checkNhoTaiKhoanMatKhau.Name = "checkNhoTaiKhoanMatKhau";
+            this.checkNhoTaiKhoanMatKhau.Properties.Caption = "Nhớ Tài khoản và Mật khẩu";
+            this.checkNhoTaiKhoanMatKhau.Size = new System.Drawing.Size(150, 19);
+            this.checkNhoTaiKhoanMatKhau.TabIndex = 8;
             // 
             // fDangNhap
             // 
@@ -207,8 +208,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNhoTaiKhoanMatKhau.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +227,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtPassword;
         private DevExpress.XtraEditors.ComboBoxEdit cbTaiKhoan;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
-        private DevExpress.XtraEditors.SimpleButton btnKetNoi;
+        private DevExpress.XtraEditors.CheckEdit checkNhoTaiKhoanMatKhau;
     }
 }

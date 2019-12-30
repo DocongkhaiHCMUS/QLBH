@@ -92,12 +92,22 @@ namespace DAQLBH_Devexpress.ChucNang
                 {
                     fDSCongNo cnt = new fDSCongNo();
                     cnt.MdiParent = this;
+
+                    Action.Module = "Danh Sách Công Nợ ";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     cnt.Show();
                 }
                 else
                 {
                     fDSCongNo cnc = new fDSCongNo(false);
                     cnc.MdiParent = this;
+
+                    Action.Module = "Danh Sách Công Nợ";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     cnc.Show();
                 }
             }
@@ -116,12 +126,22 @@ namespace DAQLBH_Devexpress.ChucNang
                 {
                     fCongNoTraNgay cnt = new fCongNoTraNgay();
                     cnt.MdiParent = this;
+
+                    Action.Module = "Danh Sách Công Nợ Trả Ngay";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     cnt.Show();
                 }
                 else
                 {
                     fCongNoTraNgay cnc = new fCongNoTraNgay(false);
                     cnc.MdiParent = this;
+
+                    Action.Module = "Danh Sách Công Nợ Trả Ngay";
+                    Action.ActionName = "Xem";
+                    Action.LuuThongTin();
+
                     cnc.Show();
                 }
             }

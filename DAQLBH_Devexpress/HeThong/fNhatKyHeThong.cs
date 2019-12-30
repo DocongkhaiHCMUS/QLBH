@@ -33,6 +33,9 @@ namespace DAQLBH_Devexpress.HeThong
             gvMain.Columns[3].FieldName = "Module";
             gvMain.Columns[4].FieldName = "Action_Name";
 
+            gvMain.Columns[2].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gvMain.Columns[2].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
             btnXoa.ItemClick += BtnXoa_ItemClick;
         }

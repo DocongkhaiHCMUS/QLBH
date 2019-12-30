@@ -634,16 +634,48 @@ namespace DAQLBH_Devexpress.ChucNang
             if (isSale == true)
             {
                 if (add == true)
+                {
                     BUS_KhoXuat.ThemBH(listBH);
+
+                    Action.Module = "Bán Hàng";
+                    Action.ActionName = "Thêm";
+                    Action.Reference = txtMa.Text;
+
+                    Action.LuuThongTin();
+                }
                 else
+                {
                     BUS_KhoXuat.SuaBH(listBH);
+
+                    Action.Module = "Bán Hàng";
+                    Action.ActionName = "Sửa";
+                    Action.Reference = txtMa.Text;
+
+                    Action.LuuThongTin();
+                }
             }
             else
             {
                 if (add == true)
+                {
                     BUS_KhoXuat.ThemMH(listBH);
+
+                    Action.Module = "Mua Hàng";
+                    Action.ActionName = "Thêm";
+                    Action.Reference = txtMa.Text;
+
+                    Action.LuuThongTin();
+                }
                 else
+                {
                     BUS_KhoXuat.SuaMH(listBH);
+
+                    Action.Module = "Mua Hàng";
+                    Action.ActionName = "Sửa";
+                    Action.Reference = txtMa.Text;
+
+                    Action.LuuThongTin();
+                }
             }
         }
 
