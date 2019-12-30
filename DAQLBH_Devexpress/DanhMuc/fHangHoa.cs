@@ -71,6 +71,12 @@ namespace DAQLBH_Devexpress
             if (BUS_HangHoa.KiemTraHH(value) == true)
             {
                 BUS_HangHoa.XoaHH(value);
+
+                Action.Module = "Hàng Hóa";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

@@ -56,6 +56,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             if (BUS_NhanVien.KiemTraBP(value) == true)
             {
                 BUS_NhanVien.XoaBP(value);
+
+                Action.Module = "Bộ Phận";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

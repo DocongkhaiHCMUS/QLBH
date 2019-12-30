@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DAQLBH_Devexpress.ChucNang;
 using DAQLBH_Devexpress.DanhMuc;
+using DAQLBH_Devexpress.HeThong;
 using QLBH_DTO;
 
 namespace DAQLBH_Devexpress
@@ -18,7 +19,7 @@ namespace DAQLBH_Devexpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMain());
+            Application.Run(new fDangNhap());
         }
     }
 }

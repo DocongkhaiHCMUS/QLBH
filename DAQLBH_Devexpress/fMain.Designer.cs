@@ -264,6 +264,7 @@
             this.btnNhatKyHeThong.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.trackingchanges_trackchanges_16x16;
             this.btnNhatKyHeThong.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.trackingchanges_trackchanges_32x32;
             this.btnNhatKyHeThong.Name = "btnNhatKyHeThong";
+            this.btnNhatKyHeThong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhatKyHeThong_ItemClick);
             // 
             // btnSaoLuu
             // 

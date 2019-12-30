@@ -154,6 +154,12 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             BUS_KhoXuat.SuaKho(editKho);
             sendKho();
+
+            Action.Module = "Kho Hàng";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -174,6 +180,12 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             BUS_KhoXuat.ThemKho(kho);
             sendKho?.Invoke();
+
+            Action.Module = "Kho Hàng";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         } 
     }

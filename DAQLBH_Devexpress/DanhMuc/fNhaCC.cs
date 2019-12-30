@@ -56,6 +56,12 @@ namespace DAQLBH_Devexpress
             if (BUS_NhaCungCap.KiemTraNCC(value) == true)
             {
                 BUS_NhaCungCap.XoaNCC(value);
+
+                Action.Module = "Nhà Cung Cấp";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

@@ -12,6 +12,7 @@ namespace DAQLBH_Devexpress
     public partial class fDangNhap : DevExpress.XtraEditors.XtraForm
     {
         public static string userName ;
+        public static string userID, Password;
         bool isHide = true;
         public fDangNhap()
         {
@@ -72,9 +73,19 @@ namespace DAQLBH_Devexpress
             try
             {
                 string NameUser = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "UserName");
-                if(NameUser != "")
+                string ID = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "UserID");
+                string password = BUS_TaiKhoan.getInfo(cbTaiKhoan.Text, txtPassword.Text, "Password");
+                if (NameUser != "")
                 {
                     userName = NameUser;
+                    userID = ID;
+                    Password = password;
+
+                    Action.UserID = userID;
+                    Action.Module = "Hệ Thống";
+                    Action.ActionName = "Đăng Nhập";
+                    Action.LuuThongTin();
+
                     fMain Main = new fMain();
                     Main.ShowDialog();
                     this.Close();

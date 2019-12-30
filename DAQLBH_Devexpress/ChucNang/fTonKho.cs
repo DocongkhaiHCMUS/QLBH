@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH_BUS;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace DAQLBH_Devexpress.ChucNang
 {
@@ -36,7 +37,23 @@ namespace DAQLBH_Devexpress.ChucNang
             btnSua.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             btnXoa.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 
+            gcMain.UseEmbeddedNavigator = true;
+            gcMain.EmbeddedNavigator.Buttons.Append.Visible = false;
+            gcMain.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            gcMain.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            gcMain.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            gcMain.EmbeddedNavigator.Buttons.Remove.Visible = false;
+
+            gvMain.IndicatorWidth = 45;
+            gvMain.CustomDrawRowIndicator += GvMain_CustomDrawRowIndicator;
+
             btnLamMoi.ItemClick += BtnLamMoi_ItemClick;
+        }
+
+        private void GvMain_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
 
         private void BtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

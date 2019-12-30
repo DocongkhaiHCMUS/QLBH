@@ -1,5 +1,6 @@
 ﻿using DAQLBH_Devexpress.ChucNang;
 using DAQLBH_Devexpress.DanhMuc;
+using DAQLBH_Devexpress.HeThong;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
@@ -12,16 +13,21 @@ namespace DAQLBH_Devexpress
         public fMain()
         {
             InitializeComponent();
+
             Load += FMain_Load;
             btnKhuVuc.ItemClick += BtnKhuVuc_ItemClick;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
             FormClosing += FMain_FormClosing;
-            btnKetThuc.ItemClick += BtnKetThuc_ItemClick; ;
+            btnKetThuc.ItemClick += BtnKetThuc_ItemClick; 
         }
 
         private void BtnKetThuc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Action.Module = "Hệ Thống";
+            Action.ActionName = "Kết Thúc";
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -46,6 +52,11 @@ namespace DAQLBH_Devexpress
             {
                 fKhuVuc kv = new fKhuVuc();
                 kv.MdiParent = this;
+
+                Action.Module = "Khu Vực";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 kv.Show();
             }
         }
@@ -100,6 +111,11 @@ namespace DAQLBH_Devexpress
             {
                 fKhachHang kh = new fKhachHang();
                 kh.MdiParent = this;
+
+                Action.Module = "Khách Hàng";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 kh.Show();
             }
         }
@@ -115,6 +131,11 @@ namespace DAQLBH_Devexpress
             {
                 fNhaCC ncc = new fNhaCC();
                 ncc.MdiParent = this;
+
+                Action.Module = "Nhà Phân Phối";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 ncc.Show();
             }
         }
@@ -130,6 +151,11 @@ namespace DAQLBH_Devexpress
             {
                 fKhoHang kho = new fKhoHang();
                 kho.MdiParent = this;
+
+                Action.Module = "Kho Hàng";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 kho.Show();
             }
         }
@@ -145,6 +171,11 @@ namespace DAQLBH_Devexpress
             {
                 fDonViTinh dvt = new fDonViTinh();
                 dvt.MdiParent = this;
+
+                Action.Module = "Đơn Vị Tính";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 dvt.Show();
             }
         }
@@ -160,6 +191,11 @@ namespace DAQLBH_Devexpress
             {
                 fNhomHang nhomHang = new fNhomHang();
                 nhomHang.MdiParent = this;
+
+                Action.Module = "Nhóm Hàng";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 nhomHang.Show();
             }
         }
@@ -175,6 +211,11 @@ namespace DAQLBH_Devexpress
             {
                 fHangHoa hangHoa = new fHangHoa();
                 hangHoa.MdiParent = this;
+
+                Action.Module = "Hàng Hóa";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 hangHoa.Show();
             }
         }
@@ -190,6 +231,11 @@ namespace DAQLBH_Devexpress
             {
                 fTiGia tiGia = new fTiGia();
                 tiGia.MdiParent = this;
+
+                Action.Module = "Tỷ Giá";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 tiGia.Show();
             }
         }
@@ -205,6 +251,11 @@ namespace DAQLBH_Devexpress
             {
                 fBoPhan boPhan = new fBoPhan();
                 boPhan.MdiParent = this;
+
+                Action.Module = "Bộ Phận";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 boPhan.Show();
             }
         }
@@ -220,6 +271,11 @@ namespace DAQLBH_Devexpress
             {
                 fNhanVien nhanVien = new fNhanVien();
                 nhanVien.MdiParent = this;
+
+                Action.Module = "Nhân Viên";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 nhanVien.Show();
             }
         }
@@ -234,6 +290,11 @@ namespace DAQLBH_Devexpress
             else
             {
                 fMainBH bh = new fMainBH();
+
+                Action.Module = "Bán Hàng";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 bh.ShowDialog();
             }
         }
@@ -249,6 +310,11 @@ namespace DAQLBH_Devexpress
             {
                 
                 fMainBH mh = new fMainBH(false);
+
+                Action.Module = "Mua Hàng";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 mh.ShowDialog();
             }
         }
@@ -265,6 +331,11 @@ namespace DAQLBH_Devexpress
 
                 fTonKho mh = new fTonKho();
                 mh.MdiParent = this;
+
+                Action.Module = "Tồn Kho";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
                 mh.Show();
             }
         }
@@ -272,19 +343,55 @@ namespace DAQLBH_Devexpress
         private void btnThongTin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             fThongTin tt = new fThongTin();
+
+            Action.Module = "Thông Tin";
+            Action.ActionName = "Xem";
+            Action.LuuThongTin();
+
             tt.Show();
         }
 
         private void btnThuTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             fBaseThuTien_TraTien thutien = new fBaseThuTien_TraTien();
+
+            Action.Module = "Thu Tiền";
+            Action.ActionName = "Xem";
+            Action.LuuThongTin();
+
             thutien.ShowDialog();
         }
 
         private void btnTraTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             fBaseThuTien_TraTien traTien = new fBaseThuTien_TraTien(false);
+
+            Action.Module = "Trả Tiền";
+            Action.ActionName = "Xem";
+            Action.LuuThongTin();
+
             traTien.ShowDialog();
+        }
+
+        private void btnNhatKyHeThong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = KiemTraTonTai(typeof(fNhatKyHeThong));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+
+                fNhatKyHeThong nk = new fNhatKyHeThong();
+                nk.MdiParent = this;
+
+                Action.Module = "Nhật Ký Hệ Thống";
+                Action.ActionName = "Xem";
+                Action.LuuThongTin();
+
+                nk.Show();
+            }
         }
     }
 }

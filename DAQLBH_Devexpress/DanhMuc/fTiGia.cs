@@ -54,6 +54,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             if (BUS_TienTe.KiemTraTienTe(value) == true)
             {
                 BUS_TienTe.XoaTienTe(value);
+
+                Action.Module = "Tiền Tệ";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

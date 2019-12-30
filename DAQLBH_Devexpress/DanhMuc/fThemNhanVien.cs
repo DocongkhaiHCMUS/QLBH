@@ -180,6 +180,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editNV.completeObject();
             BUS_NhanVien.SuaNV(editNV);
             sendNV?.Invoke();
+
+            Action.Module = "Nhân Viên";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             Close();
         }
 
@@ -201,6 +207,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             nv.completeObject();
             BUS_NhanVien.ThemNV(nv);
             sendNV?.Invoke();
+
+            Action.Module = "Nhân Viên";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
     }

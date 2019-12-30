@@ -186,6 +186,12 @@ namespace DAQLBH_Devexpress.DanhMuc
                                            checkConQL.Checked);
             BUS_NhaCungCap.ThemNCC(ncc);
             sendNCC?.Invoke();
+
+            Action.Module = "Nhà Cung Cấp";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -210,6 +216,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editNCC.ConQL = checkConQL.Checked;
             BUS_NhaCungCap.SuaNCC(editNCC);
             sendNCC();
+
+            Action.Module = "Nhà Cung Cấp";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
     }

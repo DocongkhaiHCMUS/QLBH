@@ -66,6 +66,12 @@ namespace DAQLBH_Devexpress
             if (BUS_KhuVuc.KiemTraKV(value) == true)
             {
                 BUS_KhuVuc.XoaKV(value);
+
+                Action.Module = "Khu Vực";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

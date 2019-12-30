@@ -101,6 +101,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editTyGia.ConQL = ceConQL.Checked;
             BUS_TienTe.SuaTienTe(editTyGia);
             sendTG();
+
+            Action.Module = "Tỷ Giá";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             Close();
         }
 
@@ -109,6 +115,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             CTyGia tg = new CTyGia(txtMa.Text, txtTen.Text, float.Parse(calcTyGia.Value.ToString()), ceConQL.Checked);
             BUS_TienTe.ThemTienTe(tg);
             sendTG();
+
+            Action.Module = "Tỷ Giá";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
     }

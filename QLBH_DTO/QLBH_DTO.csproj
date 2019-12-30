@@ -51,6 +51,7 @@
     <Compile Include="CKhuVuc.cs" />
     <Compile Include="CNhaCC.cs" />
     <Compile Include="CNhanVien.cs" />
+    <Compile Include="CNhatKy.cs" />
     <Compile Include="CNhomHang.cs" />
     <Compile Include="CTyGia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

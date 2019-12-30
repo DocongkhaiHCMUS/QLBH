@@ -58,6 +58,12 @@ namespace DAQLBH_Devexpress
             if (BUS_KhoXuat.KiemTraKho(value) == true)
             {
                 BUS_KhoXuat.XoaKho(value);
+
+                Action.Module = "Kho Hàng";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else

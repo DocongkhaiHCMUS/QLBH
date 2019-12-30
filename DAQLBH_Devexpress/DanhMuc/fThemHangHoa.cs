@@ -299,6 +299,12 @@ namespace DAQLBH_Devexpress.DanhMuc
 
             BUS_HangHoa.SuaHh(editHH);
             sendHH();
+
+            Action.Module = "Hàng Hóa";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -332,6 +338,12 @@ namespace DAQLBH_Devexpress.DanhMuc
                 );
             BUS_HangHoa.ThemHH(hh);
             sendHH?.Invoke();
+
+            Action.Module = "Hàng Hóa";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
     }

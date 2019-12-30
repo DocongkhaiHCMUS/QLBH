@@ -335,13 +335,21 @@ namespace DAQLBH_Devexpress.DanhMuc
                 switch (flag)
                 {
                     case 0:
-                        SuaKV(); break;
+                        {
+                            SuaKV(); break;
+                        }
                     case 1:
-                        SuaDV();break;
+                        {
+                            SuaDV(); break;
+                        }
                     case 2:
-                        SuaNH();break;
+                        {
+                            SuaNH(); break;
+                        }
                     case 3:
-                        SuaBP();break;
+                        {
+                            SuaBP(); break;
+                        }
                 };
             }
         }
@@ -353,6 +361,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editBP.ConQL = ceConQL.Checked;
             BUS_NhanVien.SuaBP(editBP);
             sendBP();
+
+            Action.Module = "Bộ Phận";
+            Action.ActionName = "Sửa";
+            Action.Reference = editBP.MaBP;
+            Action.LuuThongTin();
+
             Close();
         }
 
@@ -363,6 +377,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editNH.ConQL = ceConQL.Checked;
             BUS_HangHoa.SuaNH(editNH);
             sendNH();
+
+            Action.Module = "Nhóm Hàng";
+            Action.ActionName = "Sửa";
+            Action.Reference = editNH.MaNH;
+            Action.LuuThongTin();
+
             Close();
         }
 
@@ -373,6 +393,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editDV.ConQL = ceConQL.Checked;
             BUS_DonViTinh.SuaDV(editDV);
             sendDV();
+
+            Action.Module = "Đơn Vị Tính";
+            Action.ActionName = "Sửa";
+            Action.Reference = editDV.MaDV;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -383,6 +409,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editKV.ConQL = ceConQL.Checked;
             BUS_KhuVuc.SuaKV(editKV);
             sendKV();
+
+            Action.Module = "Khu Vực";
+            Action.ActionName = "Sửa";
+            Action.Reference = editKV.MaKV;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -434,6 +466,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             CBoPhan bp = new CBoPhan(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_NhanVien.ThemBP(bp);
             sendBP?.Invoke();
+
+            Action.Module = "Bộ Phận";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -442,6 +480,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             CNhomHang nh = new CNhomHang(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_HangHoa.ThemNH(nh);
             sendNH?.Invoke();
+
+            Action.Module = "Nhóm Hàng";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -450,6 +494,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             CDonViTinh dv = new CDonViTinh(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_DonViTinh.ThemDV(dv);
             sendDV?.Invoke();
+
+            Action.Module = "Đơn Vị Tính";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -458,6 +508,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             CKhuVuc kv = new CKhuVuc(txtMa.Text, txtTen.Text, txtGhiChu.Text, ceConQL.Checked);
             BUS_KhuVuc.ThemKV(kv);
             sendKV?.Invoke();
+
+            Action.Module = "Khu Vực";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 

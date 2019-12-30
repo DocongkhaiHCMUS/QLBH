@@ -174,6 +174,12 @@ namespace DAQLBH_Devexpress.DanhMuc
             editKhachHang.LoaiKH = bool.Parse(radioLoaiKH.EditValue.ToString());
             BUS_KhachHang.SuaKH(editKhachHang);
             sendKH();
+
+            Action.Module = "Khách Hàng";
+            Action.ActionName = "Sửa";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
 
@@ -187,6 +193,12 @@ namespace DAQLBH_Devexpress.DanhMuc
                                            checkConQL.Checked);
             BUS_KhachHang.ThemKH(kh);
             sendKH();
+
+            Action.Module = "Khách hàng";
+            Action.ActionName = "Thêm";
+            Action.Reference = txtMa.Text;
+            Action.LuuThongTin();
+
             this.Close();
         }
     }

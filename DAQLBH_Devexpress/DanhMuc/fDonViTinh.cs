@@ -59,6 +59,12 @@ namespace DAQLBH_Devexpress
             if (BUS_DonViTinh.KiemTraDV(value) == true)
             {
                 BUS_DonViTinh.XoaDV(value);
+
+                Action.Module = "Đơn Vị Tính";
+                Action.ActionName = "Xóa";
+                Action.Reference = value;
+                Action.LuuThongTin();
+
                 LoadData();
             }
             else
