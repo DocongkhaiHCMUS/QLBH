@@ -169,7 +169,7 @@ namespace DAQLBH_Devexpress.HeThong
                     Action.Module = "Vai Trò";
                     Action.ActionName = "Thêm";
                     Action.Reference = editq.ID;
-                    //Action.LuuThongTin();
+                    Action.LuuThongTin();
                 }
                 else
                 {
@@ -178,7 +178,7 @@ namespace DAQLBH_Devexpress.HeThong
                     Action.Module = "Vai Trò";
                     Action.ActionName = "Sửa";
                     Action.Reference = editq.ID;
-                    //Action.LuuThongTin();
+                    Action.LuuThongTin();
                 }
 
                 Close();

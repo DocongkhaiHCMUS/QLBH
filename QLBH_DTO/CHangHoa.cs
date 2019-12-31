@@ -9,13 +9,13 @@ namespace QLBH_DTO
     public class CHangHoa
     {
         public string Product_ID			   {get;set;}
-        public string Product_Name	   {get;set;}
+        public string Product_Name	        {get;set;}
         public int    Product_Type_ID	   {get;set;}
-        public string Product_Group_ID   {get;set;}
-        public string Provider_ID		  {get;set;}
+        public string Product_Group_ID      {get;set;}
+        public string Provider_ID		    {get;set;}
         public string Barcode			   {get;set;}
-        public string Unit			   {get;set;}
-        public string Photo			   {get;set;}
+        public string Unit			        {get;set;}
+        public string Photo			        {get;set;}
         public float Org_Price			   {get;set;}
         public float Sale_Price		   {get;set;}
         public float Retail_Price          { get; set; }

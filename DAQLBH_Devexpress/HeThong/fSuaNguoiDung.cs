@@ -167,7 +167,7 @@ namespace DAQLBH_Devexpress.HeThong
             Action.Module = "Người Dùng";
             Action.ActionName = "Sửa";
             Action.Reference = Ma;
-            //Action.LuuThongTin();
+            Action.LuuThongTin();
 
             Close();
         }
@@ -186,7 +186,7 @@ namespace DAQLBH_Devexpress.HeThong
             Action.Module = "Người Dùng";
             Action.ActionName = "Thêm";
             Action.Reference = Ma;
-            //Action.LuuThongTin();
+            Action.LuuThongTin();
 
             Close();
         }

@@ -296,6 +296,7 @@ namespace DAQLBH_Devexpress.DanhMuc
             editHH.Customer_Name          =        leNCC.EditValue.ToString() == "" ? "" : leNCC.Text                       ;
             editHH.MinStock               =        calcTonKhoToiThieu.Text == "" ? 0 : int.Parse(calcTonKhoToiThieu.Text)   ;
             editHH.Active                 =        checkConQL.Checked                                                       ;
+            editHH.Barcode                =        txtMa.Text;
 
             BUS_HangHoa.SuaHh(editHH);
             sendHH();

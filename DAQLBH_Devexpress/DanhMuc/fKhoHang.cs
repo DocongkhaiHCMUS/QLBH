@@ -26,7 +26,7 @@ namespace DAQLBH_Devexpress
 
         private void Init()
         {
-            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnKhoHang");
+            QuyenNguoiDung.LayQuyenNguoiDungTheoChucNang("btnKho");
             if (QuyenNguoiDung.Them == false)
                 btnThem.Visibility = BarItemVisibility.Never;
             if (QuyenNguoiDung.Sua == false)

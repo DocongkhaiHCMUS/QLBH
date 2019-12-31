@@ -99,7 +99,7 @@ namespace DAQLBH_Devexpress.HeThong
                 string  _UserID         = gvUser.GetFocusedRowCellValue("UserID").ToString();
                 string  _UserName       = gvUser.GetFocusedRowCellValue("UserName").ToString();
                 string  _Password       = gvUser.GetFocusedRowCellValue("Password").ToString();
-                string  _GroupID        = gvUser.GetFocusedRowCellValue("GroupID").ToString();
+                string  _GroupID        = gvUser.GetFocusedRowCellValue("Group_ID").ToString();
                 string  _Description    = gvUser.GetFocusedRowCellValue("Description").ToString();
                 string  _PartID         = gvUser.GetFocusedRowCellValue("PartID").ToString();
                 bool    _Active         = bool.Parse(gvUser.GetFocusedRowCellValue("Active").ToString());
@@ -141,7 +141,14 @@ namespace DAQLBH_Devexpress.HeThong
         {
             gcUser.DataSource = BUS_PhanQuyen.LoadUser();
             gcPermision.DataSource = BUS_PhanQuyen.LoadPermision();
-            string ma = gvUser.GetFocusedRowCellValue("Group_ID").ToString();
+            string ma = string.Empty;
+            try
+            {
+                ma = gvUser.GetFocusedRowCellValue("Group_ID").ToString();
+            }
+            catch 
+            { }
+
             gcRule.DataSource = BUS_PhanQuyen.LoadPhanQuyen(ma);
         }
 

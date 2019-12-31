@@ -195,6 +195,7 @@ namespace QLBH_DAO
                 dao.DisConnect();
             }
         }
+
         public DataTable LoadPhanQuyen(string vaitro)
         {
             try

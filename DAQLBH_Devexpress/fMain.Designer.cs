@@ -99,6 +99,7 @@
             this.rpgGiaoDien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.xtcmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.btnBaoCao = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRibbonSearchEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -174,9 +175,10 @@
             this.barStaticItem1,
             this.txtTime,
             this.barButtonItem3,
-            this.txtDate});
+            this.txtDate,
+            this.btnBaoCao});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 71;
+            this.ribbonControl1.MaxItemId = 72;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHeThong,
@@ -659,7 +661,7 @@
             // 
             // rpgBaoCao
             // 
-            this.rpgBaoCao.ItemLinks.Add(this.btnDoanhThu);
+            this.rpgBaoCao.ItemLinks.Add(this.btnBaoCao);
             this.rpgBaoCao.Name = "rpgBaoCao";
             this.rpgBaoCao.Text = "Báo Cáo";
             // 
@@ -694,6 +696,14 @@
             this.xtcmMain.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Always;
             this.xtcmMain.MdiParent = this;
             this.xtcmMain.ShowHeaderFocus = DevExpress.Utils.DefaultBoolean.False;
+            // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Caption = "Báo Cáo";
+            this.btnBaoCao.Id = 71;
+            this.btnBaoCao.ImageOptions.Image = global::DAQLBH_Devexpress.Properties.Resources.boreport_16x16;
+            this.btnBaoCao.ImageOptions.LargeImage = global::DAQLBH_Devexpress.Properties.Resources.boreport_32x32;
+            this.btnBaoCao.Name = "btnBaoCao";
             // 
             // fMain
             // 
@@ -791,6 +801,7 @@
         private DevExpress.XtraBars.BarStaticItem txtTime;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarStaticItem txtDate;
+        private DevExpress.XtraBars.BarButtonItem btnBaoCao;
     }
 }
 

@@ -138,7 +138,7 @@
             this.labelControl10.Size = new System.Drawing.Size(314, 24);
             this.labelControl10.StyleController = this.layoutControl1;
             this.labelControl10.TabIndex = 17;
-            this.labelControl10.Text = "1760411";
+            this.labelControl10.Text = "1760410";
             // 
             // labelControl9
             // 
@@ -156,7 +156,7 @@
             this.labelControl9.Size = new System.Drawing.Size(316, 24);
             this.labelControl9.StyleController = this.layoutControl1;
             this.labelControl9.TabIndex = 16;
-            this.labelControl9.Text = "Phạm Minh Tâm ";
+            this.labelControl9.Text = "Nguyễn Hoàng Tâm";
             // 
             // labelControl8
             // 
