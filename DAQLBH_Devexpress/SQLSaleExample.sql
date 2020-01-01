@@ -955,7 +955,7 @@ Create table K_Permision_Detail
 -----------------------------------------------------------
 select * from SYS_USER
 select * from K_Permision
-INSERT dbo.K_PERMISION( ID, Name, Description, ACTIVE )VALUES  ( '',N'',N'',NULL)
+--INSERT dbo.K_PERMISION( ID, Name, Description, ACTIVE )VALUES  ( '',N'',N'',NULL)
 --INSERT dbo.SYS_USER( UserID ,UserName ,Password ,Group_ID ,Description ,PartID ,Active)
 --VALUES  ( '' ,N'' ,'' ,'' ,N'' ,'' ,NULL)
 --UPDATE dbo.SYS_USER SET Group_ID ='',Description='',PartID='',Active='' WHERE UserID=''
@@ -963,8 +963,8 @@ INSERT dbo.K_PERMISION( ID, Name, Description, ACTIVE )VALUES  ( '',N'',N'',NULL
 --UPDATE dbo.K_Permision_Detail SET AllowAdd='',AllowDelete='',AllowEdit='',AllowView='',Active=''WHERE PER_ID=''AND Object_ID=''
 select * from K_Permision_Detail WHERE PER_ID='VT000001'
 
-INSERT dbo.K_Permision_Detail( PER_ID ,Object_ID ,AllowAdd ,AllowDelete ,AllowEdit ,Active ,AllowView)
-VALUES  ( '' ,'' ,NULL ,NULL ,NULL ,NULL ,NULL)
+--INSERT dbo.K_Permision_Detail( PER_ID ,Object_ID ,AllowAdd ,AllowDelete ,AllowEdit ,Active ,AllowView)
+--VALUES  ( '' ,'' ,NULL ,NULL ,NULL ,NULL ,NULL)
 
 --INSERT dbo.K_PERMISION
 --        ( ID, Name, Description )
